@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="CapTheCitadel"
+run/main_scene="uid://bdpheljs7d4og"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [rendering]
 
