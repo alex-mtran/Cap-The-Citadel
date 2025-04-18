@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdpheljs7d4og"]
+[gd_scene load_steps=3 format=3 uid="uid://c6wku015l2qcr"]
 
-[ext_resource type="Script" uid="uid://dr0varkafou67" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Script" path="res://menu.gd" id="1_lti8b"]
 [ext_resource type="AudioStream" uid="uid://ceihawdl7btiy" path="res://enchanted tiki 86.mp3" id="2_ouk20"]
 
 [node name="Menu" type="Control"]
