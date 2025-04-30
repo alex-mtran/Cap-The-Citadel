@@ -71,13 +71,10 @@ card = ExtResource("5_8teo4")
 
 [node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_oxf17")]
 layout_mode = 2
-<<<<<<< HEAD
 
 [node name="RestOfDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
 offset_left = 4.0
 offset_top = 110.0
 offset_right = 1244.0
 offset_bottom = 1310.0
-=======
 card = ExtResource("5_8teo4")
->>>>>>> 6b6479692fb922e8360862ecbb4953bc1418db1a
