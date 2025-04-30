@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp06qh0ko7jw1"]
+[gd_scene load_steps=6 format=3 uid="uid://dp06qh0ko7jw1"]
 
-[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_w7k78"]
-[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://scenes/card_ui.tscn" id="2_oxf17"]
+[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
+[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://Scenes/card_ui.tscn" id="2_oxf17"]
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
+[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://rest_of_deck_button.tscn" id="4_1samx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
@@ -48,3 +49,9 @@ layout_mode = 2
 
 [node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_oxf17")]
 layout_mode = 2
+
+[node name="RestOfDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
+offset_left = 4.0
+offset_top = 110.0
+offset_right = 1244.0
+offset_bottom = 1310.0

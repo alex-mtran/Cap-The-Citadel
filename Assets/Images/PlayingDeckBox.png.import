@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caxwpwlc5f2r5"
-path="res://.godot/imported/Defense.png-c5550ac007406cacbca5028c7b75e190.ctex"
+uid="uid://d23yhrcvrwtl2"
+path="res://.godot/imported/PlayingDeckBox.png-c708972144bcc102c2053d22aea1d66f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Defense.png"
-dest_files=["res://.godot/imported/Defense.png-c5550ac007406cacbca5028c7b75e190.ctex"]
+source_file="res://Assets/Images/PlayingDeckBox.png"
+dest_files=["res://.godot/imported/PlayingDeckBox.png-c708972144bcc102c2053d22aea1d66f.ctex"]
 
 [params]
 
