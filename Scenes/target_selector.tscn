@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2y80yumt61i8"]
+
+[ext_resource type="Script" uid="uid://8apwepr7ba1p" path="res://scripts/target_selector.gd" id="1_6t5c1"]
+[ext_resource type="PackedScene" uid="uid://jej5r0pyxsjs" path="res://Scenes/target_line.tscn" id="1_mimo4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osdgu"]
+size = Vector2(8, 8)
+
+[node name="TargetSelector" type="Node2D"]
+script = ExtResource("1_6t5c1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_osdgu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="TargetLine" parent="CanvasLayer" instance=ExtResource("1_mimo4")]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_enter"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_exit"]
