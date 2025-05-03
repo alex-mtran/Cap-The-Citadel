@@ -61,15 +61,42 @@ grow_vertical = 0
 alignment = 1
 script = ExtResource("2_p1qf1")
 
-[node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("2_oxf17")]
+[node name="CardUI" parent="BattleUI/Hand"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
 card = ExtResource("4_p46lj")
 
-[node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("2_oxf17")]
+[node name="CardUI2" parent="BattleUI/Hand"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
 card = ExtResource("5_8teo4")
 
-[node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_oxf17")]
+[node name="CardUI3" parent="BattleUI/Hand"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
 
 [node name="RestOfDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
