@@ -10,6 +10,5 @@ func _ready() -> void:
 func _on_card_ui_reparent_requested (child: CardUI) -> void:
 	child.reparent(self)
 
-
 func _on_discard_pile_button_pressed() -> void:
 	pass # Replace with function body.

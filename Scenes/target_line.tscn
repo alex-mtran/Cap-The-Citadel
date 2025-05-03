@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://jej5r0pyxsjs"]
-
-[node name="TargetLine" type="Line2D"]
-points = PackedVector2Array(100, 100, 150, 50)
-width = 4.0
