@@ -1,18 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://merged_battle_scene"]
+[gd_scene load_steps=12 format=3 uid="uid://c05e6fyxrggbq"]
 
-[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
-[ext_resource type="Texture2D" uid="uid://dsuk8gvpb1i1l" path="res://assets/Images/Enemies/goblin4x.png" id="2_8teo4"]
-[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://Scenes/card_ui.tscn" id="2_oxf17"]
+[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_w7k78"]
+[ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/test_mob/enemy.tscn" id="2_7xoqm"]
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
-[ext_resource type="PackedScene" path="res://Scenes/target_selector.tscn" id="3_c5ef4"]
-[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://characters/attack.tres" id="4_p46lj"]
-[ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://characters/block.tres" id="5_8teo4"]
-[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://rest_of_deck_button.tscn" id="4_1samx"]
+[ext_resource type="PackedScene" uid="uid://p0h62oj1u1bm" path="res://player/player.tscn" id="3_2cxp4"]
+[ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://scenes/ui/target_selector.tscn" id="3_c5ef4"]
+[ext_resource type="Resource" uid="uid://1hddww6nlcd4" path="res://enemies/test_mob/test_mob.tres" id="3_ob7dw"]
+[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
+[ext_resource type="Resource" uid="uid://bnkmb5m72tm3b" path="res://player/player.tres" id="4_7xoqm"]
+[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://scenes/ui/card_ui.tscn" id="6_p8l6q"]
+[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://assets/cards/attack.tres" id="7_2cxp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5ef4"]
 
 [node name="Battle" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -32,20 +32,23 @@ position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_w7k78")
 debug_color = Color(0, 0.6, 0.701961, 0.117647)
 
-[node name="Enemy" type="Area2D" parent="."]
-position = Vector2(200, 50)
-collision_layer = 4
+[node name="Enemy" parent="." instance=ExtResource("2_7xoqm")]
+position = Vector2(202, 80)
+stats = ExtResource("3_ob7dw")
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_8teo4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("RectangleShape2D_c5ef4")
+[node name="Player" parent="." instance=ExtResource("3_2cxp4")]
+position = Vector2(61, 75)
+stats = ExtResource("4_7xoqm")
 
 [node name="TargetSelector" parent="." instance=ExtResource("3_c5ef4")]
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="RestOfDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
+offset_left = 4.0
+offset_top = 110.0
+offset_right = 1244.0
+offset_bottom = 1310.0
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI"]
 anchors_preset = 7
@@ -61,47 +64,6 @@ grow_vertical = 0
 alignment = 1
 script = ExtResource("2_p1qf1")
 
-[node name="CardUI" parent="BattleUI/Hand"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("6_p8l6q")]
 layout_mode = 2
-card = ExtResource("4_p46lj")
-
-[node name="CardUI2" parent="BattleUI/Hand"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layout_mode = 2
-card = ExtResource("5_8teo4")
-
-[node name="CardUI3" parent="BattleUI/Hand"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layout_mode = 2
-
-[node name="RestOfDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
-offset_left = 4.0
-offset_top = 110.0
-offset_right = 1244.0
-offset_bottom = 1310.0
-card = ExtResource("5_8teo4")
+card = ExtResource("7_2cxp4")

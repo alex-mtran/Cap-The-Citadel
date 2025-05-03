@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://1hddww6nlcd4"]
+
+[ext_resource type="Script" uid="uid://dcrefii8lkgon" path="res://player/stats.gd" id="1_6lxni"]
+[ext_resource type="Texture2D" uid="uid://dsuk8gvpb1i1l" path="res://assets/Images/Enemies/goblin4x.png" id="1_oni8d"]
+
+[resource]
+script = ExtResource("1_6lxni")
+max_health = 10
+art = ExtResource("1_oni8d")
+metadata/_custom_type_script = "uid://dcrefii8lkgon"
