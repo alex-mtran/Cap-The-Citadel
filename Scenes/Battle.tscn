@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c05e6fyxrggbq"]
 
 [ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_w7k78"]
-[ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/test_mob/enemy.tscn" id="2_7xoqm"]
+[ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="2_7xoqm"]
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://p0h62oj1u1bm" path="res://player/player.tscn" id="3_2cxp4"]
 [ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://scenes/ui/target_selector.tscn" id="3_c5ef4"]
