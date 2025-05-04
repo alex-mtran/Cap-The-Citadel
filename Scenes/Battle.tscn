@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c05e6fyxrggbq"]
+[gd_scene load_steps=14 format=3 uid="uid://c05e6fyxrggbq"]
 
 [ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_w7k78"]
 [ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="2_7xoqm"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
 [ext_resource type="Resource" uid="uid://bnkmb5m72tm3b" path="res://player/player.tres" id="4_7xoqm"]
 [ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://scenes/ui/card_ui.tscn" id="6_p8l6q"]
-[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://assets/cards/attack.tres" id="7_2cxp4"]
+[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://player/cards/basic_attack.tres" id="7_2cxp4"]
+[ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://player/cards/basic_block.tres" id="11_8umis"]
+[ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://scenes/ui/energy_ui.tscn" id="12_ora22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
@@ -67,3 +69,12 @@ script = ExtResource("2_p1qf1")
 [node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("6_p8l6q")]
 layout_mode = 2
 card = ExtResource("7_2cxp4")
+char_stats = ExtResource("4_7xoqm")
+
+[node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("6_p8l6q")]
+layout_mode = 2
+card = ExtResource("11_8umis")
+char_stats = ExtResource("4_7xoqm")
+
+[node name="EnergyUI" parent="BattleUI" instance=ExtResource("12_ora22")]
+char_stats = ExtResource("4_7xoqm")
