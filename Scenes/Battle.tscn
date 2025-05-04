@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://c05e6fyxrggbq"]
 
-[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_w7k78"]
+[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
 [ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="2_7xoqm"]
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://p0h62oj1u1bm" path="res://player/player.tscn" id="3_2cxp4"]
-[ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://scenes/ui/target_selector.tscn" id="3_c5ef4"]
+[ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://Scenes/ui/target_selector.tscn" id="3_c5ef4"]
 [ext_resource type="Resource" uid="uid://1hddww6nlcd4" path="res://enemies/test_mob/test_mob.tres" id="3_ob7dw"]
-[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
+[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://Scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
 [ext_resource type="Resource" uid="uid://bnkmb5m72tm3b" path="res://player/player.tres" id="4_7xoqm"]
-[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://scenes/ui/card_ui.tscn" id="6_p8l6q"]
-[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://assets/cards/attack.tres" id="7_2cxp4"]
+[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://Scenes/ui/card_ui.tscn" id="6_p8l6q"]
+[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://Assets/cards/attack.tres" id="7_2cxp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)

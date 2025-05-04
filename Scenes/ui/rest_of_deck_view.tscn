@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c11krffqhuxws"]
 
-[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://scenes/ui/card_ui.tscn" id="1_jewra"]
+[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://Scenes/ui/card_ui.tscn" id="1_jewra"]
 [ext_resource type="Script" uid="uid://dtxdgsy2a3x1" path="res://scripts/ui/exit.gd" id="2_ur1a4"]
-[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://assets/cards/attack.tres" id="2_vmkhg"]
-[ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://assets/cards/block.tres" id="3_0xx64"]
+[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://Assets/cards/attack.tres" id="2_vmkhg"]
+[ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://Assets/cards/block.tres" id="3_0xx64"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y7c3k"]
 font_size = 12
