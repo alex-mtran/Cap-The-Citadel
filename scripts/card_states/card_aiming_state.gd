@@ -13,6 +13,7 @@ func enter() -> void:
 	Events.card_aim_begin.emit(card_ui)
 
 func exit() -> void:
+	pass
 	Events.card_aim_end.emit(card_ui)
 
 func on_input(event: InputEvent) -> void:

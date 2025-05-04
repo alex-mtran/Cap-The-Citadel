@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://merged_battle_scene"]
+[gd_scene load_steps=13 format=3 uid="uid://duswjrne50wf5"]
 
 [ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
-[ext_resource type="Texture2D" uid="uid://dsuk8gvpb1i1l" path="res://assets/Images/Enemies/goblin4x.png" id="2_8teo4"]
+[ext_resource type="Texture2D" uid="uid://dsuk8gvpb1i1l" path="res://Assets/Images/Enemies/goblin4x.png" id="2_8teo4"]
 [ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://Scenes/card_ui.tscn" id="2_oxf17"]
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
-[ext_resource type="PackedScene" path="res://Scenes/target_selector.tscn" id="3_c5ef4"]
+[ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://Scenes/target_selector.tscn" id="3_c5ef4"]
+[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://rest_of_deck_button.tscn" id="4_1samx"]
 [ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://characters/attack.tres" id="4_p46lj"]
 [ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://characters/block.tres" id="5_8teo4"]
-[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://rest_of_deck_button.tscn" id="4_1samx"]
+[ext_resource type="Script" uid="uid://ewmm5trh3k8l" path="res://graveyard_deck_button.gd" id="9_6yjxy"]
+[ext_resource type="Texture2D" uid="uid://dl4i21ikd0efq" path="res://Assets/Images/trashcan-icon-pixel-art_505135-90.jpg" id="9_qxnh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
@@ -77,4 +79,11 @@ offset_left = 4.0
 offset_top = 110.0
 offset_right = 1244.0
 offset_bottom = 1310.0
-card = ExtResource("5_8teo4")
+
+[node name="GraveyardDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
+offset_left = 223.0
+offset_top = 114.0
+offset_right = 1049.0
+offset_bottom = 940.0
+texture_normal = ExtResource("9_qxnh6")
+script = ExtResource("9_6yjxy")

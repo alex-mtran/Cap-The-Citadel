@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CapTheCitadel"
-run/main_scene="uid://dp06qh0ko7jw1"
+run/main_scene="res://Scenes/Battle.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
