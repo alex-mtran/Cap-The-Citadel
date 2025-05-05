@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://w7622n1y7600"]
-
-[ext_resource type="FontFile" uid="uid://c5k7h2skd5um3" path="res://assets/Fonts/Not Jam Chunky Sans 6.ttf" id="1_rjgu6"]
-
-[resource]
-default_font = ExtResource("1_rjgu6")
-default_font_size = 6

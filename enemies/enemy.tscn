@@ -29,3 +29,6 @@ offset_left = -44.0
 offset_top = 3.0
 offset_right = 46.0
 offset_bottom = 23.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cba3lqwrm6ex5"]
+
+[ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://assets/Images/defense.png" id="1_fl4q1"]
+[ext_resource type="Script" uid="uid://c5hpve2fhj705" path="res://player/cards/basic_block.gd" id="2_tlphp"]
+
+[resource]
+script = ExtResource("2_tlphp")
+id = "block"
+type = 1
+target = 0
+cost = 1
+icon = ExtResource("1_fl4q1")
+tooltip_text = "[center]Gain[color=\"0044ff\"] 3[/color] block.[/center]"
+metadata/_custom_type_script = "uid://cuh4ylb8am2qa"
