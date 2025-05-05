@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c86fk1vgsy2hj"
-path="res://.godot/imported/human1x4.png-2253328a329898eb2f374a7cf1be0ad7.ctex"
+path="res://.godot/imported/human1x4.png-2fa753d63bf96fe1013c672d066ba7b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Enemies/human1x4.png"
-dest_files=["res://.godot/imported/human1x4.png-2253328a329898eb2f374a7cf1be0ad7.ctex"]
+source_file="res://assets/Images/Enemies/human1x4.png"
+dest_files=["res://.godot/imported/human1x4.png-2fa753d63bf96fe1013c672d066ba7b9.ctex"]
 
 [params]
 

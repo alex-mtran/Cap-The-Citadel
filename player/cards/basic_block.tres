@@ -10,5 +10,5 @@ type = 1
 target = 0
 cost = 1
 icon = ExtResource("1_fl4q1")
-tooltip_text = ""
+tooltip_text = "[center]Gain[color=\"0044ff\"] 3[/color] block.[/center]"
 metadata/_custom_type_script = "uid://cuh4ylb8am2qa"
