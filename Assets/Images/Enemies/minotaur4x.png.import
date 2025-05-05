@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxh5cwn3j35rc"
-path="res://.godot/imported/minotaur4x.png-31dc59853c9eb7b055cf1277ef625940.ctex"
+path="res://.godot/imported/minotaur4x.png-04efdc96a8a7f2b0ad7de301d66621e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Images/Enemies/minotaur4x.png"
-dest_files=["res://.godot/imported/minotaur4x.png-31dc59853c9eb7b055cf1277ef625940.ctex"]
+source_file="res://Assets/Images/Enemies/minotaur4x.png"
+dest_files=["res://.godot/imported/minotaur4x.png-04efdc96a8a7f2b0ad7de301d66621e8.ctex"]
 
 [params]
 
