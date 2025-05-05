@@ -12,9 +12,9 @@
 [ext_resource type="Script" uid="uid://bk2mqt3ureet2" path="res://scripts/ui/battle_ui.gd" id="7_7hbu7"]
 [ext_resource type="Script" uid="uid://c1owpfmte2hqi" path="res://player/player_handler.gd" id="8_l0ske"]
 [ext_resource type="Script" uid="uid://byqwtptprx0sq" path="res://Scenes/ui/GraveyardDeck.gd" id="9_tiokb"]
-[ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://scenes/ui/energy_ui.tscn" id="12_ora22"]
-[ext_resource type="Texture2D" uid="uid://bk53h5kvthog1" path="res://assets/Images/trashcan.jpg" id="13_xmk5i"]
-[ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://scenes/ui/tooltip.tscn" id="15_l0ske"]
+[ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
+[ext_resource type="Texture2D" uid="uid://bk53h5kvthog1" path="res://Assets/Images/trashcan.jpg" id="13_xmk5i"]
+[ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://Scenes/ui/tooltip.tscn" id="15_l0ske"]
 [ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="16_7hbu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]

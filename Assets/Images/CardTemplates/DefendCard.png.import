@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boppewg1g2ou5"
-path="res://.godot/imported/Graveyard.png-e02a149dda26024c18bd27d3f75382c0.ctex"
+uid="uid://cstffjmjimwky"
+path="res://.godot/imported/DefendCard.png-b624c2f2f698c2cfddb718e01db50559.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Graveyard.png"
-dest_files=["res://.godot/imported/Graveyard.png-e02a149dda26024c18bd27d3f75382c0.ctex"]
+source_file="res://Assets/Images/CardTemplates/DefendCard.png"
+dest_files=["res://.godot/imported/DefendCard.png-b624c2f2f698c2cfddb718e01db50559.ctex"]
 
 [params]
 
