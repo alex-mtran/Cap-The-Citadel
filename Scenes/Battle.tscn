@@ -49,16 +49,25 @@ stats = ExtResource("4_7xoqm")
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
 [node name="RestOfDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = 110.0
+offset_top = -34.0
 offset_right = 1244.0
-offset_bottom = 1310.0
+offset_bottom = 1166.0
+grow_vertical = 0
 
 [node name="GraveyardDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
-offset_left = 224.0
-offset_top = 113.0
-offset_right = 1344.0
-offset_bottom = 1273.0
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.986
+anchor_right = 1.0
+anchor_bottom = 0.986
+offset_left = -32.0
+offset_top = -28.984
+offset_right = 1088.0
+offset_bottom = 1131.02
 texture_normal = ExtResource("13_xmk5i")
 script = ExtResource("9_tiokb")
 

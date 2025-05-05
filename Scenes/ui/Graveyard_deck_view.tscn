@@ -1,8 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2rteink7s75o"]
+[gd_scene load_steps=3 format=3 uid="uid://b2rteink7s75o"]
 
-[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://Scenes/ui/card_ui.tscn" id="1_hruc4"]
-[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://player/cards/basic_attack.tres" id="2_4vakv"]
-[ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://player/cards/basic_block.tres" id="3_2s6pg"]
 [ext_resource type="Script" uid="uid://dtxdgsy2a3x1" path="res://scripts/ui/exit.gd" id="4_evypd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y7c3k"]
@@ -57,18 +54,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 7
 
-[node name="CardUI" parent="MarginContainer/VBoxContainer/ScrollContainer/CardsGrid" instance=ExtResource("1_hruc4")]
-layout_mode = 2
-card = ExtResource("2_4vakv")
-
-[node name="CardUI2" parent="MarginContainer/VBoxContainer/ScrollContainer/CardsGrid" instance=ExtResource("1_hruc4")]
-layout_mode = 2
-card = ExtResource("3_2s6pg")
-
-[node name="CardUI3" parent="MarginContainer/VBoxContainer/ScrollContainer/CardsGrid" instance=ExtResource("1_hruc4")]
-layout_mode = 2
-card = ExtResource("3_2s6pg")
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_right = 46.0
@@ -76,5 +61,4 @@ offset_bottom = 31.0
 text = "Back"
 script = ExtResource("4_evypd")
 
-[connection signal="pressed" from="Button" to="MarginContainer/VBoxContainer/ScrollContainer/CardsGrid/CardUI" method="_on_button_pressed"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
