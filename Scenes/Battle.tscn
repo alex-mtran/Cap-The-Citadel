@@ -1,17 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://c05e6fyxrggbq"]
+[gd_scene load_steps=16 format=3 uid="uid://c05e6fyxrggbq"]
 
-[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_w7k78"]
+[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
 [ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="2_7xoqm"]
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://p0h62oj1u1bm" path="res://player/player.tscn" id="3_2cxp4"]
-[ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://scenes/ui/target_selector.tscn" id="3_c5ef4"]
+[ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://Scenes/ui/target_selector.tscn" id="3_c5ef4"]
 [ext_resource type="Resource" uid="uid://1hddww6nlcd4" path="res://enemies/test_mob/test_mob.tres" id="3_ob7dw"]
-[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
+[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://Scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
 [ext_resource type="Resource" uid="uid://bnkmb5m72tm3b" path="res://player/player.tres" id="4_7xoqm"]
-[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://scenes/ui/card_ui.tscn" id="6_p8l6q"]
+[ext_resource type="PackedScene" uid="uid://vaku536yrk2s" path="res://Scenes/ui/card_ui.tscn" id="6_p8l6q"]
 [ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://player/cards/basic_attack.tres" id="7_2cxp4"]
+[ext_resource type="Script" uid="uid://c0d1oda2jx7eg" path="res://Scenes/ui/GraveyardDeck.gd" id="9_tiokb"]
 [ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://player/cards/basic_block.tres" id="11_8umis"]
-[ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://scenes/ui/energy_ui.tscn" id="12_ora22"]
+[ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
+[ext_resource type="Texture2D" uid="uid://bk53h5kvthog1" path="res://Assets/Images/trashcan.jpg" id="13_xmk5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
@@ -51,6 +53,14 @@ offset_left = 4.0
 offset_top = 110.0
 offset_right = 1244.0
 offset_bottom = 1310.0
+
+[node name="GraveyardDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
+offset_left = 224.0
+offset_top = 113.0
+offset_right = 1344.0
+offset_bottom = 1273.0
+texture_normal = ExtResource("13_xmk5i")
+script = ExtResource("9_tiokb")
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI"]
 anchors_preset = 7
