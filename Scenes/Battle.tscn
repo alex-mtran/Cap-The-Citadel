@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c05e6fyxrggbq"]
+[gd_scene load_steps=17 format=3 uid="uid://c05e6fyxrggbq"]
 
 [ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
 [ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="2_7xoqm"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://player/cards/basic_block.tres" id="11_8umis"]
 [ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
 [ext_resource type="Texture2D" uid="uid://bk53h5kvthog1" path="res://Assets/Images/trashcan.jpg" id="13_xmk5i"]
+[ext_resource type="Script" uid="uid://bqmavyyuav0k7" path="res://global/battle_manager.gd" id="15_l0ske"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
@@ -97,3 +98,9 @@ char_stats = ExtResource("4_7xoqm")
 
 [node name="EnergyUI" parent="BattleUI" instance=ExtResource("12_ora22")]
 char_stats = ExtResource("4_7xoqm")
+
+[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("player", "hand")]
+script = ExtResource("15_l0ske")
+player = NodePath("../Player")
+hand = NodePath("../BattleUI/Hand")
+card_ui_scene_path = "uid://vaku536yrk2s"
