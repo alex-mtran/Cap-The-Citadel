@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0ldcm1ceimea"]
 
 [ext_resource type="AudioStream" uid="uid://ctd5f21vcvlim" path="res://Assets/Sounds/sfx/damage_taken.mp3" id="1_jt71b"]
-[ext_resource type="Script" uid="uid://ch2ji8tlyn1e2" path="res://global/sound_effects.gd" id="1_qpdnh"]
+[ext_resource type="Script" uid="uid://c0bs4tqe0s8mc" path="res://global/sound_effects.gd" id="1_qpdnh"]
 [ext_resource type="AudioStream" uid="uid://d10mno4poggct" path="res://Assets/Sounds/sfx/fastzombie1.mp3" id="2_qpdnh"]
 
 [node name="Control" type="Control"]
