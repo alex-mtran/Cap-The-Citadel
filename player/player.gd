@@ -13,7 +13,7 @@ extends Node2D
 # 	stats.block += 17
 
 func set_character_stats(value: CharacterStats) -> void:
-	stats = value.create_instance()
+	stats = value
 
 # Connect stats_changed to update_stats
 # Setter function for an exported variable gets called even when you run the game
