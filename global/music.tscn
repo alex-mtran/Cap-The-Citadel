@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cygku4382k2ys"]
+
+[ext_resource type="AudioStream" uid="uid://besbpkthsssj8" path="res://Assets/Sounds/Desert Theme.mp3" id="1_qeevt"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_qeevt")
+autoplay = true
+parameters/looping = true
