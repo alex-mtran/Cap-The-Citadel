@@ -2,6 +2,7 @@ class_name BlockEffect
 extends Effect
 
 var amount: int = 0
+
 #Test
 # Goal: make sure that it increases block for each valid target 
 #func test_block_does_it_work()
