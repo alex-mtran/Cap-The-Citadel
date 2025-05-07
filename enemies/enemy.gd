@@ -15,6 +15,31 @@ const ARROW_OFFSET := -15
 # 	take_damage(6)
 # 	stats.block += 8
 
+var turn_index := 0
+var behavior: Array = []
+
+func get_intent_text() -> void:
+	#var a = get_current_behavior()
+	match EnemyBase.EnemyType:
+		EnemyBase.EnemyType.BASIC:
+			behavior = [
+				{ "type": EnemyBase.BehaviorType.ATTACK, "value": 6 },
+				{ "type": EnemyBase.BehaviorType.DEFEND, "value": 5 }
+			]
+		EnemyBase.EnemyType.ELITE:
+			behavior = [
+				{ "type": EnemyBase.BehaviorType.ATTACK, "value": 6 },
+				{ "type": EnemyBase.BehaviorType.DEFEND, "value": 5 },
+				{ "type": EnemyBase.BehaviorType.BUFF, "value": 2 },
+				{ "type": EnemyBase.BehaviorType.DEBUFF, "value": 8 }
+			]
+		EnemyBase.EnemyType.BOSS:
+			behavior = [
+				{ "type": EnemyBase.BehaviorType.ATTACK, "value": 8 },
+				{ "type": EnemyBase.BehaviorType.DEFEND, "value": 5 },
+				{ "type": EnemyBase.BehaviorType.BUFF, "value": 2 }
+			]
+			
 func set_enemy_stats(value: Stats) -> void:
 	stats = value.create_instance()
 
@@ -45,8 +70,28 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		queue_free()
 
+func act_on_player(player: Node) -> void:
+	if behavior.is_empty():
+		return
+
+	var curr = behavior[turn_index % behavior.size()]
+	match curr.type:
+		EnemyBase.BehaviorType.ATTACK:
+			player.take_damage(curr.value)
+		EnemyBase.BehaviorType.DEFEND:
+			stats.block += curr.value
+		EnemyBase.BehaviorType.BUFF:
+			stats.attack += curr.value
+		EnemyBase.BehaviorType.DEBUFF:
+			player.stats.attack -= curr.value
+
+	turn_index += 1
+	
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.show()
 
 func _on_area_exited(_area: Area2D) -> void:
 	arrow.hide()
+	
+	
+	
