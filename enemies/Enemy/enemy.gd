@@ -1,0 +1,95 @@
+class_name Enemy
+extends Area2D
+
+const ARROW_OFFSET := -15
+
+@export var stats: Enemy_Stats : set = set_enemy_stats
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var arrow: Sprite2D = $Arrow
+@onready var stats_ui: StatsUI = $StatsUI as StatsUI
+
+var enemy_action_picker: Enemy_Action_Picker
+var current_action: Enemy_Action : set = set_current_action
+
+func set_current_action(value: Enemy_Action) -> void:
+	current_action = value
+# Test
+# func _ready() -> void:
+# 	await get_tree().create_timer(2).timeout
+# 	take_damage(6)
+# 	stats.block += 8
+
+#var turn_index := 0
+#var behavior: Array = []
+func set_enemy_stats(value: Enemy_Stats) -> void:
+	stats = value.create_instance()
+
+	if not stats.stats_changed.is_connected(update_stats):
+		stats.stats_changed.connect(update_stats)
+		stats.stats_changed.connect(update_action)
+
+	update_enemy()
+
+func setup_ai() -> void: 
+	if enemy_action_picker:
+		enemy_action_picker.queue_free()
+		
+	var new_action_picker: Enemy_Action_Picker = stats.ai.instantiate()
+	add_child(new_action_picker)
+	enemy_action_picker = new_action_picker
+	enemy_action_picker.enemy = self
+	
+func update_stats() -> void:
+	stats_ui.update_stats(stats)
+
+func update_action() -> void:
+	if not enemy_action_picker:
+		return
+	if not current_action:
+		current_action = enemy_action_picker.get_action()
+		return
+	var new_conditional_action := enemy_action_picker.get_first_conditional_action()
+	if new_conditional_action and current_action != new_conditional_action:
+		current_action = new_conditional_action
+
+func update_enemy() -> void:
+	if not stats is Stats:
+		return
+	if not is_inside_tree():
+		await ready
+
+	sprite_2d.texture = stats.art
+	arrow.position = Vector2.RIGHT * (sprite_2d.get_rect().size.x / 2 + ARROW_OFFSET)
+	setup_ai()
+	update_stats()
+
+func do_turn() -> void:
+	stats.block = 0
+	
+	if not current_action:
+		return
+	current_action.perform_action()
+	
+func take_damage(damage: int) -> void:
+	if stats.health <= 0:
+		return
+
+	stats.take_damage(damage)
+
+	if stats.health <= 0:
+		queue_free()
+"""
+func act_on_player(player: Node) -> void:
+	if behavior.is_empty():
+		return
+	var curr = behavior[turn_index % behavior.size()]
+	turn_index += 1
+"""
+	
+func _on_area_entered(_area: Area2D) -> void:
+	arrow.show()
+
+func _on_area_exited(_area: Area2D) -> void:
+	arrow.hide()
+	

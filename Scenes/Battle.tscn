@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cq3w68oaoydt" path="res://scripts/battle.gd" id="1_pf0ra"]
 [ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
-[ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="2_7xoqm"]
+[ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/Enemy/enemy.tscn" id="2_7xoqm"]
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://p0h62oj1u1bm" path="res://player/player.tscn" id="3_2cxp4"]
 [ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://Scenes/ui/target_selector.tscn" id="3_c5ef4"]
-[ext_resource type="Resource" uid="uid://1hddww6nlcd4" path="res://enemies/test_mob/test_mob.tres" id="3_ob7dw"]
 [ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://Scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
 [ext_resource type="Resource" uid="uid://bnkmb5m72tm3b" path="res://player/player.tres" id="4_7xoqm"]
+[ext_resource type="Script" uid="uid://cb42cpb0mvq3" path="res://enemies/Enemy/enemy_handler.gd" id="4_n5y6x"]
 [ext_resource type="Script" uid="uid://bk2mqt3ureet2" path="res://scripts/ui/battle_ui.gd" id="7_7hbu7"]
 [ext_resource type="Script" uid="uid://c1owpfmte2hqi" path="res://player/player_handler.gd" id="8_l0ske"]
 [ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
@@ -40,9 +40,12 @@ position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_w7k78")
 debug_color = Color(0, 0.6, 0.701961, 0.117647)
 
-[node name="Enemy" parent="." instance=ExtResource("2_7xoqm")]
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_n5y6x")
+
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_7xoqm")]
 position = Vector2(183, 83)
-stats = ExtResource("3_ob7dw")
+script = null
 
 [node name="Player" parent="." instance=ExtResource("3_2cxp4")]
 position = Vector2(67, 81)

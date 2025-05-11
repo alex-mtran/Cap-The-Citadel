@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://1pailb1tipak" path="res://scripts/ui/card_ui.gd" id="2_e1hm3"]
 [ext_resource type="Script" uid="uid://bk72t17cyi6q3" path="res://scripts/ui/card_state_machine.gd" id="3_birkm"]
 [ext_resource type="StyleBox" uid="uid://clmcex7tehm8k" path="res://themes/card_base_stylebox.tres" id="3_u2fwa"]
-[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/attack.png" id="4_nhbwl"]
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://Assets/Images/Attack.png" id="4_nhbwl"]
 [ext_resource type="Script" uid="uid://cos81ctnn4hdc" path="res://scripts/card_states/card_base_state.gd" id="4_xou0u"]
 [ext_resource type="Script" uid="uid://0o7bk6n1ywd0" path="res://scripts/card_states/card_clicked_state.gd" id="5_2iqob"]
 [ext_resource type="Script" uid="uid://bt2wvkir3v8ay" path="res://scripts/card_states/card_dragging_state.gd" id="6_8creq"]
