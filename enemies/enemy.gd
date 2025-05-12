@@ -3,53 +3,54 @@ extends Area2D
 
 const ARROW_OFFSET := -15
 
-@export var stats: Stats : set = set_enemy_stats
+@export var stats: Enemy_Stats : set = set_enemy_stats
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var arrow: Sprite2D = $Arrow
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 
+var enemy_action_picker: Enemy_Action_Picker
+var current_action: Enemy_Action : set = set_current_action
+
+func set_current_action(value: Enemy_Action) -> void:
+	current_action = value
+	
 # Test
 # func _ready() -> void:
 # 	await get_tree().create_timer(2).timeout
 # 	take_damage(6)
 # 	stats.block += 8
-
-var turn_index := 0
-var behavior: Array = []
-
-func get_intent_text() -> void:
-	#var a = get_current_behavior()
-	match EnemyBase.EnemyType:
-		EnemyBase.EnemyType.BASIC:
-			behavior = [
-				{ "type": EnemyBase.BehaviorType.ATTACK, "value": 6 },
-				{ "type": EnemyBase.BehaviorType.DEFEND, "value": 5 }
-			]
-		EnemyBase.EnemyType.ELITE:
-			behavior = [
-				{ "type": EnemyBase.BehaviorType.ATTACK, "value": 6 },
-				{ "type": EnemyBase.BehaviorType.DEFEND, "value": 5 },
-				{ "type": EnemyBase.BehaviorType.BUFF, "value": 2 },
-				{ "type": EnemyBase.BehaviorType.DEBUFF, "value": 8 }
-			]
-		EnemyBase.EnemyType.BOSS:
-			behavior = [
-				{ "type": EnemyBase.BehaviorType.ATTACK, "value": 8 },
-				{ "type": EnemyBase.BehaviorType.DEFEND, "value": 5 },
-				{ "type": EnemyBase.BehaviorType.BUFF, "value": 2 }
-			]
 			
-func set_enemy_stats(value: Stats) -> void:
+func set_enemy_stats(value: Enemy_Stats) -> void:
 	stats = value.create_instance()
 
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
+		stats.stats_changed.connect(update_action)
 
 	update_enemy()
-
+func setup_ai() -> void: 
+	if enemy_action_picker:
+		enemy_action_picker.queue_free()
+		
+	var new_action_picker: Enemy_Action_Picker = stats.ai.instantiate()
+	add_child(new_action_picker)
+	enemy_action_picker = new_action_picker
+	enemy_action_picker.enemy = self
+	
 func update_stats() -> void:
 	stats_ui.update_stats(stats)
+
+func update_action() -> void:
+	if not enemy_action_picker:
+		return
+	if not current_action:
+		current_action = enemy_action_picker.get_action()
+		return
+	var new_conditional_action := enemy_action_picker.get_first_conditional_action()
+	if new_conditional_action and current_action != new_conditional_action:
+		current_action = new_conditional_action
+
 
 func update_enemy() -> void:
 	if not stats is Stats:
@@ -59,8 +60,16 @@ func update_enemy() -> void:
 
 	sprite_2d.texture = stats.art
 	arrow.position = Vector2.RIGHT * (sprite_2d.get_rect().size.x / 2 + ARROW_OFFSET)
+	setup_ai()
 	update_stats()
 
+func do_turn() -> void:
+	stats.block = 0
+	
+	if not current_action:
+		return
+	current_action.perform_action()
+	
 func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		return
@@ -70,22 +79,6 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		queue_free()
 
-func act_on_player(player: Node) -> void:
-	if behavior.is_empty():
-		return
-
-	var curr = behavior[turn_index % behavior.size()]
-	match curr.type:
-		EnemyBase.BehaviorType.ATTACK:
-			player.take_damage(curr.value)
-		EnemyBase.BehaviorType.DEFEND:
-			stats.block += curr.value
-		EnemyBase.BehaviorType.BUFF:
-			stats.attack += curr.value
-		EnemyBase.BehaviorType.DEBUFF:
-			player.stats.attack -= curr.value
-
-	turn_index += 1
 	
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.show()
