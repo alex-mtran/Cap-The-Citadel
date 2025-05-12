@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwr403v7a3guw"]
+
+[ext_resource type="Script" uid="uid://b5nt3wbyxduql" path="res://enemies/enemy_action_picker.gd" id="1_ejsjl"]
+[ext_resource type="Script" uid="uid://dt47eefaii2v7" path="res://enemies/test_mob/enemy1_attack_action.gd" id="2_ibkgc"]
+[ext_resource type="Script" uid="uid://wpbhiu7i8a18" path="res://enemies/test_mob/enemy1_block_action.gd" id="3_fp6yk"]
+[ext_resource type="Script" uid="uid://d2uxsi8o2yii7" path="res://enemies/test_mob/enemy1_mega_block_action.gd" id="4_ddkjs"]
+
+[node name="Enemy1AI" type="Node"]
+script = ExtResource("1_ejsjl")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_ibkgc")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("3_fp6yk")
+type = 1
+chance_weight = 1.0
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("4_ddkjs")
