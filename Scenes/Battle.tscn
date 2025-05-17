@@ -24,7 +24,6 @@ size = Vector2(256, 100)
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_pf0ra")
 char_stats = ExtResource("4_7xoqm")
-metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.495827, 0.364216, 0.406827, 1)
