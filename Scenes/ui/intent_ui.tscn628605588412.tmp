@@ -1,13 +1,26 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=3 format=3 uid="uid://batycdcc6n7aq"]
-
-[ext_resource type="Script" uid="uid://6g8pf06bkn5k" path="res://Scenes/ui/intent_ui.gd" id="1_i1t1r"]
-=======
 [gd_scene load_steps=3 format=3 uid="uid://btnalfqbe7k6s"]
 
-[ext_resource type="Script" uid="uid://gmkmh2x2v27p" path="res://Scenes/ui/intent_ui.gd" id="1_i1t1r"]
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://Assets/Images/Attack.png" id="1_uw103"]
+
+[sub_resource type="GDScript" id="GDScript_uw103"]
+script/source = "class_name IntentUI
+extends HBoxContainer
+
+@onready var icon: TextureRect = $Icon
+@onready var number: Label = $Number
+
+func update_intent(intent: Intent) -> void:
+	if not intent:
+		hide()
+		return
+		
+	icon.texture = intent.icon
+	icon.visible = icon.texture != null
+	number.text = str(intent.number)
+	number.visible = intent.number.length() > 0
+	show()
+	
+"
 
 [node name="IntentUI" type="HBoxContainer"]
 anchors_preset = 5
@@ -15,14 +28,11 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
 offset_right = 20.0
-<<<<<<< Updated upstream
-offset_bottom = 40.0
-=======
 offset_bottom = 23.0
->>>>>>> Stashed changes
 grow_horizontal = 2
+theme_override_constants/separation = 0
 alignment = 1
-script = ExtResource("1_i1t1r")
+script = SubResource("GDScript_uw103")
 
 [node name="Icon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(14, 14)

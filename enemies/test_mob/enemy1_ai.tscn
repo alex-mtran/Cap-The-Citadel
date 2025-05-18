@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://wpbhiu7i8a18" path="res://enemies/test_mob/enemy1_block_action.gd" id="3_fp6yk"]
 [ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://Assets/Images/Attack.png" id="3_ggu4l"]
 [ext_resource type="Script" uid="uid://d2uxsi8o2yii7" path="res://enemies/test_mob/enemy1_mega_block_action.gd" id="4_ddkjs"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://ckxx4po2hfcus" path="res://enemies/intent.gd" id="4_dxpeb"]
 [ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://Assets/Images/Defense.png" id="6_l8831"]
 [ext_resource type="Texture2D" uid="uid://0t1ghfxm3mlw" path="res://Assets/Images/megablock_icon.png" id="8_dxpeb"]
@@ -26,22 +27,57 @@ script = ExtResource("4_dxpeb")
 number = ""
 icon = ExtResource("8_dxpeb")
 metadata/_custom_type_script = "uid://ckxx4po2hfcus"
+=======
+[ext_resource type="Script" uid="uid://b3cuindkgrthq" path="res://enemies/test_mob/intent.gd" id="4_ggu4l"]
+[ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://Assets/Images/Defense.png" id="6_l8831"]
+[ext_resource type="Texture2D" uid="uid://dn37k4ewjm4do" path="res://Assets/Images/megablock_icon.png" id="8_dxpeb"]
+
+[sub_resource type="Resource" id="Resource_dxpeb"]
+script = ExtResource("4_ggu4l")
+number = "7"
+icon = ExtResource("3_ggu4l")
+metadata/_custom_type_script = "uid://b3cuindkgrthq"
+
+[sub_resource type="Resource" id="Resource_ggu4l"]
+script = ExtResource("4_ggu4l")
+number = ""
+icon = ExtResource("6_l8831")
+metadata/_custom_type_script = "uid://b3cuindkgrthq"
+
+[sub_resource type="Resource" id="Resource_l8831"]
+script = ExtResource("4_ggu4l")
+number = ""
+icon = ExtResource("8_dxpeb")
+metadata/_custom_type_script = "uid://b3cuindkgrthq"
+>>>>>>> Stashed changes
 
 [node name="Enemy1AI" type="Node"]
 script = ExtResource("1_ejsjl")
 
 [node name="AttackAction" type="Node" parent="."]
 script = ExtResource("2_ibkgc")
+<<<<<<< Updated upstream
 intent = SubResource("Resource_aw2ff")
+=======
+intent = SubResource("Resource_dxpeb")
+>>>>>>> Stashed changes
 type = 1
 chance_weight = 1.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("3_fp6yk")
+<<<<<<< Updated upstream
 intent = SubResource("Resource_werpd")
+=======
+intent = SubResource("Resource_ggu4l")
+>>>>>>> Stashed changes
 type = 1
 chance_weight = 1.0
 
 [node name="MegaBlockAction" type="Node" parent="."]
 script = ExtResource("4_ddkjs")
+<<<<<<< Updated upstream
 intent = SubResource("Resource_bp4q1")
+=======
+intent = SubResource("Resource_l8831")
+>>>>>>> Stashed changes

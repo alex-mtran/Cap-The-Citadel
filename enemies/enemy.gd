@@ -9,7 +9,10 @@ const ARROW_OFFSET := -15
 @onready var arrow: Sprite2D = $Arrow
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 var enemy_action_picker: Enemy_Action_Picker
 var current_action: Enemy_Action : set = set_current_action
@@ -17,7 +20,11 @@ var current_action: Enemy_Action : set = set_current_action
 func set_current_action(value: Enemy_Action) -> void:
 	current_action = value
 	if current_action:
+<<<<<<< Updated upstream
 		intent_ui.update_Intent(current_action.intent)
+=======
+		intent_ui.update_intent(current_action.intent)
+>>>>>>> Stashed changes
 	
 # Test
 # func _ready() -> void:

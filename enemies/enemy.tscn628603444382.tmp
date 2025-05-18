@@ -4,11 +4,7 @@
 [ext_resource type="Script" uid="uid://bwgb8kkcecort" path="res://enemies/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://6w2yej6vd52g" path="res://Assets/Images/arrow.png" id="3_5uy6h"]
 [ext_resource type="PackedScene" uid="uid://8bmg631rmc0t" path="res://Scenes/ui/stats_ui.tscn" id="4_c4w8v"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://batycdcc6n7aq" path="res://Scenes/ui/intent_ui.tscn" id="5_07tka"]
-=======
 [ext_resource type="PackedScene" uid="uid://btnalfqbe7k6s" path="res://Scenes/ui/intent_ui.tscn" id="5_07tka"]
->>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 
@@ -28,7 +24,6 @@ rotation = -1.5708
 texture = ExtResource("3_5uy6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -32)
 shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="StatsUI" parent="." instance=ExtResource("4_c4w8v")]
@@ -38,13 +33,6 @@ offset_right = 46.0
 offset_bottom = 23.0
 
 [node name="IntentUI" parent="." instance=ExtResource("5_07tka")]
-<<<<<<< Updated upstream
-=======
-offset_left = -148.0
-offset_top = -384.0
-offset_right = -108.0
-offset_bottom = -361.0
->>>>>>> Stashed changes
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
