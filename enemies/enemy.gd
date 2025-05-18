@@ -8,12 +8,18 @@ const ARROW_OFFSET := -15
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var arrow: Sprite2D = $Arrow
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var intent_ui: IntentUI = $IntentUI as IntentUI
+
+
+
 
 var enemy_action_picker: Enemy_Action_Picker
 var current_action: Enemy_Action : set = set_current_action
 
 func set_current_action(value: Enemy_Action) -> void:
 	current_action = value
+	if current_action:
+		intent_ui.update_intent(current_action.intent)
 	
 # Test
 # func _ready() -> void:
@@ -79,12 +85,12 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		queue_free()
 
-	
+	"""
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.show()
 
 func _on_area_exited(_area: Area2D) -> void:
 	arrow.hide()
-	
+	"""
 	
 	

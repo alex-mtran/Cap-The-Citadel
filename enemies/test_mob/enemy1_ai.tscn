@@ -1,22 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwr403v7a3guw"]
+[gd_scene load_steps=12 format=3 uid="uid://dwr403v7a3guw"]
 
 [ext_resource type="Script" uid="uid://b5nt3wbyxduql" path="res://enemies/enemy_action_picker.gd" id="1_ejsjl"]
 [ext_resource type="Script" uid="uid://dt47eefaii2v7" path="res://enemies/test_mob/enemy1_attack_action.gd" id="2_ibkgc"]
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://Assets/Images/Attack.png" id="3_ddkjs"]
 [ext_resource type="Script" uid="uid://wpbhiu7i8a18" path="res://enemies/test_mob/enemy1_block_action.gd" id="3_fp6yk"]
 [ext_resource type="Script" uid="uid://d2uxsi8o2yii7" path="res://enemies/test_mob/enemy1_mega_block_action.gd" id="4_ddkjs"]
+[ext_resource type="Script" uid="uid://8tmj2lykn03g" path="res://enemies/intent.gd" id="4_ggu4l"]
+[ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://Assets/Images/Defense.png" id="6_dxpeb"]
+[ext_resource type="Texture2D" uid="uid://qnuhfbva618j" path="res://Assets/Images/megablock_icon.png" id="8_l8831"]
+
+[sub_resource type="Resource" id="Resource_dxpeb"]
+script = ExtResource("4_ggu4l")
+number = "7"
+icon = ExtResource("3_ddkjs")
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_aw2ff"]
+script = ExtResource("4_ggu4l")
+number = ""
+icon = ExtResource("6_dxpeb")
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_werpd"]
+script = ExtResource("4_ggu4l")
+number = ""
+icon = ExtResource("8_l8831")
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
 
 [node name="Enemy1AI" type="Node"]
 script = ExtResource("1_ejsjl")
 
 [node name="AttackAction" type="Node" parent="."]
 script = ExtResource("2_ibkgc")
+intent = SubResource("Resource_dxpeb")
 type = 1
 chance_weight = 1.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("3_fp6yk")
+intent = SubResource("Resource_aw2ff")
 type = 1
 chance_weight = 1.0
 
 [node name="MegaBlockAction" type="Node" parent="."]
 script = ExtResource("4_ddkjs")
+intent = SubResource("Resource_werpd")
