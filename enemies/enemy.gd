@@ -75,7 +75,6 @@ func do_turn() -> void:
 	current_action.perform_action()
 	
 func take_damage(damage: int) -> void:
-	sfx_enemy.stream = load("res://Assets/Sounds/sfx/fastzombie1.mp3")
 	sfx_enemy.play()
 	
 	if stats.health <= 0:

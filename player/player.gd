@@ -36,7 +36,6 @@ func update_stats() -> void:
 	stats_ui.update_stats(stats)
 
 func take_damage(damage: int) -> void:
-	sfx_player.stream = load("res://Assets/Sounds/sfx/damage_taken.mp3")
 	sfx_player.play()
 	
 	if stats.health <= 0:
