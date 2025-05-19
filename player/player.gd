@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var sfx_player: AudioStreamPlayer = $HitSFX
 
 # Test
 # func _ready () -> void:
@@ -35,6 +36,9 @@ func update_stats() -> void:
 	stats_ui.update_stats(stats)
 
 func take_damage(damage: int) -> void:
+	sfx_player.stream = load("res://Assets/Sounds/sfx/damage_taken.mp3")
+	sfx_player.play()
+	
 	if stats.health <= 0:
 		return
 	

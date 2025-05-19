@@ -9,9 +9,7 @@ const ARROW_OFFSET := -15
 @onready var arrow: Sprite2D = $Arrow
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
-
-
-
+@onready var sfx_enemy: AudioStreamPlayer = $HitSFX
 
 var enemy_action_picker: Enemy_Action_Picker
 var current_action: Enemy_Action : set = set_current_action
@@ -77,6 +75,9 @@ func do_turn() -> void:
 	current_action.perform_action()
 	
 func take_damage(damage: int) -> void:
+	sfx_enemy.stream = load("res://Assets/Sounds/sfx/fastzombie1.mp3")
+	sfx_enemy.play()
+	
 	if stats.health <= 0:
 		return
 
