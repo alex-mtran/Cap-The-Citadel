@@ -18,8 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://global/events.gd"
-Music="*res://global/music.tscn"
-SoundEffects="*res://global/sound_effects.tscn"
 Shaker="*res://global/shaker.gd"
 
 [display]
