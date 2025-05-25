@@ -122,7 +122,6 @@ theme = ExtResource("16_7hbu7")
 text = "End Turn"
 
 [node name="Panel" type="Panel" parent="BattleUI"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -136,8 +135,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Level end!"
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="Button" type="Button" parent="BattleUI/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.5
+offset_top = -31.0
+offset_right = 30.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Return"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_6xsll")
