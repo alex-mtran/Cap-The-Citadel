@@ -6,9 +6,12 @@ extends Node2D
 @onready var player_handler: PlayerHandler = $PlayerHandler as PlayerHandler
 @onready var enemy_handler: EnemyHandler = $EnemyHandler as EnemyHandler
 @onready var player: Player = $Player as Player
+@onready var panel: Panel = $BattleUI/Panel
+@onready var label: Label = $BattleUI/Panel/Label
 
 func _ready() -> void:
 	# Temp code because normally we would want to keep health, deck, gold between battles
+	panel.visible = false
 	var new_stats: CharacterStats = char_stats.create_instance()
 	battle_ui.char_stats = new_stats
 	player.stats = new_stats
@@ -29,6 +32,10 @@ func start_battle(stats: CharacterStats) -> void:
 	
 func _on_enemies_child_order_changed() -> void: 
 	if enemy_handler.get_child_count() == 0:
+		if label:
+			label.text = "Level passed!"
+		
+		panel.visible = true
 		print("Victory!")
 		
 func _on_enemy_turn_ended() -> void:
@@ -36,4 +43,8 @@ func _on_enemy_turn_ended() -> void:
 	enemy_handler.reset_enemy_actions()
 	
 func _on_player_died() -> void:
+	if label:
+		label.text = "Level failed!"
+	
+	panel.visible = true
 	print("Game over!")
