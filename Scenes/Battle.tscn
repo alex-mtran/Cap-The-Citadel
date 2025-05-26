@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://bk2mqt3ureet2" path="res://scripts/ui/battle_ui.gd" id="7_7hbu7"]
 [ext_resource type="Script" uid="uid://c1owpfmte2hqi" path="res://player/player_handler.gd" id="8_l0ske"]
 [ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
-[ext_resource type="Texture2D" uid="uid://bk53h5kvthog1" path="res://Assets/Images/trashcan.jpg" id="13_xmk5i"]
+[ext_resource type="Texture2D" uid="uid://cy84rbdarepn2" path="res://Assets/Images/trashcan.png" id="15_00njq"]
 [ext_resource type="Script" uid="uid://d3g82yskc5t3w" path="res://scripts/ui/GraveyardDeck.gd" id="15_7hbu7"]
 [ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://Scenes/ui/tooltip.tscn" id="15_l0ske"]
 [ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="16_7hbu7"]
@@ -103,7 +103,7 @@ offset_left = -32.0
 offset_top = -28.984
 offset_right = 1088.0
 offset_bottom = 1131.02
-texture_normal = ExtResource("13_xmk5i")
+texture_normal = ExtResource("15_00njq")
 script = ExtResource("15_7hbu7")
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
@@ -122,6 +122,7 @@ theme = ExtResource("16_7hbu7")
 text = "End Turn"
 
 [node name="Panel" type="Panel" parent="BattleUI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
