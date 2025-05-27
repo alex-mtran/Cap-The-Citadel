@@ -2,7 +2,7 @@ extends Control
 
 # Play button
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Battle.tscn")
+	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 # Options button
 func _on_options_pressed() -> void:
