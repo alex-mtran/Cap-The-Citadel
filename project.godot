@@ -21,6 +21,7 @@ Events="*res://global/events.gd"
 Shaker="*res://global/shaker.gd"
 MainMusic="*res://global/main_music.tscn"
 BattleMusic="*res://global/battle_music.tscn"
+Global="*res://global/Global.gd"
 
 [display]
 

@@ -32,8 +32,8 @@ func set_current_action(value: Enemy_Action) -> void:
 # 	stats.block += 8
 
 func _ready() -> void:
-	var random_enemy = enemies[randi() % enemies.size()]
-	stats = load(random_enemy)
+	var curr_enemy = enemies[Global.level_number - 1]
+	stats = load(curr_enemy)
 
 func set_enemy_stats(value: Enemy_Stats) -> void:
 	stats = value.create_instance()
