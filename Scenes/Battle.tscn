@@ -153,9 +153,25 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Return"
 
+[node name="ReturnButton" type="Button" parent="BattleUI"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Return"
+
+[node name="MuteButton" type="Button" parent="BattleUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Mute"
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_6xsll")
 autoplay = true
 parameters/looping = true
 
 [connection signal="pressed" from="BattleUI/Panel/Button" to="BattleUI/Panel" method="_on_return_pressed"]
+[connection signal="pressed" from="BattleUI/ReturnButton" to="BattleUI" method="_on_return_pressed"]
+[connection signal="pressed" from="BattleUI/MuteButton" to="BattleUI" method="_on_mute_pressed"]
