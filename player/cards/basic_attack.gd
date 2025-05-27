@@ -9,9 +9,9 @@ extends Card
 	# var choose_card = card.new()
 	# choose_card.apply_effects([target])
 	# assert_eq(target.stats.health, 3, "Health should decrease by 2 after function is run")
-	
-	
+
 func apply_effects(targets: Array[Node]) -> void:
 	var damage_effect := DamageEffect.new()
-	damage_effect.amount = 2
+	var total_damage = 2 + GameManager.get_attack_bonus()
+	damage_effect.amount = total_damage
 	damage_effect.execute(targets)
