@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3cnhtwvxy2ri"]
+[gd_scene load_steps=2 format=3 uid="uid://b3cnhtwvxy2ri"]
 
 [ext_resource type="AudioStream" uid="uid://blb7l3rvowvtn" path="res://Assets/Sounds/enchanted tiki 86.mp3" id="1_yhdk3"]
-[ext_resource type="Script" uid="uid://bwdpsa64epqiy" path="res://global/main_music.gd" id="2_gm3e0"]
 
 [node name="MainMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_yhdk3")
 autoplay = true
 parameters/looping = true
-script = ExtResource("2_gm3e0")

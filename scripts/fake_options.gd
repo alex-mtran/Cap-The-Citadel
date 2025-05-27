@@ -3,6 +3,9 @@ extends Control
 func _ready() -> void:
 	if not MainMusic.playing:
 		MainMusic.play()
+	
+	if BattleMusic.playing:
+		BattleMusic.stop()
 
 # Back button
 func _on_back_pressed() -> void:
@@ -10,7 +13,7 @@ func _on_back_pressed() -> void:
 
 # Mute button
 func _on_mute_pressed() -> void:
-	if MainMusic.volume_db >= 0:
-		MainMusic.volume_db = -100
+	if not AudioServer.is_bus_mute(AudioServer.get_bus_index("Master")):
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	else:
-		MainMusic.volume_db = 0
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)

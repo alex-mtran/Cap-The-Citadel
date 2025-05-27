@@ -11,7 +11,12 @@ extends Node2D
 
 func _ready() -> void:
 	# Temp code because normally we would want to keep health, deck, gold between battles
-	MainMusic.stop()
+	if MainMusic.playing:
+		MainMusic.stop()
+	
+	if not BattleMusic.playing:
+		BattleMusic.play()
+	
 	panel.visible = false
 	var new_stats: CharacterStats = char_stats.create_instance()
 	battle_ui.char_stats = new_stats

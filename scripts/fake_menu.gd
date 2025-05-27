@@ -3,6 +3,9 @@ extends Control
 func _ready() -> void:
 	if not MainMusic.playing:
 		MainMusic.play()
+	
+	if BattleMusic.playing:
+		BattleMusic.stop()
 
 # Play button
 func _on_play_pressed() -> void:
