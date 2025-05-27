@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwr403v7a3guw"]
+[gd_scene load_steps=12 format=3 uid="uid://b67goo4h8ew1t"]
 
 [ext_resource type="Script" uid="uid://b5nt3wbyxduql" path="res://enemies/enemy_action_picker.gd" id="1_ejsjl"]
 [ext_resource type="Script" uid="uid://dt47eefaii2v7" path="res://enemies/test_mob/enemy1_attack_action.gd" id="2_ibkgc"]
@@ -24,21 +24,25 @@ script = ExtResource("4_ggu4l")
 icon = ExtResource("8_l8831")
 metadata/_custom_type_script = "uid://8tmj2lykn03g"
 
-[node name="Enemy1AI" type="Node"]
+[node name="Enemy2AI" type="Node"]
 script = ExtResource("1_ejsjl")
 
 [node name="AttackAction" type="Node" parent="."]
 script = ExtResource("2_ibkgc")
+damage = 10
 intent = SubResource("Resource_dxpeb")
 type = 1
 chance_weight = 1.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("3_fp6yk")
+block = 10
 intent = SubResource("Resource_aw2ff")
 type = 1
 chance_weight = 1.0
 
 [node name="MegaBlockAction" type="Node" parent="."]
 script = ExtResource("4_ddkjs")
+block = 20
+hp_threshold = 5
 intent = SubResource("Resource_werpd")
