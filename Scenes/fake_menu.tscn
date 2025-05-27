@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ijqyqql2n3w1"]
+[gd_scene load_steps=3 format=3 uid="uid://ijqyqql2n3w1"]
 
 [ext_resource type="Script" uid="uid://dkht3tyypkmbt" path="res://scripts/fake_menu.gd" id="1_ftwc7"]
+[ext_resource type="AudioStream" uid="uid://blb7l3rvowvtn" path="res://Assets/Sounds/enchanted tiki 86.mp3" id="2_4ibnw"]
 
 [node name="FakeMenu" type="Control"]
 layout_mode = 3
@@ -11,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ftwc7")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -67,5 +68,11 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "Quit"
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4ibnw")
+autoplay = true
+parameters/looping = true
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_pressed"]
