@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c05e6fyxrggbq"]
+[gd_scene load_steps=19 format=3 uid="uid://c05e6fyxrggbq"]
 
 [ext_resource type="Script" uid="uid://cq3w68oaoydt" path="res://scripts/battle.gd" id="1_pf0ra"]
 [ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://Scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
 [ext_resource type="Resource" uid="uid://bnkmb5m72tm3b" path="res://player/player.tres" id="4_7xoqm"]
 [ext_resource type="Script" uid="uid://bj061htiym2h6" path="res://enemies/enemy_handler.gd" id="4_n5y6x"]
-[ext_resource type="Resource" uid="uid://sgur2wodts6q" path="res://enemies/test_mob/enemy3/enemy3.tres" id="6_00njq"]
 [ext_resource type="Script" uid="uid://bk2mqt3ureet2" path="res://scripts/ui/battle_ui.gd" id="7_7hbu7"]
 [ext_resource type="Script" uid="uid://c1owpfmte2hqi" path="res://player/player_handler.gd" id="8_l0ske"]
 [ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
@@ -47,7 +46,6 @@ script = ExtResource("4_n5y6x")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_7xoqm")]
 position = Vector2(183, 83)
-stats = ExtResource("6_00njq")
 
 [node name="Player" parent="." instance=ExtResource("3_2cxp4")]
 position = Vector2(67, 81)
