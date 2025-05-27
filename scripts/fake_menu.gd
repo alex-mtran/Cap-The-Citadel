@@ -1,5 +1,9 @@
 extends Control
 
+func _ready() -> void:
+	if not MainMusic.playing:
+		MainMusic.play()
+
 # Play button
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")

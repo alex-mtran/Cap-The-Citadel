@@ -1,5 +1,9 @@
 extends Control
 
+func _ready() -> void:
+	if not MainMusic.playing:
+		MainMusic.play()
+
 # Level 1 button
 func _on_level_1_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Battle.tscn")
