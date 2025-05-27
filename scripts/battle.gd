@@ -34,8 +34,10 @@ func _on_enemies_child_order_changed() -> void:
 	if enemy_handler.get_child_count() == 0:
 		if label:
 			label.text = "Level passed!"
-		
-		panel.visible = true
+			
+		if panel:
+			panel.visible = true
+			
 		print("Victory!")
 		
 func _on_enemy_turn_ended() -> void:
@@ -45,6 +47,8 @@ func _on_enemy_turn_ended() -> void:
 func _on_player_died() -> void:
 	if label:
 		label.text = "Level failed!"
-	
-	panel.visible = true
+		
+	if panel:
+		panel.visible = true
+		
 	print("Game over!")
