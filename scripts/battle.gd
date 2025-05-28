@@ -6,17 +6,29 @@ extends Node2D
 @onready var player_handler: PlayerHandler = $PlayerHandler as PlayerHandler
 @onready var enemy_handler: EnemyHandler = $EnemyHandler as EnemyHandler
 @onready var player: Player = $Player as Player
-
-var battle_ended := false
+@onready var panel: Panel = $BattleUI/Panel
+@onready var label: Label = $BattleUI/Panel/Label
+@onready var return_button: Button = $BattleUI/ReturnButton
+@onready var mute_button: Button = $BattleUI/MuteButton
 
 func _ready() -> void:
-	# keep play stat globally
+	# Temp code because normally we would want to keep health, deck, gold between battles
+	if MainMusic.playing:
+		MainMusic.stop()
+	
+	if not BattleMusic.playing:
+		BattleMusic.play()
+	
+	panel.visible = false
+	return_button.visible = true
+	mute_button.visible = true
 	var new_stats: CharacterStats = char_stats.create_instance()
 	battle_ui.char_stats = new_stats
 	player.stats = new_stats
 
 	enemy_handler.child_order_changed.connect(_on_enemies_child_order_changed)
 	Events.enemy_turn_ended.connect(_on_enemy_turn_ended)
+
 	
 	Events.player_turn_ended.connect(player_handler.end_turn)
 	Events.player_hand_discarded.connect(enemy_handler.start_turn)
@@ -29,7 +41,7 @@ func _notification(what: int) -> void:
 		_handle_window_close()
 
 func _handle_window_close() -> void:
-	battle_ended = true
+	#battle_ended = true
 	
 	if Events.enemy_turn_ended.is_connected(_on_enemy_turn_ended):
 		Events.enemy_turn_ended.disconnect(_on_enemy_turn_ended)
@@ -60,28 +72,49 @@ func _handle_window_close() -> void:
 	get_tree().quit()
 
 func start_battle(stats: CharacterStats) -> void:
-	battle_ended = false
+	#battle_ended = false
 	enemy_handler.reset_enemy_actions()
 	print("Battle has started!")
 	print("Current bonuses: Attack: +", GameManager.get_attack_bonus(), " Defense: +", GameManager.get_defense_bonus())
 	player_handler.start_battle(stats)
 
 func _on_enemies_child_order_changed() -> void: 
-	if enemy_handler.get_child_count() == 0 and not battle_ended:
-		battle_ended = true
+	if enemy_handler.get_child_count() == 0:
+		if return_button:
+			return_button.visible = false
+		
+		if mute_button:
+			mute_button.visible = false
+	
+		if label:
+			label.text = "Level passed!"
+			
+		if panel:
+			panel.visible = true
+			
 		print("Victory!")
 		_show_victory_ui()
 		
 func _on_enemy_turn_ended() -> void:
-	if not battle_ended:
-		player_handler.start_turn()
-		enemy_handler.reset_enemy_actions()
+	#if not battle_ended:
+	player_handler.start_turn()
+	enemy_handler.reset_enemy_actions()
 	
 func _on_player_died() -> void:
-	if not battle_ended:
-		battle_ended = true
-		print("Game over!")
-		_show_game_over_ui()
+	if return_button:
+		return_button.visible = false
+	
+	if mute_button:
+		mute_button.visible = false
+	
+	if label:
+		label.text = "Level failed!"
+		
+	if panel:
+		panel.visible = true
+		
+	print("Game over!")
+	_show_game_over_ui()
 
 func _show_victory_ui() -> void:
 	if battle_ui and is_instance_valid(battle_ui) and battle_ui.end_turn_button and is_instance_valid(battle_ui.end_turn_button):
@@ -90,7 +123,10 @@ func _show_victory_ui() -> void:
 		player_handler.hand.disable_hand()
 	
 	var popup = _create_victory_popup()
-	battle_ui.add_child(popup)
+	
+	if battle_ui:
+		battle_ui.add_child(popup)
+	
 	popup.show()
 
 func _show_game_over_ui() -> void:
@@ -213,17 +249,20 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 	print("Attack upgrade selected, total bonus: +", GameManager.get_attack_bonus())
 	popup.queue_free()
 	
-	get_tree().quit()
+	Global.level_number = 0
+	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_defense_upgrade_selected(popup: Control) -> void:
 	GameManager.add_defense_bonus(1)
 	print("Defense upgrade selected, total bonus: +", GameManager.get_defense_bonus())
 	popup.queue_free()
 	
-	get_tree().quit()
+	Global.level_number = 0
+	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_restart_battle() -> void:
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
-	get_tree().quit()
+	Global.level_number = 0
+	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")

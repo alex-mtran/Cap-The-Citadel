@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0mghbaerumlw"]
+[gd_scene load_steps=7 format=3 uid="uid://c0mghbaerumlw"]
 
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://dsuk8gvpb1i1l" path="res://assets/Images/Enemies/goblin4x.png" id="1_7p1mj"]
+=======
+>>>>>>> 463ee08e4356669bb356ef8f2c04b38dac04d3d7
 [ext_resource type="Script" uid="uid://bwgb8kkcecort" path="res://enemies/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://6w2yej6vd52g" path="res://assets/Images/arrow.png" id="3_5uy6h"]
 [ext_resource type="PackedScene" uid="uid://8bmg631rmc0t" path="res://scenes/ui/stats_ui.tscn" id="4_c4w8v"]
@@ -15,7 +18,6 @@ script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_7p1mj")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false

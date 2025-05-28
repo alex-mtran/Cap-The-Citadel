@@ -12,7 +12,5 @@ func update_intent(intent: Intent) -> void:
 		
 		icon.texture = intent.icon
 		icon.visible = icon.texture != null
-		number.text = str(intent.number)
-		number.visible = intent.number.length() > 0
 		show()
 	

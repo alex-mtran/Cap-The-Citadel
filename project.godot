@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CapTheCitadel"
-run/main_scene="uid://bbt4be5dxw5b1"
+run/main_scene="uid://ijqyqql2n3w1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,9 @@ config/icon="res://icon.svg"
 
 Events="*res://global/events.gd"
 Shaker="*res://global/shaker.gd"
+MainMusic="*res://global/main_music.tscn"
+BattleMusic="*res://global/battle_music.tscn"
+Global="*res://global/Global.gd"
 GameManager="*res://global/game_manager.gd"
 SettingsSignalBus="*res://global/settings_signal_bus.gd"
 
