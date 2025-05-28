@@ -3,6 +3,12 @@ extends Area2D
 
 const ARROW_OFFSET := -15
 
+var enemies = [
+	"res://enemies/test_mob/enemy1/enemy1.tres",
+	"res://enemies/test_mob/enemy2/enemy2.tres",
+	"res://enemies/test_mob/enemy3/enemy3.tres"
+]
+
 @export var stats: Enemy_Stats : set = set_enemy_stats
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -24,7 +30,11 @@ func set_current_action(value: Enemy_Action) -> void:
 # 	await get_tree().create_timer(2).timeout
 # 	take_damage(6)
 # 	stats.block += 8
-			
+
+func _ready() -> void:
+	var curr_enemy = enemies[Global.level_number - 1]
+	stats = load(curr_enemy)
+
 func set_enemy_stats(value: Enemy_Stats) -> void:
 	stats = value.create_instance()
 

@@ -11,16 +11,17 @@ config_version=5
 [application]
 
 config/name="CapTheCitadel"
-run/main_scene="res://scenes/Battle.tscn"
+run/main_scene="uid://ijqyqql2n3w1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Events="*res://global/events.gd"
-Music="*res://global/music.tscn"
-SoundEffects="*res://global/sound_effects.tscn"
 Shaker="*res://global/shaker.gd"
+MainMusic="*res://global/main_music.tscn"
+BattleMusic="*res://global/battle_music.tscn"
+Global="*res://global/Global.gd"
 GameManager="*res://global/game_manager.gd"
 
 [display]

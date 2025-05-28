@@ -1,0 +1,44 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwr403v7a3guw"]
+
+[ext_resource type="Script" uid="uid://b5nt3wbyxduql" path="res://enemies/enemy_action_picker.gd" id="1_xuhre"]
+[ext_resource type="Script" uid="uid://dt47eefaii2v7" path="res://enemies/test_mob/enemy_attack_action.gd" id="2_oxy2p"]
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://Assets/Images/Attack.png" id="3_8yluu"]
+[ext_resource type="Script" uid="uid://8tmj2lykn03g" path="res://enemies/intent.gd" id="4_5l5xp"]
+[ext_resource type="Script" uid="uid://wpbhiu7i8a18" path="res://enemies/test_mob/enemy_block_action.gd" id="5_vtdxt"]
+[ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://Assets/Images/Defense.png" id="6_spl6s"]
+[ext_resource type="Script" uid="uid://d2uxsi8o2yii7" path="res://enemies/test_mob/enemy_mega_block_action.gd" id="7_5jp8e"]
+[ext_resource type="Texture2D" uid="uid://qnuhfbva618j" path="res://Assets/Images/megablock_icon.png" id="8_uyllb"]
+
+[sub_resource type="Resource" id="Resource_dxpeb"]
+script = ExtResource("4_5l5xp")
+icon = ExtResource("3_8yluu")
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_aw2ff"]
+script = ExtResource("4_5l5xp")
+icon = ExtResource("6_spl6s")
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_werpd"]
+script = ExtResource("4_5l5xp")
+icon = ExtResource("8_uyllb")
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[node name="Enemy1AI" type="Node"]
+script = ExtResource("1_xuhre")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_oxy2p")
+intent = SubResource("Resource_dxpeb")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("5_vtdxt")
+intent = SubResource("Resource_aw2ff")
+type = 1
+chance_weight = 1.0
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("7_5jp8e")
+intent = SubResource("Resource_werpd")
