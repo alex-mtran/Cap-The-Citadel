@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://besbpkthsssj8"
-path="res://.godot/imported/Desert Theme.mp3-9578fdd81462e11cedcf72e62efaa021.mp3str"
+path="res://.godot/imported/Desert Theme.mp3-3b6cf39b7b87cae5058eb32b7b998d1c.mp3str"
 
 [deps]
 
-source_file="res://Assets/Sounds/Desert Theme.mp3"
-dest_files=["res://.godot/imported/Desert Theme.mp3-9578fdd81462e11cedcf72e62efaa021.mp3str"]
+source_file="res://assets/Sounds/Desert Theme.mp3"
+dest_files=["res://.godot/imported/Desert Theme.mp3-3b6cf39b7b87cae5058eb32b7b998d1c.mp3str"]
 
 [params]
 

@@ -18,8 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://global/events.gd"
-Music="*res://global/music.tscn"
-SoundEffects="*res://global/sound_effects.tscn"
 Shaker="*res://global/shaker.gd"
 GameManager="*res://global/game_manager.gd"
 
@@ -29,8 +27,13 @@ window/size/viewport_width=256
 window/size/viewport_height=144
 window/size/window_width_override=1280
 window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
+
+[gui]
+
+theme/custom="uid://w7622n1y7600"
+theme/custom_font="uid://c5k7h2skd5um3"
 
 [input]
 

@@ -66,11 +66,6 @@ func start_battle(stats: CharacterStats) -> void:
 	print("Current bonuses: Attack: +", GameManager.get_attack_bonus(), " Defense: +", GameManager.get_defense_bonus())
 	player_handler.start_battle(stats)
 
-	#testing
-	#player.stats.health = 1
-	#for enemy in enemy_handler.get_children():
-		#enemy.stats.health = 1
-	
 func _on_enemies_child_order_changed() -> void: 
 	if enemy_handler.get_child_count() == 0 and not battle_ended:
 		battle_ended = true

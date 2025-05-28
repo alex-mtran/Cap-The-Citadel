@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ch7abqpmq2wyh"
-path="res://.godot/imported/cuckoo.wav-fb65e5e57c44e7e0f103d608169656e2.sample"
+path="res://.godot/imported/cuckoo.wav-184aab2e3078476c467297fe3394c615.sample"
 
 [deps]
 
-source_file="res://Assets/Sounds/CardSounds/cuckoo.wav"
-dest_files=["res://.godot/imported/cuckoo.wav-fb65e5e57c44e7e0f103d608169656e2.sample"]
+source_file="res://assets/Sounds/CardSounds/cuckoo.wav"
+dest_files=["res://.godot/imported/cuckoo.wav-184aab2e3078476c467297fe3394c615.sample"]
 
 [params]
 
