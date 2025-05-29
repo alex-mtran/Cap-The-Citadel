@@ -16,13 +16,19 @@
 [ext_resource type="Script" uid="uid://d3g82yskc5t3w" path="res://scripts/ui/GraveyardDeck.gd" id="15_7hbu7"]
 [ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://scenes/ui/tooltip.tscn" id="15_l0ske"]
 [ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="16_7hbu7"]
-[ext_resource type="Script" uid="uid://cxxgybgubx4bh" path="res://scenes/battle_panel.gd" id="17_00njq"]
+[ext_resource type="PackedScene" uid="uid://7q68kbobko43" path="res://menus/options_menu.tscn" id="18_00njq"]
 [ext_resource type="AudioStream" uid="uid://besbpkthsssj8" path="res://assets/Sounds/Desert Theme.mp3" id="18_6xsll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
 
-[node name="Battle" type="Node2D"]
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_pf0ra")
 char_stats = ExtResource("4_7xoqm")
 
@@ -126,59 +132,28 @@ grow_vertical = 2
 theme = ExtResource("16_7hbu7")
 text = "End Turn"
 
-[node name="Panel" type="Panel" parent="BattleUI"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("17_00njq")
-
-[node name="Label" type="Label" parent="BattleUI/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Level end!"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="BattleUI/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -30.5
-offset_top = -31.0
-offset_right = 30.5
-grow_horizontal = 2
-grow_vertical = 0
-text = "Return"
-
-[node name="ReturnButton" type="Button" parent="BattleUI"]
+[node name="Options" type="Button" parent="BattleUI"]
 custom_minimum_size = Vector2(30, 12)
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Return"
-
-[node name="MuteButton" type="Button" parent="BattleUI"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -30.0
 offset_bottom = 12.0
 grow_horizontal = 0
+text = "Options"
+
+[node name="MuteButton" type="Button" parent="BattleUI"]
+offset_right = 30.0
+offset_bottom = 12.0
 text = "Mute"
+
+[node name="OptionsMenu" parent="BattleUI" instance=ExtResource("18_00njq")]
+visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_6xsll")
 autoplay = true
 parameters/looping = true
 
-[connection signal="pressed" from="BattleUI/Panel/Button" to="BattleUI/Panel" method="_on_return_pressed"]
-[connection signal="pressed" from="BattleUI/ReturnButton" to="BattleUI" method="_on_return_pressed"]
+[connection signal="pressed" from="BattleUI/Options" to="BattleUI" method="_on_options_pressed"]
 [connection signal="pressed" from="BattleUI/MuteButton" to="BattleUI" method="_on_mute_pressed"]

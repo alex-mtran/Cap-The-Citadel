@@ -6,11 +6,17 @@ extends CanvasLayer
 @onready var hand: Hand = $Hand as Hand
 @onready var energy_ui: EnergyUI = $EnergyUI as EnergyUI
 @onready var end_turn_button: Button = %EndTurnButton
+@onready var options_menu: OptionsMenu = $OptionsMenu
 
+var in_options = false
 
 func _ready() -> void:
 	Events.player_hand_drawn.connect(_on_player_hand_drawn)
 	end_turn_button.pressed.connect(_on_end_turn_button_pressed)
+
+func _process(delta) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_options_pressed()
 
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value
@@ -24,10 +30,11 @@ func _on_end_turn_button_pressed() -> void:
 	end_turn_button.disabled = true
 	Events.player_turn_ended.emit()
 
-# Return button
-func _on_return_pressed() -> void:
-	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
+# Options button
+func _on_options_pressed() -> void: # UNFINISHED
+	in_options = true 
+	options_menu.set_process(true)
+	options_menu.visible = true
 
 # Mute button
 func _on_mute_pressed() -> void:
@@ -35,3 +42,11 @@ func _on_mute_pressed() -> void:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	else:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+
+func on_exit_options_menu() -> void: # UNFINISHED
+	options_menu.visible = false
+
+func _unhandled_key_input(event): # UNFINISHED
+	if event.is_action_pressed("ui_cancel") and not event.is_echo():
+		options_menu.visible = true
+		options_menu.set_process_unhandled_key_input(true)
