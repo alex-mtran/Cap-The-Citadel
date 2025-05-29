@@ -8,6 +8,7 @@ signal on_sfx_sound_set(value : float)
 signal set_settings_dictionary(settings_dict : Dictionary)
 signal load_settings_data(settings_dict : Dictionary)
 
+
 func emit_load_settings_data(settings_dict : Dictionary) -> void:
 	load_settings_data.emit(settings_dict)
 

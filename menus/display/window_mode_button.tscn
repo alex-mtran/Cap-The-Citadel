@@ -10,8 +10,4 @@ script = ExtResource("2_u7gy8")
 theme_override_constants/separation = 12
 
 [node name="Label" parent="HBoxContainer" index="0"]
-custom_minimum_size = Vector2(50, 0)
 text = "Window Mode"
-
-[node name="OptionButton" parent="HBoxContainer" index="2"]
-custom_minimum_size = Vector2(30, 0)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dp2dp3ttyugou"]
 
-[ext_resource type="Script" uid="uid://dgodnag51ksig" path="res://Scenes/Map/map_room.gd" id="1_wn3tm"]
-[ext_resource type="Texture2D" uid="uid://cleh032sinlan" path="res://Assets/Images/monsterRoom.png" id="2_3cjej"]
+[ext_resource type="Script" uid="uid://dgodnag51ksig" path="res://scenes/Map/map_room.gd" id="1_wn3tm"]
+[ext_resource type="Texture2D" uid="uid://cleh032sinlan" path="res://assets/Images/monsterRoom.png" id="2_3cjej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oc81s"]
 radius = 8.0

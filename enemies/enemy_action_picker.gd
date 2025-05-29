@@ -60,11 +60,3 @@ func _set_target(value: Node2D) -> void:
 	
 	for action in get_children(): 
 		action.target = target
-		
-		
-			
-	
-	
-			
-			
-		

@@ -249,7 +249,7 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 	print("Attack upgrade selected, total bonus: +", GameManager.get_attack_bonus())
 	popup.queue_free()
 	
-	Global.level_number = 0
+	Events.level_number = 0
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_defense_upgrade_selected(popup: Control) -> void:
@@ -257,12 +257,12 @@ func _on_defense_upgrade_selected(popup: Control) -> void:
 	print("Defense upgrade selected, total bonus: +", GameManager.get_defense_bonus())
 	popup.queue_free()
 	
-	Global.level_number = 0
+	Events.level_number = 0
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_restart_battle() -> void:
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
-	Global.level_number = 0
+	Events.level_number = 0
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")

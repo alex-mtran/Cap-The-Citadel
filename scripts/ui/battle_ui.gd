@@ -26,7 +26,7 @@ func _on_end_turn_button_pressed() -> void:
 
 # Return button
 func _on_return_pressed() -> void:
-	Global.level_number = 0
+	Events.level_number = 0
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 # Mute button

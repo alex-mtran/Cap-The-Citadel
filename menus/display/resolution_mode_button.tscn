@@ -8,13 +8,8 @@ script = ExtResource("2_yb6rl")
 
 [node name="HBoxContainer" parent="." index="0"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -49.0
-offset_right = 49.0
-grow_horizontal = 2
+offset_right = 116.0
 theme_override_constants/separation = 12
 
-[node name="OptionButton" parent="HBoxContainer" index="2"]
-custom_minimum_size = Vector2(30, 0)
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Resolution Mode"

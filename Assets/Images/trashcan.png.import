@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD:Assets/Images/trashcan.jpg.import
-uid="uid://bk53h5kvthog1"
-path="res://.godot/imported/trashcan.jpg-c2a4ecd4645e81f29206286c83d073cb.ctex"
-=======
-uid="uid://cy84rbdarepn2"
-path="res://.godot/imported/trashcan.png-d8c3c86fe938fed6459dc40c83d12664.ctex"
->>>>>>> 463ee08e4356669bb356ef8f2c04b38dac04d3d7:Assets/Images/trashcan.png.import
+uid="uid://0ddw7okee1vu"
+path="res://.godot/imported/trashcan.png-8c8a76922ac4c747c6a60ebc68cb2b2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:Assets/Images/trashcan.jpg.import
-source_file="res://assets/Images/trashcan.jpg"
-dest_files=["res://.godot/imported/trashcan.jpg-c2a4ecd4645e81f29206286c83d073cb.ctex"]
-=======
-source_file="res://Assets/Images/trashcan.png"
-dest_files=["res://.godot/imported/trashcan.png-d8c3c86fe938fed6459dc40c83d12664.ctex"]
->>>>>>> 463ee08e4356669bb356ef8f2c04b38dac04d3d7:Assets/Images/trashcan.png.import
+source_file="res://assets/Images/trashcan.png"
+dest_files=["res://.godot/imported/trashcan.png-8c8a76922ac4c747c6a60ebc68cb2b2b.ctex"]
 
 [params]
 
