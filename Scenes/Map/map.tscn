@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bo7b5e4mytcib"]
 
-[ext_resource type="Script" uid="uid://cd6dj2k3j2xsv" path="res://scenes/Map/map.gd" id="1_jolfa"]
-[ext_resource type="Script" uid="uid://dhne6wyhk7f68" path="res://scenes/Map/map_generator.gd" id="2_03x5g"]
-[ext_resource type="PackedScene" uid="uid://ydpewscvx6j1" path="res://scenes/Map/map_generator.tscn" id="3_03x5g"]
+[ext_resource type="Script" uid="uid://cd6dj2k3j2xsv" path="res://Scenes/Map/map.gd" id="1_jolfa"]
+[ext_resource type="Script" uid="uid://dhne6wyhk7f68" path="res://Scenes/Map/map_generator.gd" id="2_03x5g"]
+[ext_resource type="PackedScene" uid="uid://ydpewscvx6j1" path="res://Scenes/Map/map_generator.tscn" id="3_03x5g"]
 
 [sub_resource type="Gradient" id="Gradient_c7s6e"]
 colors = PackedColorArray(0.215686, 0.215686, 0.215686, 1, 0.209478, 0.309443, 0.381401, 1)

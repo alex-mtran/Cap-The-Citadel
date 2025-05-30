@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ctd5f21vcvlim"
-path="res://.godot/imported/damage_taken.mp3-11d372b924e84f077102da2a5313c068.mp3str"
+path="res://.godot/imported/damage_taken.mp3-e1ab6afafa862b57bc6222215fe34e3c.mp3str"
 
 [deps]
 
-source_file="res://assets/Sounds/sfx/damage_taken.mp3"
-dest_files=["res://.godot/imported/damage_taken.mp3-11d372b924e84f077102da2a5313c068.mp3str"]
+source_file="res://Assets/Sounds/sfx/damage_taken.mp3"
+dest_files=["res://.godot/imported/damage_taken.mp3-e1ab6afafa862b57bc6222215fe34e3c.mp3str"]
 
 [params]
 

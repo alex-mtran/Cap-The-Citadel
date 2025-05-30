@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://befbiss30arpq"
-path="res://.godot/imported/The Cowboy's Theme.mp3-8744b1e8a9bf01a7952b54415b6854a9.mp3str"
+path="res://.godot/imported/The Cowboy's Theme.mp3-9cbf5eb5f9c32138a82dad6a4e034730.mp3str"
 
 [deps]
 
-source_file="res://assets/Sounds/The Cowboy's Theme.mp3"
-dest_files=["res://.godot/imported/The Cowboy's Theme.mp3-8744b1e8a9bf01a7952b54415b6854a9.mp3str"]
+source_file="res://Assets/Sounds/The Cowboy's Theme.mp3"
+dest_files=["res://.godot/imported/The Cowboy's Theme.mp3-9cbf5eb5f9c32138a82dad6a4e034730.mp3str"]
 
 [params]
 

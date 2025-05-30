@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dpmi8p7tebjxc"
-path="res://.godot/imported/The Failure of a Cowboy.mp3-140411280ea1eed9c7e3df2f01977f92.mp3str"
+path="res://.godot/imported/The Failure of a Cowboy.mp3-d7ec0a1204ea9ad330039ddb88290eca.mp3str"
 
 [deps]
 
-source_file="res://assets/Sounds/The Failure of a Cowboy.mp3"
-dest_files=["res://.godot/imported/The Failure of a Cowboy.mp3-140411280ea1eed9c7e3df2f01977f92.mp3str"]
+source_file="res://Assets/Sounds/The Failure of a Cowboy.mp3"
+dest_files=["res://.godot/imported/The Failure of a Cowboy.mp3-d7ec0a1204ea9ad330039ddb88290eca.mp3str"]
 
 [params]
 
