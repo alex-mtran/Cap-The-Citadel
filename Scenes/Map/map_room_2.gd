@@ -1,4 +1,4 @@
-class_name MapRoom
+class_name MapRoom2
 extends Area2D
 
 signal clicked(room: Room)
@@ -7,7 +7,7 @@ signal selected(room: Room)
 # Dictionary mapping room types to their corresponding icons and scale factors
 const ICONS := {
 	Room.Type.NOT_ASSIGNED: [null, Vector2.ONE],  # No icon for unassigned rooms
-	Room.Type.MONSTER: [preload("res://Assets/Images/monsterRoom.png"), Vector2.ONE],  # Monster icon
+	Room.Type.MONSTER: [preload("res://Assets/Images/monsterRoom.png"), Vector2.ONE]  # Monster icon
 }
 
 # Node references (initialized when ready)
