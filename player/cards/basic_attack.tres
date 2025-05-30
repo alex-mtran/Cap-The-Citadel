@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://b1loeos780kqr"]
 
-[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="1_tcbx1"]
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://Assets/Images/Attack.png" id="1_tcbx1"]
 [ext_resource type="Script" uid="uid://c24i421eb6nbm" path="res://player/cards/basic_attack.gd" id="2_teoua"]
 
 [resource]
@@ -11,3 +11,4 @@ target = 1
 cost = 1
 icon = ExtResource("1_tcbx1")
 tooltip_text = "[center]Deal[color=\"ff0000\"] 4[/color] damage.[/center]"
+metadata/_custom_type_script = "uid://cuh4ylb8am2qa"

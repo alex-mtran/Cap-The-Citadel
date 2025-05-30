@@ -2,7 +2,7 @@ class_name Map
 extends Node2D
 
 const SCROLL_SPEED := 15  # Speed for camera/scroll movement
-const MAP_ROOM = preload("res://Scenes/Map/map_room.tscn")  # Room scene reference
+const MAP_ROOM = preload("res://Scenes/Map/map_room_2.tscn")  # Room scene reference
 const MAP_LINE = preload("res://Scenes/Map/map_line.tscn")  # Connection line scene reference
 
 @onready var map_generator: MapGenerator = $MapGenerator  # Handles map generation logic
@@ -68,13 +68,13 @@ func create_map()-> void:
 
 func unlock_floor(which_floor: int = floors_climbed) -> void:
 	# Make all rooms on the specified floor available
-	for map_room: MapRoom in rooms.get_children():
+	for map_room: MapRoom2 in rooms.get_children():
 		if map_room.room.row == which_floor:
 			map_room.available = true  # Enable interaction with this room
 
 func unlock_next_rooms() -> void:
 	# Unlock rooms connected to the last visited room
-	for map_room: MapRoom in rooms.get_children():
+	for map_room: MapRoom2 in rooms.get_children():
 		if last_room.next_rooms.has(map_room.room):  # Check if connected to last room
 			map_room.available = true  # Make connected room interactable
 			
@@ -87,7 +87,7 @@ func hide_map()-> void:
 	camera_2d.enabled = false
 
 func spawn_room(room: Room) -> void:
-	var new_map_room := MAP_ROOM.instantiate() as MapRoom
+	var new_map_room := MAP_ROOM.instantiate() as MapRoom2
 	rooms.add_child(new_map_room)
 	new_map_room.room = room
 	new_map_room.clicked.connect(on_map_room_clicked)
@@ -110,16 +110,20 @@ func connect_lines(room: Room) -> void:
 		lines.add_child(new_map_line)  # Add line to the scene
 		
 func on_map_room_clicked(room: Room) -> void:
-	for map_room: MapRoom in rooms.get_children():
+	for map_room: MapRoom2 in rooms.get_children():
 		if map_room.room.row == room.row:
 			map_room.available = false
 			
 func on_map_room_selected(room: Room) -> void:
 	# Disable all rooms on the same floor as the selected room
-	for map_room: MapRoom in rooms.get_children():
+	for map_room: MapRoom2 in rooms.get_children():
 		if map_room.room.row == room.row:  # Check if same floor
 			map_room.available = false     # Make room non-interactable
 	# Update game state
 	last_room = room          # Set as last visited room
 	floors_climbed += 1       # Increment floor counter
-	Events.map_exited.emit(room)  # Notify other systems about room exit
+	#Events.map_exited.emit(room)  # Notify other systems about room exit
+
+# Menu button
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://menus/main_menu/main_menu.tscn")

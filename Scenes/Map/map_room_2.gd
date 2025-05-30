@@ -1,4 +1,4 @@
-class_name MapRoom
+class_name MapRoom2
 extends Area2D
 
 signal clicked(room: Room)
@@ -7,7 +7,7 @@ signal selected(room: Room)
 # Dictionary mapping room types to their corresponding icons and scale factors
 const ICONS := {
 	Room.Type.NOT_ASSIGNED: [null, Vector2.ONE],  # No icon for unassigned rooms
-	Room.Type.MONSTER: [preload("res://Assets/Images/monsterRoom.png"), Vector2.ONE],  # Monster icon
+	Room.Type.MONSTER: [preload("res://Assets/Images/monsterRoom.png"), Vector2.ONE]  # Monster icon
 }
 
 # Node references (initialized when ready)
@@ -43,6 +43,9 @@ func show_selected() -> void:
 #when select finishes
 func on_map_room_select() -> void: 
 	selected.emit(room)
+	Events.level_number = room.row + 1
+	print(Events.level_number)
+	get_tree().change_scene_to_file("res://Scenes/Battle.tscn")
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

@@ -17,7 +17,7 @@ func _ready() -> void:
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 
 func _on_start_pressed():
-	get_tree().change_scene_to_packed(BATTLE_SCENE)
+	get_tree().change_scene_to_packed(MAP_SCENE)
 
 func _on_options_pressed() -> void:
 	in_options = true

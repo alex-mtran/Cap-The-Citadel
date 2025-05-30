@@ -239,7 +239,7 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 	popup.queue_free()
 	
 	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
 
 func _on_defense_upgrade_selected(popup: Control) -> void:
 	GameManager.add_defense_bonus(1)
@@ -247,14 +247,14 @@ func _on_defense_upgrade_selected(popup: Control) -> void:
 	popup.queue_free()
 	
 	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
 
 func _on_restart_battle() -> void:
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
 	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
 
 # Options button
 func _on_options_pressed() -> void:
