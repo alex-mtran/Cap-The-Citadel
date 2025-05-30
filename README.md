@@ -1,5 +1,15 @@
 # Cap-The-Citadel
 
+## Project Description
+
+This project is a deck building card game developed using the Godot engine with scripts created in the engine's native GDScript programming language. The player goes through a randomly generated map battling against enemies with different attack and block powers by choosing and applying cards with different actions. There are options to adjust settings, save and load files for the game state so that players can continue from a previous session, and cumulative rewards that improve the player's abilities as the game goes on.
+
+### Instructions for building and running game
+
+## Project Testing
+
+### Instructions for running test cases and viewing test results
+
 IMAGE ATTRIBUTIONS
 
 <a href="https://www.flaticon.com/free-icons/attack" title="attack icons">Attack icons created by Hilmy Abiyyu A. - Flaticon</a>
