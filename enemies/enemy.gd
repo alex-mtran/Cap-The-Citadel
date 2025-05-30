@@ -3,10 +3,14 @@ extends Area2D
 
 const ARROW_OFFSET := -15
 
+var goblin : String = "res://enemies/goblin/goblin.tres"
+var orc : String = "res://enemies/orc/orc.tres"
+var minotaur : String = "res://enemies/minotaur/minotaur.tres"
+
 var enemies = [
-	"res://enemies/test_mob/enemy1/enemy1.tres",
-	"res://enemies/test_mob/enemy2/enemy2.tres",
-	"res://enemies/test_mob/enemy3/enemy3.tres"
+	goblin, # Level 1
+	orc, # Level 2
+	minotaur # Level 3
 ]
 
 @export var stats: Enemy_Stats : set = set_enemy_stats
@@ -24,7 +28,7 @@ func set_current_action(value: Enemy_Action) -> void:
 	current_action = value
 	if current_action:
 		intent_ui.update_intent(current_action.intent)
-	
+
 # Test
 # func _ready() -> void:
 # 	await get_tree().create_timer(2).timeout
@@ -32,7 +36,7 @@ func set_current_action(value: Enemy_Action) -> void:
 # 	stats.block += 8
 
 func _ready() -> void:
-	var curr_enemy = enemies[Events.level_number + 1]
+	var curr_enemy = enemies[Events.level_number - 1]
 	stats = load(curr_enemy)
 
 func set_enemy_stats(value: Enemy_Stats) -> void:

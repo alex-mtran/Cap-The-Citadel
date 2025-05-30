@@ -81,24 +81,29 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(36, 10)
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 6
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(36, 10)
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 6
 text = "Options
 "
 
 [node name="LoadButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 text = "Load"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(36, 10)
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 6
 text = "Exit"

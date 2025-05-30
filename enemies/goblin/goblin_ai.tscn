@@ -1,0 +1,46 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwr403v7a3guw"]
+
+[ext_resource type="Script" uid="uid://b5nt3wbyxduql" path="res://enemies/enemy_action_picker.gd" id="1_d8aj4"]
+[ext_resource type="Script" uid="uid://dt47eefaii2v7" path="res://enemies/enemy_cards/enemy_attack_action.gd" id="2_82lfb"]
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="3_65mvr"]
+[ext_resource type="Script" uid="uid://8tmj2lykn03g" path="res://enemies/intent.gd" id="4_4ui8o"]
+[ext_resource type="Script" uid="uid://wpbhiu7i8a18" path="res://enemies/enemy_cards/enemy_block_action.gd" id="5_7f3o4"]
+[ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://assets/Images/Defense.png" id="6_mx21f"]
+[ext_resource type="Script" uid="uid://d2uxsi8o2yii7" path="res://enemies/enemy_cards/enemy_mega_block_action.gd" id="7_tvwes"]
+
+[sub_resource type="Resource" id="Resource_dxpeb"]
+script = ExtResource("4_4ui8o")
+icon = ExtResource("3_65mvr")
+base_text = "7"
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_aw2ff"]
+script = ExtResource("4_4ui8o")
+icon = ExtResource("6_mx21f")
+base_text = "6"
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_werpd"]
+script = ExtResource("4_4ui8o")
+icon = ExtResource("6_mx21f")
+base_text = "15"
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[node name="GoblinAI" type="Node"]
+script = ExtResource("1_d8aj4")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_82lfb")
+intent = SubResource("Resource_dxpeb")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("5_7f3o4")
+intent = SubResource("Resource_aw2ff")
+type = 1
+chance_weight = 1.0
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("7_tvwes")
+intent = SubResource("Resource_werpd")

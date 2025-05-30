@@ -19,4 +19,4 @@ signal player_died
 signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
 
-var level_number = 0
+var level_number = 1

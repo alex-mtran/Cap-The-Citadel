@@ -1,17 +1,17 @@
 extends Control
 
-# const MAP_SCENE : PackedScene = preload("res://scenes/Map/map.tscn")
-const BATTLE_SCENE = preload("res://scenes/Battle.tscn")
-@onready var start_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/StartButton
-@onready var options_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/OptionsButton
-@onready var load_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/LoadButton
-@onready var exit_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/ExitButton
+const MAP_SCENE : PackedScene = preload("res://scenes/Map/map.tscn")
+const BATTLE_SCENE : PackedScene = preload("res://scenes/Battle.tscn")
+@onready var start_button: Button = %StartButton
+@onready var options_button: Button = %OptionsButton
+@onready var load_button: Button = %LoadButton
+@onready var exit_button: Button = %ExitButton
 @onready var title: VBoxContainer = $MarginContainer/VBoxContainer
 @onready var button_choices: HBoxContainer = $MarginContainer/HBoxContainer
 @onready var options_menu: OptionsMenu = $OptionsMenu
 
-
 var in_options : bool = false
+
 
 func _ready() -> void:
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
@@ -20,15 +20,14 @@ func _on_start_pressed():
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
 
 func _on_options_pressed() -> void:
-	in_options = true 
+	in_options = true
 	button_choices.visible = false
 	title.visible = false
 	options_menu.set_process(true)
 	options_menu.visible = true
 
 func _on_load_pressed() -> void:
-	# go to load screen or instant load into loaded data
-	pass
+	print("load logic here")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

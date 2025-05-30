@@ -20,7 +20,7 @@ script = ExtResource("1_i1t1r")
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Number" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="Control"]
 layout_mode = 2
 offset_left = -11.0
 offset_top = 1.0

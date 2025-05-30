@@ -8,4 +8,3 @@
 [resource]
 script = ExtResource("4_ivp6m")
 cards = Array[ExtResource("1_tc463")]([ExtResource("2_m43lj"), ExtResource("2_m43lj"), ExtResource("2_m43lj"), ExtResource("2_m43lj"), ExtResource("2_m43lj"), ExtResource("3_qmxnj"), ExtResource("3_qmxnj"), ExtResource("3_qmxnj"), ExtResource("3_qmxnj"), ExtResource("3_qmxnj")])
-metadata/_custom_type_script = "uid://dgdatloq377kj"

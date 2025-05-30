@@ -2,7 +2,7 @@ class_name IntentUI
 extends HBoxContainer
 
 @onready var icon: TextureRect = $Control/Icon
-@onready var number: Label = $Control/Number
+@onready var label: Label = $Control/Label
 
 
 func update_intent(intent: Intent) -> void:
@@ -12,5 +12,6 @@ func update_intent(intent: Intent) -> void:
 		
 		icon.texture = intent.icon
 		icon.visible = icon.texture != null
+		label.text = intent.base_text
 		show()
 	

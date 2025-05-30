@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://b67goo4h8ew1t"]
+
+[ext_resource type="Script" uid="uid://b5nt3wbyxduql" path="res://enemies/enemy_action_picker.gd" id="1_6j04d"]
+[ext_resource type="Script" uid="uid://dt47eefaii2v7" path="res://enemies/enemy_cards/enemy_attack_action.gd" id="2_psjbl"]
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="3_n3sov"]
+[ext_resource type="Script" uid="uid://8tmj2lykn03g" path="res://enemies/intent.gd" id="4_0lirn"]
+[ext_resource type="Script" uid="uid://wpbhiu7i8a18" path="res://enemies/enemy_cards/enemy_block_action.gd" id="5_kyb6o"]
+[ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://assets/Images/Defense.png" id="6_4dkot"]
+[ext_resource type="Script" uid="uid://d2uxsi8o2yii7" path="res://enemies/enemy_cards/enemy_mega_block_action.gd" id="7_ouq1i"]
+
+[sub_resource type="Resource" id="Resource_dxpeb"]
+script = ExtResource("4_0lirn")
+icon = ExtResource("3_n3sov")
+base_text = "10"
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_aw2ff"]
+script = ExtResource("4_0lirn")
+icon = ExtResource("6_4dkot")
+base_text = "10"
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_werpd"]
+script = ExtResource("4_0lirn")
+icon = ExtResource("6_4dkot")
+base_text = "20"
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[node name="OrcAI" type="Node"]
+script = ExtResource("1_6j04d")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_psjbl")
+damage = 10
+intent = SubResource("Resource_dxpeb")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("5_kyb6o")
+block = 10
+intent = SubResource("Resource_aw2ff")
+type = 1
+chance_weight = 1.0
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("7_ouq1i")
+block = 20
+hp_threshold = 5
+intent = SubResource("Resource_werpd")

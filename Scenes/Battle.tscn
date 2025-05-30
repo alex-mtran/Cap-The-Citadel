@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://d3g82yskc5t3w" path="res://scripts/ui/GraveyardDeck.gd" id="15_7hbu7"]
 [ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://scenes/ui/tooltip.tscn" id="15_l0ske"]
 [ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="16_7hbu7"]
-[ext_resource type="PackedScene" uid="uid://7q68kbobko43" path="res://menus/options_menu.tscn" id="18_00njq"]
+[ext_resource type="PackedScene" uid="uid://cqemdfm1k5ika" path="res://menus/pause_menu/pause_menu.tscn" id="17_00njq"]
 [ext_resource type="AudioStream" uid="uid://besbpkthsssj8" path="res://assets/Sounds/Desert Theme.mp3" id="18_6xsll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
@@ -147,13 +147,13 @@ offset_right = 30.0
 offset_bottom = 12.0
 text = "Mute"
 
-[node name="OptionsMenu" parent="BattleUI" instance=ExtResource("18_00njq")]
+[node name="PauseMenu" parent="." instance=ExtResource("17_00njq")]
 visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_6xsll")
-autoplay = true
+bus = &"Music"
 parameters/looping = true
 
-[connection signal="pressed" from="BattleUI/Options" to="BattleUI" method="_on_options_pressed"]
+[connection signal="pressed" from="BattleUI/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="BattleUI/MuteButton" to="BattleUI" method="_on_mute_pressed"]

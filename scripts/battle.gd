@@ -8,6 +8,10 @@ extends Control
 @onready var player: Player = $Player as Player
 @onready var options_button: Button = $BattleUI/Options
 @onready var mute_button: Button = $BattleUI/MuteButton
+@onready var pause_menu: CanvasLayer = $PauseMenu
+
+var in_options = false
+
 
 func _ready() -> void:
 	# Temp code because normally we would want to keep health, deck, gold between battles
@@ -111,8 +115,7 @@ func _show_victory_ui() -> void:
 	
 	if battle_ui:
 		battle_ui.add_child(popup)
-	
-	Events.level_number += 1 # may not need depends on map implementation
+
 	popup.show()
 
 func _show_game_over_ui() -> void:
@@ -252,3 +255,17 @@ func _on_restart_battle() -> void:
 func _on_back_to_menu() -> void:
 	Events.level_number = 0
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
+
+# Options button
+func _on_options_pressed() -> void:
+	in_options = true 
+	pause_menu.set_process(true)
+	pause_menu.visible = true
+
+func on_exit_options_menu() -> void:
+	pause_menu.visible = false
+
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_cancel") and not event.is_echo():
+		pause_menu.visible = true
+		pause_menu.set_process_unhandled_key_input(true)

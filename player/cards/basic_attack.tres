@@ -10,5 +10,4 @@ type = 0
 target = 1
 cost = 1
 icon = ExtResource("1_tcbx1")
-tooltip_text = "[center]Deal[color=\"ff0000\"] 2[/color] damage.[/center]"
-metadata/_custom_type_script = "uid://cuh4ylb8am2qa"
+tooltip_text = "[center]Deal[color=\"ff0000\"] 4[/color] damage.[/center]"
