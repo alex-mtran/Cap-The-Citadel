@@ -123,3 +123,7 @@ func on_map_room_selected(room: Room) -> void:
 	last_room = room          # Set as last visited room
 	floors_climbed += 1       # Increment floor counter
 	#Events.map_exited.emit(room)  # Notify other systems about room exit
+
+# Menu button
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://menus/main_menu/main_menu.tscn")

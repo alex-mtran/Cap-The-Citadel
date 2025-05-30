@@ -23,6 +23,8 @@ func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_map_pressed() -> void:
+	Events.level_number = 0
+	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
 	print("go to map scene")
 
 func _on_options_pressed() -> void:

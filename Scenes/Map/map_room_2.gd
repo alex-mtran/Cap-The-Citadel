@@ -43,6 +43,9 @@ func show_selected() -> void:
 #when select finishes
 func on_map_room_select() -> void: 
 	selected.emit(room)
+	Events.level_number = room.row + 1
+	print(Events.level_number)
+	get_tree().change_scene_to_file("res://Scenes/Battle.tscn")
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
