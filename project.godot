@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="CapTheCitadel"
-run/main_scene="uid://ijqyqql2n3w1"
+run/main_scene="uid://bbt4be5dxw5b1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://themes/default_bus_layout.tres"
 
 [autoload]
 
@@ -21,8 +25,10 @@ Events="*res://global/events.gd"
 Shaker="*res://global/shaker.gd"
 MainMusic="*res://global/main_music.tscn"
 BattleMusic="*res://global/battle_music.tscn"
-Global="*res://global/Global.gd"
 GameManager="*res://global/game_manager.gd"
+SettingsSignalBus="*res://global/settings_signal_bus.gd"
+SettingsContainer="*res://global/settings_data_container.gd"
+SaveManager="*res://global/save_manager.gd"
 
 [display]
 
@@ -30,8 +36,13 @@ window/size/viewport_width=256
 window/size/viewport_height=144
 window/size/window_width_override=1280
 window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
+
+[gui]
+
+theme/custom="uid://w7622n1y7600"
+theme/custom_font="uid://c5k7h2skd5um3"
 
 [input]
 

@@ -12,6 +12,6 @@ extends Card
 
 func apply_effects(targets: Array[Node]) -> void:
 	var damage_effect := DamageEffect.new()
-	var total_damage = 2 + GameManager.get_attack_bonus()
+	var total_damage = 4 + GameManager.get_attack_bonus()
 	damage_effect.amount = total_damage
 	damage_effect.execute(targets)

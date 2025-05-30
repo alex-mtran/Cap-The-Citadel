@@ -6,6 +6,7 @@ extends Node
 
 @onready var total_weight := 0.0
 
+
 func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player")
 	setup_chances()
@@ -54,17 +55,9 @@ func _set_enemy(value: Enemy) -> void:
 	
 	for action in get_children(): 
 		action.enemy = enemy
-		
+
 func _set_target(value: Node2D) -> void: 
 	target = value;
 	
 	for action in get_children(): 
 		action.target = target
-		
-		
-			
-	
-	
-			
-			
-		

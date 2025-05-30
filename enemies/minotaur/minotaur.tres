@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy_Stats" load_steps=4 format=3 uid="uid://sgur2wodts6q"]
+
+[ext_resource type="PackedScene" uid="uid://cwo71axind18a" path="res://enemies/minotaur/minotaur_ai.tscn" id="1_wukwf"]
+[ext_resource type="Script" path="res://player/enemy_stats.gd" id="1_xn7l7"]
+[ext_resource type="Texture2D" uid="uid://cxh5cwn3j35rc" path="res://assets/Images/Enemies/minotaur4x.png" id="2_e2nt5"]
+
+[resource]
+script = ExtResource("1_xn7l7")
+ai = ExtResource("1_wukwf")
+max_health = 30
+art = ExtResource("2_e2nt5")

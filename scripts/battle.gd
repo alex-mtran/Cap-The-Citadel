@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var char_stats: CharacterStats
 
@@ -6,10 +6,12 @@ extends Node2D
 @onready var player_handler: PlayerHandler = $PlayerHandler as PlayerHandler
 @onready var enemy_handler: EnemyHandler = $EnemyHandler as EnemyHandler
 @onready var player: Player = $Player as Player
-@onready var panel: Panel = $BattleUI/Panel
-@onready var label: Label = $BattleUI/Panel/Label
-@onready var return_button: Button = $BattleUI/ReturnButton
+@onready var options_button: Button = $BattleUI/Options
 @onready var mute_button: Button = $BattleUI/MuteButton
+@onready var pause_menu: CanvasLayer = $PauseMenu
+
+var in_options = false
+
 
 func _ready() -> void:
 	# Temp code because normally we would want to keep health, deck, gold between battles
@@ -19,8 +21,7 @@ func _ready() -> void:
 	if not BattleMusic.playing:
 		BattleMusic.play()
 	
-	panel.visible = false
-	return_button.visible = true
+	options_button.visible = true
 	mute_button.visible = true
 	var new_stats: CharacterStats = char_stats.create_instance()
 	battle_ui.char_stats = new_stats
@@ -78,25 +79,14 @@ func start_battle(stats: CharacterStats) -> void:
 	print("Current bonuses: Attack: +", GameManager.get_attack_bonus(), " Defense: +", GameManager.get_defense_bonus())
 	player_handler.start_battle(stats)
 
-	#testing
-	#player.stats.health = 1
-	#for enemy in enemy_handler.get_children():
-		#enemy.stats.health = 1
-	
 func _on_enemies_child_order_changed() -> void: 
 	if enemy_handler.get_child_count() == 0:
-		if return_button:
-			return_button.visible = false
+		if options_button:
+			options_button.visible = false
 		
 		if mute_button:
 			mute_button.visible = false
-	
-		if label:
-			label.text = "Level passed!"
-			
-		if panel:
-			panel.visible = true
-			
+
 		print("Victory!")
 		_show_victory_ui()
 		
@@ -106,18 +96,12 @@ func _on_enemy_turn_ended() -> void:
 	enemy_handler.reset_enemy_actions()
 	
 func _on_player_died() -> void:
-	if return_button:
-		return_button.visible = false
+	if options_button:
+		options_button.visible = false
 	
 	if mute_button:
 		mute_button.visible = false
-	
-	if label:
-		label.text = "Level failed!"
-		
-	if panel:
-		panel.visible = true
-		
+
 	print("Game over!")
 	_show_game_over_ui()
 
@@ -131,7 +115,7 @@ func _show_victory_ui() -> void:
 	
 	if battle_ui:
 		battle_ui.add_child(popup)
-	
+
 	popup.show()
 
 func _show_game_over_ui() -> void:
@@ -254,7 +238,7 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 	print("Attack upgrade selected, total bonus: +", GameManager.get_attack_bonus())
 	popup.queue_free()
 	
-	Global.level_number = 0
+	Events.level_number = 0
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_defense_upgrade_selected(popup: Control) -> void:
@@ -262,12 +246,26 @@ func _on_defense_upgrade_selected(popup: Control) -> void:
 	print("Defense upgrade selected, total bonus: +", GameManager.get_defense_bonus())
 	popup.queue_free()
 	
-	Global.level_number = 0
+	Events.level_number = 0
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_restart_battle() -> void:
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
-	Global.level_number = 0
+	Events.level_number = 0
 	get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
+
+# Options button
+func _on_options_pressed() -> void:
+	in_options = true 
+	pause_menu.set_process(true)
+	pause_menu.visible = true
+
+func on_exit_options_menu() -> void:
+	pause_menu.visible = false
+
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_cancel") and not event.is_echo():
+		pause_menu.visible = true
+		pause_menu.set_process_unhandled_key_input(true)

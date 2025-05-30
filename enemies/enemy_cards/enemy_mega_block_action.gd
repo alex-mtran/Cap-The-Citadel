@@ -13,7 +13,7 @@ func is_performable() -> bool:
 	already_used = is_low
 		
 	return is_low
-		
+
 func perform_action() -> void:
 	if not enemy or not target:
 		return

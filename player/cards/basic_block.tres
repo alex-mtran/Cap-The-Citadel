@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://cba3lqwrm6ex5"]
 
-[ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://Assets/Images/Defense.png" id="1_fl4q1"]
+[ext_resource type="Texture2D" uid="uid://caxwpwlc5f2r5" path="res://assets/Images/Defense.png" id="1_fl4q1"]
 [ext_resource type="Script" uid="uid://c5hpve2fhj705" path="res://player/cards/basic_block.gd" id="2_tlphp"]
 
 [resource]
