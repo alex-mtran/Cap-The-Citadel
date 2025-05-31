@@ -1,6 +1,5 @@
 extends Card
 
-
 #Create a test to see if the basic block works
 #test
 # func test_basic_attack_does_it_work()
@@ -13,5 +12,6 @@ extends Card
 	
 func apply_effects(targets: Array[Node]) -> void:
 	var block_effect := BlockEffect.new()
-	block_effect.amount = 3
+	var total_block = 3 + GameManager.get_defense_bonus()
+	block_effect.amount = total_block
 	block_effect.execute(targets)

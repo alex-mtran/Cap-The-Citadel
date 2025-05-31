@@ -3,15 +3,23 @@ extends Area2D
 
 const ARROW_OFFSET := -15
 
+var goblin : String = "res://enemies/goblin/goblin.tres"
+var orc : String = "res://enemies/orc/orc.tres"
+var minotaur : String = "res://enemies/minotaur/minotaur.tres"
+
+var enemies = [
+	goblin, # Level 1
+	orc, # Level 2
+	minotaur # Level 3
+]
+
 @export var stats: Enemy_Stats : set = set_enemy_stats
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var arrow: Sprite2D = $Arrow
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
-
-
-
+@onready var sfx_enemy: AudioStreamPlayer = $HitSFX
 
 var enemy_action_picker: Enemy_Action_Picker
 var current_action: Enemy_Action : set = set_current_action
@@ -20,13 +28,17 @@ func set_current_action(value: Enemy_Action) -> void:
 	current_action = value
 	if current_action:
 		intent_ui.update_intent(current_action.intent)
-	
+
 # Test
 # func _ready() -> void:
 # 	await get_tree().create_timer(2).timeout
 # 	take_damage(6)
 # 	stats.block += 8
-			
+
+func _ready() -> void:
+	var curr_enemy = enemies[Events.level_number - 1]
+	stats = load(curr_enemy)
+
 func set_enemy_stats(value: Enemy_Stats) -> void:
 	stats = value.create_instance()
 
@@ -35,6 +47,7 @@ func set_enemy_stats(value: Enemy_Stats) -> void:
 		stats.stats_changed.connect(update_action)
 
 	update_enemy()
+
 func setup_ai() -> void: 
 	if enemy_action_picker:
 		enemy_action_picker.queue_free()
@@ -57,7 +70,6 @@ func update_action() -> void:
 	if new_conditional_action and current_action != new_conditional_action:
 		current_action = new_conditional_action
 
-
 func update_enemy() -> void:
 	if not stats is Stats:
 		return
@@ -75,8 +87,10 @@ func do_turn() -> void:
 	if not current_action:
 		return
 	current_action.perform_action()
-	
+
 func take_damage(damage: int) -> void:
+	sfx_enemy.play()
+	
 	if stats.health <= 0:
 		return
 
@@ -102,6 +116,3 @@ func _on_area_entered(_area: Area2D) -> void:
 
 func _on_area_exited(_area: Area2D) -> void:
 	arrow.hide()
-
-	
-	

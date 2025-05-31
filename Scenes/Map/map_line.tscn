@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://w4bwxlkkgeaw"]
+
+[ext_resource type="Texture2D" uid="uid://dq5kaepmys1w1" path="res://Assets/Images/thinTile.png" id="1_a4qki"]
+
+[node name="MapLine" type="Line2D"]
+texture_repeat = 2
+width = 2.0
+texture = ExtResource("1_a4qki")
+texture_mode = 1

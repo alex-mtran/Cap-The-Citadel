@@ -37,7 +37,7 @@ func _on_pressed() -> void:
 		var close_btn = Button.new()
 		close_btn.text = "X"
 		close_btn.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-		close_btn.custom_minimum_size = Vector2(30, 20) # Make button a decent size
+		close_btn.custom_minimum_size = Vector2(30, 20)
 		close_btn.pressed.connect(func(): 
 			popup.hide()
 			var hand = battle_ui.get_node("Hand")

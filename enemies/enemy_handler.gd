@@ -1,6 +1,7 @@
 class_name EnemyHandler
 extends Node2D
 
+
 func _ready() -> void:
 	Events.enemy_action_completed.connect(_on_enemy_action_completed)
 	

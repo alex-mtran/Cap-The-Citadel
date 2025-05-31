@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c05e6fyxrggbq"]
+[gd_scene load_steps=20 format=3 uid="uid://c05e6fyxrggbq"]
 
 [ext_resource type="Script" uid="uid://cq3w68oaoydt" path="res://scripts/battle.gd" id="1_pf0ra"]
 [ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
@@ -9,29 +9,34 @@
 [ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://Scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
 [ext_resource type="Resource" uid="uid://bnkmb5m72tm3b" path="res://player/player.tres" id="4_7xoqm"]
 [ext_resource type="Script" uid="uid://bj061htiym2h6" path="res://enemies/enemy_handler.gd" id="4_n5y6x"]
-[ext_resource type="Resource" uid="uid://c2yiw5frbpxge" path="res://enemies/test_mob/enemy1.tres" id="5_n5y6x"]
 [ext_resource type="Script" uid="uid://bk2mqt3ureet2" path="res://scripts/ui/battle_ui.gd" id="7_7hbu7"]
 [ext_resource type="Script" uid="uid://c1owpfmte2hqi" path="res://player/player_handler.gd" id="8_l0ske"]
 [ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
-[ext_resource type="Texture2D" uid="uid://bk53h5kvthog1" path="res://Assets/Images/trashcan.jpg" id="13_xmk5i"]
+[ext_resource type="Texture2D" uid="uid://0ddw7okee1vu" path="res://Assets/Images/trashcan.png" id="15_00njq"]
 [ext_resource type="Script" uid="uid://d3g82yskc5t3w" path="res://scripts/ui/GraveyardDeck.gd" id="15_7hbu7"]
 [ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://Scenes/ui/tooltip.tscn" id="15_l0ske"]
 [ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="16_7hbu7"]
+[ext_resource type="PackedScene" uid="uid://cqemdfm1k5ika" path="res://menus/pause_menu/pause_menu.tscn" id="17_00njq"]
+[ext_resource type="AudioStream" uid="uid://besbpkthsssj8" path="res://Assets/Sounds/Desert Theme.mp3" id="18_6xsll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
 
-[node name="Battle" type="Node2D"]
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_pf0ra")
 char_stats = ExtResource("4_7xoqm")
-metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(0.495827, 0.364216, 0.406827, 1)
+modulate = Color(0.27451, 0.196078, 0.54902, 1)
 scale = Vector2(0.0406866, 0.0409039)
 texture = ExtResource("1_w7k78")
 centered = false
-metadata/_edit_lock_ = true
 
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -46,7 +51,6 @@ script = ExtResource("4_n5y6x")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_7xoqm")]
 position = Vector2(183, 83)
-stats = ExtResource("5_n5y6x")
 
 [node name="Player" parent="." instance=ExtResource("3_2cxp4")]
 position = Vector2(67, 81)
@@ -76,6 +80,14 @@ alignment = 1
 script = ExtResource("2_p1qf1")
 
 [node name="EnergyUI" parent="BattleUI" instance=ExtResource("12_ora22")]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.0
+offset_top = -9.0
+offset_right = 18.0
+offset_bottom = 9.0
+grow_vertical = 2
 char_stats = ExtResource("4_7xoqm")
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("15_l0ske")]
@@ -102,20 +114,45 @@ offset_left = -32.0
 offset_top = -28.984
 offset_right = 1088.0
 offset_bottom = 1131.02
-texture_normal = ExtResource("13_xmk5i")
+texture_normal = ExtResource("15_00njq")
 script = ExtResource("15_7hbu7")
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
 unique_name_in_owner = true
-anchors_preset = 3
+anchors_preset = 6
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -45.0
-offset_top = -59.0
-offset_bottom = -45.0
+offset_top = -7.0
+offset_bottom = 7.0
 grow_horizontal = 0
-grow_vertical = 0
+grow_vertical = 2
 theme = ExtResource("16_7hbu7")
 text = "End Turn"
+
+[node name="Options" type="Button" parent="BattleUI"]
+custom_minimum_size = Vector2(30, 12)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 12.0
+grow_horizontal = 0
+text = "Options"
+
+[node name="MuteButton" type="Button" parent="BattleUI"]
+offset_right = 30.0
+offset_bottom = 12.0
+text = "Mute"
+
+[node name="PauseMenu" parent="." instance=ExtResource("17_00njq")]
+visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_6xsll")
+parameters/looping = true
+
+[connection signal="pressed" from="BattleUI/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="BattleUI/MuteButton" to="BattleUI" method="_on_mute_pressed"]
