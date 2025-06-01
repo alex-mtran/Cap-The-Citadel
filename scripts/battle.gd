@@ -238,23 +238,35 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 	print("Attack upgrade selected, total bonus: +", GameManager.get_attack_bonus())
 	popup.queue_free()
 	
-	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	print(Events.debug_mode)
+	
+	if not Events.debug_mode:
+		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_defense_upgrade_selected(popup: Control) -> void:
 	GameManager.add_defense_bonus(1)
 	print("Defense upgrade selected, total bonus: +", GameManager.get_defense_bonus())
 	popup.queue_free()
 	
-	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	print(Events.debug_mode)
+	
+	if not Events.debug_mode:
+		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_restart_battle() -> void:
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
-	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	print(Events.debug_mode)
+	
+	if not Events.debug_mode:
+		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 # Options button
 func _on_options_pressed() -> void:

@@ -1,7 +1,7 @@
 extends Control
 
-const MAP_SCENE : PackedScene = preload("res://scenes/Map/map.tscn")
-const BATTLE_SCENE : PackedScene = preload("res://scenes/Battle.tscn")
+const MAP_SCENE : PackedScene = preload("res://Scenes/Map/map.tscn")
+const BATTLE_SCENE : PackedScene = preload("res://Scenes/Battle.tscn")
 @onready var start_button: Button = %StartButton
 @onready var options_button: Button = %OptionsButton
 @onready var load_button: Button = %LoadButton
@@ -14,6 +14,9 @@ var in_options : bool = false
 
 
 func _ready() -> void:
+	if not Events.fake_game_mode:
+		Events.debug_mode = false
+	
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 
 func _on_start_pressed():

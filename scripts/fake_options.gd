@@ -1,6 +1,8 @@
 extends Control
 
 func _ready() -> void:
+	Events.debug_mode = true
+	
 	if not MainMusic.playing:
 		MainMusic.play()
 	
