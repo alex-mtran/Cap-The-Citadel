@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://p0h62oj1u1bm"]
+[gd_scene load_steps=6 format=3 uid="uid://p0h62oj1u1bm"]
 
 [ext_resource type="Script" uid="uid://b1swrgcqrplms" path="res://player/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bhoj33qbtye4r" path="res://Assets/Images/Player.png" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://8bmg631rmc0t" path="res://Scenes/ui/stats_ui.tscn" id="2_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://ctd5f21vcvlim" path="res://Assets/Sounds/sfx/damage_taken.mp3" id="4_yw30f"]
+[ext_resource type="PackedScene" uid="uid://b4c211s7mskc5" path="res://Scenes/ui/update_ui.tscn" id="5_qjkh3"]
 
 [node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_i3pqv")
@@ -19,3 +20,9 @@ offset_bottom = 25.0
 [node name="HitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yw30f")
 bus = &"SFX"
+
+[node name="UpdateUI" parent="." instance=ExtResource("5_qjkh3")]
+offset_left = -33.0
+offset_top = -44.0
+offset_right = 54.0
+offset_bottom = -4.0
