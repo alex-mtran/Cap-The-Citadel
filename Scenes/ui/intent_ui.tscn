@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://harmeycvk1an"]
 
-[ext_resource type="Script" uid="uid://cuvgiav7y2pnw" path="res://scenes/ui/intent_ui.gd" id="1_i1t1r"]
-[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="1_uw103"]
-[ext_resource type="FontFile" uid="uid://c5k7h2skd5um3" path="res://assets/Fonts/Not Jam Chunky Sans 6.ttf" id="2_rdgft"]
+[ext_resource type="Script" uid="uid://cuvgiav7y2pnw" path="res://Scenes/ui/intent_ui.gd" id="1_i1t1r"]
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://Assets/Images/Attack.png" id="1_uw103"]
+[ext_resource type="FontFile" uid="uid://c5k7h2skd5um3" path="res://Assets/Fonts/Not Jam Chunky Sans 6.ttf" id="2_rdgft"]
 
 [node name="IntentUI" type="HBoxContainer"]
 anchors_preset = 5
