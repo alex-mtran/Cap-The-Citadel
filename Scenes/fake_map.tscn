@@ -81,6 +81,31 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Menu"
 
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -31.0
+offset_right = 63.0
+grow_vertical = 0
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -31.0
+offset_right = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Load"
+
 [node name="CongratsLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -102,3 +127,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="Level2_Button" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="Level3_Button" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_pressed"]

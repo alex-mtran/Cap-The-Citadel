@@ -47,3 +47,11 @@ func _on_level_3_pressed() -> void:
 # Menu button
 func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/fake_menu.tscn")
+
+# Save button
+func _on_save_pressed() -> void:
+	print("Saved game progress")
+
+# Load button
+func _on_load_pressed() -> void:
+	print("Loaded game progress")
