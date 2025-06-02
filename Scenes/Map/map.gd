@@ -22,6 +22,12 @@ func _ready() -> void:
 	
 	print("Debug mode: " + str(Events.debug_mode))
 	
+	if not MainMusic.playing:
+		MainMusic.play()
+	
+	if BattleMusic.playing:
+		BattleMusic.stop()
+	
 	# Calculate the vertical camera boundary based on map height
 	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.FLOORS - 1)
 	if not GameState.map_generated:

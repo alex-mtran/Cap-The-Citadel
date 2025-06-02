@@ -18,6 +18,12 @@ func _ready() -> void:
 	
 	print("Debug mode: " + str(Events.debug_mode))
 	
+	if not MainMusic.playing:
+		MainMusic.play()
+	
+	if BattleMusic.playing:
+		BattleMusic.stop()
+	
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 
 func _on_start_pressed():

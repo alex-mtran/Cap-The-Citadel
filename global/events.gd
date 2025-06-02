@@ -29,3 +29,7 @@ var debug_mode := false
 
 # Map-related Events
 signal map_exited(room: Room)
+
+# SQLite Database
+var database: SQLite
+var database_created := false

@@ -11,6 +11,23 @@ func _ready() -> void:
 	
 	if BattleMusic.playing:
 		BattleMusic.stop()
+	
+	if not Events.database_created:
+		Events.database = SQLite.new()
+		Events.database.path = "res://data.db"
+		Events.database.open_db()
+		
+		var table = {
+			"id": {"data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true},
+			"curr_level_number": {"data_type": "int"},
+			"max_level_unlocked": {"data_type": "int"},
+			"attack_damage_bonus": {"data_type": "int"},
+			"defense_armor_bonus": {"data_type": "int"}
+		}
+		
+		Events.database.create_table("progress", table)
+		
+		Events.database_created = true
 
 # Play button
 func _on_play_pressed() -> void:
