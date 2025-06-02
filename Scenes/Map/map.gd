@@ -18,8 +18,9 @@ var last_room: Room  # Reference to the last visited room
 var camera_edge_y: float  # Stores vertical camera boundary position
 
 func _ready() -> void:
-	if not Events.fake_game_mode:
-		Events.debug_mode = false
+	Events.debug_mode = false
+	
+	print("Debug mode: " + str(Events.debug_mode))
 	
 	# Calculate the vertical camera boundary based on map height
 	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.FLOORS - 1)

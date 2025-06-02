@@ -15,6 +15,8 @@ var in_options = false
 
 func _ready() -> void:
 	# Temp code because normally we would want to keep health, deck, gold between battles
+	print("Debug mode: " + str(Events.debug_mode))
+	
 	if MainMusic.playing:
 		MainMusic.stop()
 	
@@ -240,7 +242,7 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 	popup.queue_free()
 	print("_on_attack_upgrade_selected: Size now:", GameState.map_data.size())
 
-	print(Events.debug_mode)
+	print("Debug mode: " + str(Events.debug_mode))
 	
 	if Events.curr_level_number == Events.max_level_unlocked:
 		Events.max_level_unlocked += 1
@@ -255,7 +257,7 @@ func _on_defense_upgrade_selected(popup: Control) -> void:
 	print("Defense upgrade selected, total bonus: +", GameManager.get_defense_bonus())
 	popup.queue_free()
 	
-	print(Events.debug_mode)
+	print("Debug mode: " + str(Events.debug_mode))
 	
 	if Events.curr_level_number == Events.max_level_unlocked:
 		Events.max_level_unlocked += 1
@@ -269,7 +271,7 @@ func _on_restart_battle() -> void:
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
-	print(Events.debug_mode)
+	print("Debug mode: " + str(Events.debug_mode))
 	
 	if not Events.debug_mode:
 		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")

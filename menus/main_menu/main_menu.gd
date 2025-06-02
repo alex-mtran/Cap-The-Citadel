@@ -14,8 +14,9 @@ var in_options : bool = false
 
 
 func _ready() -> void:
-	if not Events.fake_game_mode:
-		Events.debug_mode = false
+	Events.debug_mode = false
+	
+	print("Debug mode: " + str(Events.debug_mode))
 	
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 

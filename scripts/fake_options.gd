@@ -3,7 +3,10 @@ extends Control
 @onready var reset_text: Label = $ResetLabel
 
 func _ready() -> void:
+	Events.fake_game_mode = true
 	Events.debug_mode = true
+	
+	print("Debug mode: " + str(Events.debug_mode))
 	
 	if not MainMusic.playing:
 		MainMusic.play()

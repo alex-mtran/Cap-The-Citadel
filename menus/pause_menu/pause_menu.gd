@@ -23,7 +23,7 @@ func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_map_pressed() -> void:
-	print(Events.debug_mode)
+	print("Debug mode: " + str(Events.debug_mode))
 	
 	if not Events.debug_mode:
 		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
