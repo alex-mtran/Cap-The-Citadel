@@ -29,6 +29,7 @@ GameManager="*res://global/game_manager.gd"
 SettingsSignalBus="*res://global/settings_signal_bus.gd"
 SettingsContainer="*res://global/settings_data_container.gd"
 SaveManager="*res://global/save_manager.gd"
+GameState="*res://scripts/GameState.gd"
 
 [display]
 

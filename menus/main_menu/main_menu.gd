@@ -2,6 +2,8 @@ extends Control
 
 const MAP_SCENE : PackedScene = preload("res://scenes/Map/map.tscn")
 const BATTLE_SCENE : PackedScene = preload("res://scenes/Battle.tscn")
+
+#@onready var map: Map = $Map
 @onready var start_button: Button = %StartButton
 @onready var options_button: Button = %OptionsButton
 @onready var load_button: Button = %LoadButton
@@ -17,7 +19,15 @@ func _ready() -> void:
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 
 func _on_start_pressed():
+	# Reset everything before starting a new run
+	GameState.map_generated = false
+	GameState.map_data.clear()
+	GameState.floors_climbed = 0
+	GameState.last_room = null
+
 	get_tree().change_scene_to_packed(MAP_SCENE)
+	print("main_menu.gd: Starting new game, cleared map_data. Size now:", GameState.map_data.size())
+
 
 func _on_options_pressed() -> void:
 	in_options = true
