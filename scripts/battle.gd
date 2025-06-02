@@ -76,6 +76,7 @@ func start_battle(stats: CharacterStats) -> void:
 	#battle_ended = false
 	enemy_handler.reset_enemy_actions()
 	print("Battle has started!")
+	print("start_battle: Starting new game. Size now:", GameState.map_data.size())
 	print("Current bonuses: Attack: +", GameManager.get_attack_bonus(), " Defense: +", GameManager.get_defense_bonus())
 	player_handler.start_battle(stats)
 
@@ -237,7 +238,8 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 	GameManager.add_attack_bonus(1)
 	print("Attack upgrade selected, total bonus: +", GameManager.get_attack_bonus())
 	popup.queue_free()
-	
+	print("_on_attack_upgrade_selected: Size now:", GameState.map_data.size())
+
 	print(Events.debug_mode)
 	
 	if not Events.debug_mode:

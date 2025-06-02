@@ -112,6 +112,8 @@ text = "Exit"
 visible = false
 layout_mode = 1
 
+[node name="CurrentView" type="Node" parent="."]
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/LoadButton" to="." method="_on_load_pressed"]

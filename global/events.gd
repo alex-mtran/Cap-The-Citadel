@@ -25,3 +25,6 @@ var level_number = 1
 # Debug flags for testing fake game load/save using database
 var fake_game_mode := false
 var debug_mode := false
+
+# Map-related Events
+signal map_exited(room: Room)
