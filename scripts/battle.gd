@@ -242,6 +242,9 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 
 	print(Events.debug_mode)
 	
+	if Events.curr_level_number == Events.max_level_unlocked:
+		Events.max_level_unlocked += 1
+	
 	if not Events.debug_mode:
 		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
 	else:
@@ -253,6 +256,9 @@ func _on_defense_upgrade_selected(popup: Control) -> void:
 	popup.queue_free()
 	
 	print(Events.debug_mode)
+	
+	if Events.curr_level_number == Events.max_level_unlocked:
+		Events.max_level_unlocked += 1
 	
 	if not Events.debug_mode:
 		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")

@@ -36,7 +36,7 @@ func set_current_action(value: Enemy_Action) -> void:
 # 	stats.block += 8
 
 func _ready() -> void:
-	var curr_enemy = enemies[Events.level_number - 1]
+	var curr_enemy = enemies[Events.curr_level_number - 1]
 	stats = load(curr_enemy)
 
 func set_enemy_stats(value: Enemy_Stats) -> void:

@@ -20,7 +20,8 @@ signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
 
 # Level information
-var level_number = 1
+var curr_level_number = 1
+var max_level_unlocked = 1
 
 # Debug flags for testing fake game load/save using database
 var fake_game_mode := false

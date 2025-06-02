@@ -81,6 +81,23 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Menu"
 
+[node name="CongratsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -32.0
+offset_right = 70.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congratulations! You beat the game!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Level1_Button" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Level2_Button" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="Level3_Button" to="." method="_on_level_3_pressed"]

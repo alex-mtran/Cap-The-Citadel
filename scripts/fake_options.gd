@@ -1,5 +1,7 @@
 extends Control
 
+@onready var reset_text: Label = $ResetLabel
+
 func _ready() -> void:
 	Events.debug_mode = true
 	
@@ -8,6 +10,8 @@ func _ready() -> void:
 	
 	if BattleMusic.playing:
 		BattleMusic.stop()
+	
+	reset_text.visible = false
 
 # Back button
 func _on_back_pressed() -> void:
@@ -19,3 +23,12 @@ func _on_mute_pressed() -> void:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	else:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+
+# Reset button
+func _on_reset_pressed() -> void:
+	Events.curr_level_number = 1
+	Events.max_level_unlocked = 1
+	GameManager.attack_damage_bonus = 0
+	GameManager.defense_armor_bonus = 0
+	
+	reset_text.visible = true
