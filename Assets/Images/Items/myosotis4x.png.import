@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck7wqkwamiohw"
-path="res://.godot/imported/myosotis4x.png-3008b7b17c7dd26a1d319c8064ecb0dd.ctex"
+path="res://.godot/imported/myosotis4x.png-2734415a7d8eb6a4606dfb4f38a202ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Items/myosotis4x.png"
-dest_files=["res://.godot/imported/myosotis4x.png-3008b7b17c7dd26a1d319c8064ecb0dd.ctex"]
+source_file="res://assets/Images/Items/myosotis4x.png"
+dest_files=["res://.godot/imported/myosotis4x.png-2734415a7d8eb6a4606dfb4f38a202ab.ctex"]
 
 [params]
 

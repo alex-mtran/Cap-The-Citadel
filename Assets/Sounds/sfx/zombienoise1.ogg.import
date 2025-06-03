@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://co8vhltobre7p"
-path="res://.godot/imported/zombienoise1.ogg-51bd525d33684f2ca5e8b66b1e778cb7.oggvorbisstr"
+path="res://.godot/imported/zombienoise1.ogg-e79d99d97d12cbfabf5aaa387c5b1dbd.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/Sounds/sfx/zombienoise1.ogg"
-dest_files=["res://.godot/imported/zombienoise1.ogg-51bd525d33684f2ca5e8b66b1e778cb7.oggvorbisstr"]
+source_file="res://assets/Sounds/sfx/zombienoise1.ogg"
+dest_files=["res://.godot/imported/zombienoise1.ogg-e79d99d97d12cbfabf5aaa387c5b1dbd.oggvorbisstr"]
 
 [params]
 

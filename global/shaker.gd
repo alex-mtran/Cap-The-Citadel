@@ -5,7 +5,7 @@ func shake(thing: Node2D, strength: float, duration: float = 0.2) -> void:
 		return
 	
 	var orig_pos:= thing.position
-	var shake_count = 10
+	var shake_count = 5
 	var tween := create_tween()
 	
 	for i in shake_count:

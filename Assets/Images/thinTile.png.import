@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq5kaepmys1w1"
-path="res://.godot/imported/thinTile.png-05cadd1bd3884f2e704e0e09d4192e95.ctex"
+path="res://.godot/imported/thinTile.png-2ae5d72576be7f11c54b0b159ac962f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/thinTile.png"
-dest_files=["res://.godot/imported/thinTile.png-05cadd1bd3884f2e704e0e09d4192e95.ctex"]
+source_file="res://assets/Images/thinTile.png"
+dest_files=["res://.godot/imported/thinTile.png-2ae5d72576be7f11c54b0b159ac962f0.ctex"]
 
 [params]
 
