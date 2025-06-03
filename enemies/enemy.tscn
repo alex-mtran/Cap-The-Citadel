@@ -40,6 +40,7 @@ offset_bottom = -6.0
 
 [node name="HitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_3t1x0")
+bus = &"SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
