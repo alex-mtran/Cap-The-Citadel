@@ -1,9 +1,11 @@
-extends Enemy_Action
+extends EnemyAction
 
 @export var block := 15
 @export var hp_threshold := 6
 
 var already_used := false
+
+
 
 func is_performable() -> bool:
 	if not enemy or already_used:

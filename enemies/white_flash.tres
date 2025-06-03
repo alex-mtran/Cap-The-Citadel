@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cb0bsjy4s30eh"]
+
+[ext_resource type="Shader" uid="uid://cn4idsrm7de1i" path="res://enemies/white_flash.gdshader" id="1_wl60p"]
+
+[resource]
+shader = ExtResource("1_wl60p")

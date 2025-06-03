@@ -34,7 +34,7 @@ script = ExtResource("2_b2fx7")
 damage = 12
 intent = SubResource("Resource_dxpeb")
 type = 1
-chance_weight = 1.0
+chance_weight = 3.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("5_7c8yy")
