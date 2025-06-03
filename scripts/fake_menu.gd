@@ -16,11 +16,11 @@ func _ready() -> void:
 	Events.database.open_db()
 	
 	var table = {
-		"id": {"data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true},
-		"curr_level_number": {"data_type": "int", "not_null": true},
-		"max_level_unlocked": {"data_type": "int", "not_null": true},
-		"attack_damage_bonus": {"data_type": "int", "not_null": true},
-		"defense_armor_bonus": {"data_type": "int", "not_null": true}
+		"id": {"data_type": "integer", "primary_key": true, "not_null": true, "auto_increment": true},
+		"curr_level_number": {"data_type": "integer", "not_null": true},
+		"max_level_unlocked": {"data_type": "integer", "not_null": true},
+		"attack_damage_bonus": {"data_type": "integer", "not_null": true},
+		"defense_armor_bonus": {"data_type": "integer", "not_null": true}
 	}
 	
 	Events.database.create_table("progress", table)

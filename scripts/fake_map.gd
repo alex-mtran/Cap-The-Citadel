@@ -70,7 +70,7 @@ func _on_save_pressed() -> void:
 	var save_query = """
 		INSERT OR REPLACE INTO 
 		progress(id, curr_level_number, max_level_unlocked, attack_damage_bonus, defense_armor_bonus) 
-		VALUES(1, ?, ?, ?, ?);
+		VALUES(0, ?, ?, ?, ?);
 	"""
 	
 	var save_args = [
@@ -95,10 +95,6 @@ func _on_save_pressed() -> void:
 
 # Load button
 func _on_load_pressed() -> void:
-	var load_query = """
-		SELECT * FROM progress WHERE id = 1;
-	"""
-	
 	var result = Events.database.select_rows("progress", "id = 1", ["*"])
 	
 	if result.size() > 0:
