@@ -12,7 +12,7 @@ func _ready() -> void:
 		BattleMusic.stop()
 	
 	Events.database = SQLite.new()
-	Events.database.path = "res://data.db"
+	Events.database.path = "res://database/data.db"
 	Events.database.open_db()
 	
 	var table = {

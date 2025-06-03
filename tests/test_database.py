@@ -2,7 +2,7 @@ import sqlite3
 import unittest
 
 # Connect database containing progress table which may or may not have data
-con = sqlite3.connect("data.db")
+con = sqlite3.connect("./database/data.db")
 curs = con.cursor()
 print("Database connected")
 
