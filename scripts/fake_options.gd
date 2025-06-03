@@ -3,7 +3,6 @@ extends Control
 @onready var reset_text: Label = $ResetLabel
 
 func _ready() -> void:
-	Events.fake_game_mode = true
 	Events.debug_mode = true
 	
 	print("Debug mode: " + str(Events.debug_mode))
@@ -33,5 +32,7 @@ func _on_reset_pressed() -> void:
 	Events.max_level_unlocked = 1
 	GameManager.attack_damage_bonus = 0
 	GameManager.defense_armor_bonus = 0
+	
+	Events.database.delete_rows("progress", "")
 	
 	reset_text.visible = true

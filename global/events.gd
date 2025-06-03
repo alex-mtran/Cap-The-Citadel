@@ -23,8 +23,7 @@ signal enemy_turn_ended
 var curr_level_number = 1
 var max_level_unlocked = 1
 
-# Debug flags for testing fake game load/save using database
-var fake_game_mode := false
+# Debug flag for testing fake game load/save using database
 var debug_mode := false
 
 # Map-related Events
@@ -32,4 +31,7 @@ signal map_exited(room: Room)
 
 # SQLite Database
 var database: SQLite
-var database_created := false
+
+# Save and load flags
+var saved_game := false
+var loaded_game := false

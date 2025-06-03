@@ -1,7 +1,6 @@
 extends Control
 
 func _ready() -> void:
-	Events.fake_game_mode = true
 	Events.debug_mode = true
 	
 	print("Debug mode: " + str(Events.debug_mode))
@@ -12,22 +11,19 @@ func _ready() -> void:
 	if BattleMusic.playing:
 		BattleMusic.stop()
 	
-	if not Events.database_created:
-		Events.database = SQLite.new()
-		Events.database.path = "res://data.db"
-		Events.database.open_db()
-		
-		var table = {
-			"id": {"data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true},
-			"curr_level_number": {"data_type": "int"},
-			"max_level_unlocked": {"data_type": "int"},
-			"attack_damage_bonus": {"data_type": "int"},
-			"defense_armor_bonus": {"data_type": "int"}
-		}
-		
-		Events.database.create_table("progress", table)
-		
-		Events.database_created = true
+	Events.database = SQLite.new()
+	Events.database.path = "res://data.db"
+	Events.database.open_db()
+	
+	var table = {
+		"id": {"data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true},
+		"curr_level_number": {"data_type": "int", "not_null": true},
+		"max_level_unlocked": {"data_type": "int", "not_null": true},
+		"attack_damage_bonus": {"data_type": "int", "not_null": true},
+		"defense_armor_bonus": {"data_type": "int", "not_null": true}
+	}
+	
+	Events.database.create_table("progress", table)
 
 # Play button
 func _on_play_pressed() -> void:
@@ -39,4 +35,5 @@ func _on_options_pressed() -> void:
 
 # Quit button
 func _on_quit_pressed() -> void:
+	Events.database.close_db()
 	get_tree().quit()

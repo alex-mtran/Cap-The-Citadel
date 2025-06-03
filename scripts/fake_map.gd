@@ -6,9 +6,10 @@ const BATTLE_SCENE = preload("res://Scenes/Battle.tscn")
 @onready var level_2_button: Button = $Level2_Button
 @onready var level_3_button: Button = $Level3_Button
 @onready var congratulations_text: Label = $CongratsLabel
+@onready var save_text: Label = $SaveLabel
+@onready var load_text: Label = $LoadLabel
 
 func _ready() -> void:
-	Events.fake_game_mode = true
 	Events.debug_mode = true
 	
 	print("Debug mode: " + str(Events.debug_mode))
@@ -28,30 +29,91 @@ func _ready() -> void:
 		congratulations_text.visible = false
 	elif Events.max_level_unlocked == 3:
 		congratulations_text.visible = false
+	
+	if Events.saved_game:
+		load_text.visible = false
+	elif Events.loaded_game:
+		save_text.visible = false
+	else:
+		save_text.visible = false
+		load_text.visible = false
 
 # Level 1 button
 func _on_level_1_pressed() -> void:
 	Events.curr_level_number = 1
+	Events.saved_game = false
+	Events.loaded_game = false
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
 
 # Level 2 button
 func _on_level_2_pressed() -> void:
 	Events.curr_level_number = 2
+	Events.saved_game = false
+	Events.loaded_game = false
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
 
 # Level 3 button
 func _on_level_3_pressed() -> void:
 	Events.curr_level_number = 3
+	Events.saved_game = false
+	Events.loaded_game = false
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
 
 # Menu button
 func _on_menu_pressed() -> void:
+	Events.saved_game = false
+	Events.loaded_game = false
 	get_tree().change_scene_to_file("res://Scenes/fake_menu.tscn")
 
 # Save button
 func _on_save_pressed() -> void:
+	var save_query = """
+		INSERT OR REPLACE INTO 
+		progress(id, curr_level_number, max_level_unlocked, attack_damage_bonus, defense_armor_bonus) 
+		VALUES(1, ?, ?, ?, ?);
+	"""
+	
+	var save_args = [
+		Events.curr_level_number,
+		Events.max_level_unlocked,
+		GameManager.attack_damage_bonus,
+		GameManager.defense_armor_bonus
+	]
+	
+	Events.database.query_with_bindings(save_query, save_args)
+	
+	get_tree().reload_current_scene()
+	
+	Events.saved_game = true
+	Events.loaded_game = false
+	
 	print("Saved game progress")
+	print("Current level number: " + str(Events.curr_level_number))
+	print("Maximum level unlocked: " + str(Events.max_level_unlocked))
+	print("Attack damage bonus: " + str(GameManager.attack_damage_bonus))
+	print("Defense armor bonus: " + str(GameManager.defense_armor_bonus))
 
 # Load button
 func _on_load_pressed() -> void:
+	var load_query = """
+		SELECT * FROM progress WHERE id = 1;
+	"""
+	
+	var result = Events.database.select_rows("progress", "id = 1", ["*"])
+	
+	if result.size() > 0:
+		Events.curr_level_number = result[0]["curr_level_number"]
+		Events.max_level_unlocked = result[0]["max_level_unlocked"]
+		GameManager.attack_damage_bonus = result[0]["attack_damage_bonus"]
+		GameManager.defense_armor_bonus = result[0]["defense_armor_bonus"]
+	
+	get_tree().reload_current_scene()
+	
+	Events.saved_game = false
+	Events.loaded_game = true
+	
 	print("Loaded game progress")
+	print("Current level number: " + str(Events.curr_level_number))
+	print("Maximum level unlocked: " + str(Events.max_level_unlocked))
+	print("Attack damage bonus: " + str(GameManager.attack_damage_bonus))
+	print("Defense armor bonus: " + str(GameManager.defense_armor_bonus))
