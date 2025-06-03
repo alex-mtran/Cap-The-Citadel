@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbt4be5dxw5b1"]
 
-[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_8gy84"]
+[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_8gy84"]
 [ext_resource type="Script" uid="uid://dmpm3dn74psk0" path="res://menus/main_menu/main_menu.gd" id="1_yjgyn"]
-[ext_resource type="FontFile" uid="uid://c5k7h2skd5um3" path="res://assets/Fonts/Not Jam Chunky Sans 6.ttf" id="2_ij7vn"]
+[ext_resource type="FontFile" uid="uid://c5k7h2skd5um3" path="res://Assets/Fonts/Not Jam Chunky Sans 6.ttf" id="2_ij7vn"]
 [ext_resource type="PackedScene" uid="uid://7q68kbobko43" path="res://menus/options_menu.tscn" id="4_rqbgu"]
 
 [node name="MainMenu" type="Control"]

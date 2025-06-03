@@ -36,6 +36,11 @@ func _ready() -> void:
 	Events.player_died.connect(_on_player_died)
 	start_battle(new_stats)
 
+	# test case: set all health to 1
+	#player.stats.health = 1
+	#for enemy in enemy_handler.get_children():
+		#enemy.stats.health = 1
+
 	# safe quitter
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

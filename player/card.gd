@@ -46,3 +46,6 @@ func play(targets: Array[Node], char_stats: CharacterStats) -> void:
 # Virtual function
 func apply_effects(_targets: Array[Node]) -> void:
 	pass
+
+func dynamic_tooltip() -> String:
+	return tooltip_text
