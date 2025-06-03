@@ -95,7 +95,7 @@ func _on_save_pressed() -> void:
 
 # Load button
 func _on_load_pressed() -> void:
-	var result = Events.database.select_rows("progress", "id = 1", ["*"])
+	var result = Events.database.select_rows("progress", "id = 0", ["*"])
 	
 	if result.size() > 0:
 		Events.curr_level_number = result[0]["curr_level_number"]

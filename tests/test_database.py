@@ -1,6 +1,9 @@
 import sqlite3
 import unittest
 
+con = sqlite3.connect("data.db")
+curs = con.cursor()
+
 class TestDatabase(unittest.TestCase):
     def test_1_insert_db(self):
         insert_result_before = curs.execute("SELECT * FROM progress;").fetchall()
@@ -24,8 +27,6 @@ class TestDatabase(unittest.TestCase):
         self.assertEqual(len(delete_result_after), len(delete_result_before) - 1)
 
 if __name__ == "__main__":
-    con = sqlite3.connect("data.db")
-    curs = con.cursor()
     print("Database connected")
     schema = curs.execute("PRAGMA table_info(progress);").fetchall()
     print("Schema for progress table: " + str(schema))

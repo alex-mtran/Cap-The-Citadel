@@ -34,5 +34,6 @@ func _on_reset_pressed() -> void:
 	GameManager.defense_armor_bonus = 0
 	
 	Events.database.delete_rows("progress", "")
+	Events.database.drop_table("progress")
 	
 	reset_text.visible = true

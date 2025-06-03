@@ -16,7 +16,7 @@ func _ready() -> void:
 	Events.database.open_db()
 	
 	var table = {
-		"id": {"data_type": "integer", "primary_key": true, "not_null": true, "auto_increment": true},
+		"id": {"data_type": "integer", "primary_key": true, "not_null": true},
 		"curr_level_number": {"data_type": "integer", "not_null": true},
 		"max_level_unlocked": {"data_type": "integer", "not_null": true},
 		"attack_damage_bonus": {"data_type": "integer", "not_null": true},
