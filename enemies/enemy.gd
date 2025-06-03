@@ -4,14 +4,16 @@ extends Area2D
 const ARROW_OFFSET := -15
 const WHITE_FLASH = preload("res://enemies/white_flash.tres")
 
+var coward : String = "res://enemies/coward/coward.tres"
 var goblin : String = "res://enemies/goblin/goblin.tres"
 var orc : String = "res://enemies/orc/orc.tres"
 var minotaur : String = "res://enemies/minotaur/minotaur.tres"
 
 var enemies = [
-	goblin, # Level 1
-	orc, # Level 2
-	minotaur # Level 3
+	coward, # Level 1
+	goblin, # Level 2
+	orc, # Level 3
+	minotaur # Level 4
 ]
 
 @export var stats: Enemy_Stats : set = set_enemy_stats
@@ -22,10 +24,10 @@ var enemies = [
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
 @onready var sfx_enemy: AudioStreamPlayer = $HitSFX
 
-var enemy_action_picker: Enemy_Action_Picker
-var current_action: Enemy_Action : set = set_current_action
+var enemy_action_picker: EnemyActionPicker
+var current_action: EnemyAction : set = set_current_action
 
-func set_current_action(value: Enemy_Action) -> void:
+func set_current_action(value: EnemyAction) -> void:
 	current_action = value
 	if current_action:
 		intent_ui.update_intent(current_action.intent)
@@ -53,7 +55,7 @@ func setup_ai() -> void:
 	if enemy_action_picker:
 		enemy_action_picker.queue_free()
 		
-	var new_action_picker: Enemy_Action_Picker = stats.ai.instantiate()
+	var new_action_picker: EnemyActionPicker = stats.ai.instantiate()
 	add_child(new_action_picker)
 	enemy_action_picker = new_action_picker
 	enemy_action_picker.enemy = self

@@ -17,7 +17,10 @@ func _ready() -> void:
 	# Temp code because normally we would want to keep health, deck, gold between battles
 	if MainMusic.playing:
 		MainMusic.stop()
-	
+
+	if BattleMusic.playing:
+		BattleMusic.stop()
+
 	if not BattleMusic.playing:
 		BattleMusic.play()
 	
@@ -78,10 +81,8 @@ func _handle_window_close() -> void:
 	get_tree().quit()
 
 func start_battle(stats: CharacterStats) -> void:
-	#battle_ended = false
+	get_tree().paused = false
 	enemy_handler.reset_enemy_actions()
-	print("Battle has started!")
-	print("Current bonuses: Attack: +", GameManager.get_attack_bonus(), " Defense: +", GameManager.get_defense_bonus())
 	player_handler.start_battle(stats)
 
 func _on_enemies_child_order_changed() -> void: 
@@ -93,7 +94,8 @@ func _on_enemies_child_order_changed() -> void:
 			mute_button.visible = false
 
 		print("Victory!")
-		_show_victory_ui()
+		# _show_victory_ui()
+		Events.battle_over_screen_requested.emit("Victorious!", BattleOverPanel.Type.WIN)
 		
 func _on_enemy_turn_ended() -> void:
 	#if not battle_ended:
@@ -108,7 +110,8 @@ func _on_player_died() -> void:
 		mute_button.visible = false
 
 	print("Game over!")
-	_show_game_over_ui()
+	# _show_game_over_ui()
+	Events.battle_over_screen_requested.emit("Game Over!", BattleOverPanel.Type.LOSE)
 
 func _show_victory_ui() -> void:
 	if battle_ui and is_instance_valid(battle_ui) and battle_ui.end_turn_button and is_instance_valid(battle_ui.end_turn_button):

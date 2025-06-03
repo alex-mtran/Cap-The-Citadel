@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://Scenes/ui/tooltip.tscn" id="15_l0ske"]
 [ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="16_7hbu7"]
 [ext_resource type="PackedScene" uid="uid://cqemdfm1k5ika" path="res://menus/pause_menu/pause_menu.tscn" id="17_00njq"]
-[ext_resource type="AudioStream" uid="uid://besbpkthsssj8" path="res://assets/Sounds/Desert Theme.mp3" id="18_6xsll"]
 [ext_resource type="Script" uid="uid://dwjlnx2uou8x" path="res://scripts/ui/red_flash.gd" id="19_b2l78"]
+[ext_resource type="PackedScene" uid="uid://6rm650x5m310" path="res://menus/battle_over/battle_over_panel.tscn" id="19_m7t4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
 size = Vector2(256, 100)
@@ -152,11 +152,6 @@ text = "Mute"
 layer = 3
 visible = false
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_6xsll")
-bus = &"Music"
-parameters/looping = true
-
 [node name="RedFlash" type="CanvasLayer" parent="."]
 layer = 2
 script = ExtResource("19_b2l78")
@@ -173,6 +168,12 @@ color = Color(1, 0.09, 0.071, 0)
 [node name="Timer" type="Timer" parent="RedFlash"]
 wait_time = 0.1
 one_shot = true
+
+[node name="BattleOverLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="BattleOverPanel" parent="BattleOverLayer" instance=ExtResource("19_m7t4b")]
+visible = false
 
 [connection signal="pressed" from="BattleUI/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="BattleUI/MuteButton" to="BattleUI" method="_on_mute_pressed"]

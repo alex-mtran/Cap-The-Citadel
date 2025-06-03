@@ -33,10 +33,10 @@ offset_right = 46.0
 offset_bottom = 23.0
 
 [node name="IntentUI" parent="." instance=ExtResource("5_07tka")]
-offset_left = -15.0
-offset_top = -29.0
-offset_right = 25.0
-offset_bottom = -6.0
+offset_left = -18.0
+offset_top = -16.0
+offset_right = 22.0
+offset_bottom = 7.0
 
 [node name="HitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_3t1x0")

@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://blb7l3rvowvtn" path="res://assets/Sounds/enchanted tiki 86.mp3" id="1_yhdk3"]
 
 [node name="MainMusic" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_yhdk3")
 autoplay = true
 bus = &"Music"

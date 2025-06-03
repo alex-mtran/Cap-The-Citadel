@@ -126,4 +126,5 @@ func on_map_room_selected(room: Room) -> void:
 
 # Menu button
 func _on_menu_pressed() -> void:
+	GameManager.reset_upgrades()
 	get_tree().change_scene_to_file("res://menus/main_menu/main_menu.tscn")

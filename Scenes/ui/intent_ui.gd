@@ -1,8 +1,8 @@
 class_name IntentUI
 extends HBoxContainer
 
-@onready var icon: TextureRect = $Control/Icon
-@onready var label: Label = $Control/Label
+@onready var label: Label = $Control/HBoxContainer/Label
+@onready var icon: TextureRect = $Control/HBoxContainer/Icon
 
 
 func update_intent(intent: Intent) -> void:

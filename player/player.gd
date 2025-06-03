@@ -55,6 +55,7 @@ func take_damage(damage: int) -> void:
 
 			if stats.health <= 0:
 				Events.player_died.emit()
+				await get_tree().create_timer(0.1).timeout
 				queue_free()
 	)
 	
