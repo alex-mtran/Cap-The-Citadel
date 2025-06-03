@@ -15,3 +15,7 @@ func apply_effects(targets: Array[Node]) -> void:
 	var total_block = 3 + GameManager.get_defense_bonus()
 	block_effect.amount = total_block
 	block_effect.execute(targets)
+
+func dynamic_tooltip() -> String:
+	var total_block = 3 + GameManager.get_defense_bonus()
+	return "[center]Gain[color=\"0044ff\"] %d[/color] block.[/center]" % total_block
