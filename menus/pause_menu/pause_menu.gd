@@ -49,11 +49,3 @@ func on_exit_options_menu() -> void:
 
 func _on_back_pressed() -> void:
 	resume()
-
-func _unhandled_key_input(event):
-	if event.is_action_pressed("ui_cancel") and not event.is_echo():
-		if not in_options:
-			resume()
-		else:
-			on_exit_options_menu()
-		get_viewport().set_input_as_handled()

@@ -22,6 +22,19 @@ signal enemy_turn_ended
 
 # Battle-related events
 signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)
+signal battle_won
+
+# Map-related events
+signal map_exited
+
+# Campfire-related events
+signal campfire_exited
+
+# Battle Reward-related events
+signal battle_reward_exited
+
+# Treasure Room-related events
+signal treasure_room_exited
 
 # Level information
 var level_number = 1
@@ -31,7 +44,7 @@ var max_level_unlocked = 1
 var debug_mode := false
 
 # Map-related Events
-signal map_exited(room: Room)
+#signal map_exited(room: Room)
 
 # SQLite Database
 var database: SQLite

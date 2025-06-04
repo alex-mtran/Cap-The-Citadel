@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://dyou1m4oxq8yq"]
+
+[ext_resource type="Script" uid="uid://cuh4ylb8am2qa" path="res://player/card.gd" id="1_qhgpf"]
+[ext_resource type="Script" path="res://player/card_pile.gd" id="2_aa17i"]
+[ext_resource type="Resource" uid="uid://d0aghl475mgut" path="res://player/cards/aoe_attack.tres" id="2_n5k2a"]
+[ext_resource type="Resource" uid="uid://b1loeos780kqr" path="res://player/cards/basic_attack.tres" id="3_ykacb"]
+[ext_resource type="Resource" uid="uid://bapcvelfqmcg5" path="res://player/cards/true_strength.tres" id="4_h3m3j"]
+
+[resource]
+script = ExtResource("2_aa17i")
+cards = Array[ExtResource("1_qhgpf")]([ExtResource("2_n5k2a"), ExtResource("2_n5k2a"), ExtResource("2_n5k2a"), ExtResource("3_ykacb"), ExtResource("3_ykacb"), ExtResource("3_ykacb"), ExtResource("4_h3m3j"), ExtResource("4_h3m3j"), ExtResource("4_h3m3j")])

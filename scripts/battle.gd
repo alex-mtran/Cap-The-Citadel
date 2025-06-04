@@ -28,6 +28,7 @@ func _ready() -> void:
 	
 	options_button.visible = true
 	mute_button.visible = true
+
 	var new_stats: CharacterStats = char_stats.create_instance()
 	battle_ui.char_stats = new_stats
 	player.stats = new_stats
@@ -40,7 +41,8 @@ func _ready() -> void:
 	Events.player_hand_discarded.connect(enemy_handler.start_turn)
 	Events.player_died.connect(_on_player_died)
 	start_battle(new_stats)
-
+	battle_ui.initialize_card_pile_ui()
+	
 	# test case: set all health to 1
 	#player.stats.health = 1
 	#for enemy in enemy_handler.get_children():
@@ -126,8 +128,3 @@ func _on_options_pressed() -> void:
 
 func on_exit_options_menu() -> void:
 	pause_menu.visible = false
-
-func _unhandled_key_input(event):
-	if event.is_action_pressed("ui_cancel") and not event.is_echo():
-		pause_menu.visible = true
-		pause_menu.set_process_unhandled_key_input(true)
