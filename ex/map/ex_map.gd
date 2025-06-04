@@ -16,8 +16,12 @@ var floors_climbed: int
 var last_room: Room
 var camera_edge_y: float
 
-
 func _ready() -> void:
+	if not MainMusic.playing:
+		MainMusic.play()
+	
+	if BattleMusic.playing:
+		BattleMusic.stop()
 	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.FLOORS - 1)
 
 func _input(event: InputEvent) -> void:

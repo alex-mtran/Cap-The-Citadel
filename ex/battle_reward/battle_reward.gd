@@ -22,6 +22,12 @@ var card_rarity_weights := {
 
 
 func _ready() -> void:
+	if not MainMusic.playing:
+		MainMusic.play()
+	
+	if BattleMusic.playing:
+		BattleMusic.stop()
+	
 	for node: Node in rewards.get_children():
 		node.queue_free()
 

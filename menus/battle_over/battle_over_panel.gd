@@ -9,7 +9,7 @@ enum Type {WIN, LOSE}
 
 
 func _ready() -> void:
-	# continue_button.pressed.connect(_show_victory_ui)
+	continue_button.pressed.connect(_show_victory_ui)
 	continue_button.pressed.connect(func(): Events.battle_won.emit())
 	restart_button.pressed.connect(get_tree().reload_current_scene)
 	Events.battle_over_screen_requested.connect(show_screen)
@@ -145,22 +145,48 @@ func _on_attack_upgrade_selected(popup: Control) -> void:
 	print("Attack upgrade selected, total bonus: +", GameManager.get_attack_bonus())
 	popup.queue_free()
 	
+	if Events.level_number == Events.max_level_unlocked:
+		Events.max_level_unlocked += 1
+	
 	Events.level_number += 1
-	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	
+	get_tree().paused = false
+	
+	if not Events.debug_mode:
+		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_defense_upgrade_selected(popup: Control) -> void:
 	GameManager.add_defense_bonus(1)
 	print("Defense upgrade selected, total bonus: +", GameManager.get_defense_bonus())
 	popup.queue_free()
 	
+	if Events.level_number == Events.max_level_unlocked:
+		Events.max_level_unlocked += 1
+	
 	Events.level_number += 1
-	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	
+	get_tree().paused = false
+	
+	if not Events.debug_mode:
+		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_restart_battle() -> void:
 	print("restart pressed")
+	
+	get_tree().paused = false
+	
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
 	print("menu pressed")
-	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	
+	get_tree().paused = false
+	
+	if not Events.debug_mode:
+		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
