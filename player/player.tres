@@ -6,6 +6,9 @@
 
 [resource]
 script = ExtResource("2_6jtci")
+character_name = "CowboyDog"
+description = "Woof woof! (in yeehaw)"
+character_portrait = ExtResource("1_12o4t")
 starting_deck = ExtResource("3_f4qe5")
 cards_per_turn = 4
 max_energy = 3
