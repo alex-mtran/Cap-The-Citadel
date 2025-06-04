@@ -1,7 +1,14 @@
 class_name Room
 extends Resource
 
-enum Type {NOT_ASSIGNED, MONSTER}
+enum Type {
+	NOT_ASSIGNED, # 0
+	MONSTER, # 1
+	TREASURE, # 2
+	CAMPFIRE, # 3
+	SHOP, # 4
+	BOSS # 5
+}
 
 @export var type: Type
 @export var row: int
@@ -11,5 +18,4 @@ enum Type {NOT_ASSIGNED, MONSTER}
 @export var selected := false
 
 func _to_string() -> String:
-	return "%s (%s)" % [column, Type.keys()[type][0]]
-	
+	return "%s\t(%s)" % [column, Type.keys()[type][0]]

@@ -1,8 +1,7 @@
 class_name PauseMenu
 extends CanvasLayer
 
-@onready var restart: Button = %Restart
-@onready var map: Button = %Map
+@onready var restart_run: Button = %RestartRun
 @onready var options: Button = %Options
 @onready var options_menu: OptionsMenu = $OptionsMenu
 @onready var save: Button = %Save
@@ -18,14 +17,9 @@ func resume() -> void:
 	visible = false
 	set_process_unhandled_key_input(false)
 
-func _on_restart_pressed() -> void:
+func _on_restart_run_pressed() -> void:
 	resume()
 	get_tree().reload_current_scene()
-
-func _on_map_pressed() -> void:
-	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
-	print("go to map scene")
 
 func _on_options_pressed() -> void:
 	in_options = true

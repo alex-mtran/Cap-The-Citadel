@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dp2dp3ttyugou"]
 
 [ext_resource type="Script" uid="uid://dgodnag51ksig" path="res://Scenes/Map/map_room.gd" id="1_wn3tm"]
-[ext_resource type="Texture2D" uid="uid://cleh032sinlan" path="res://Assets/Images/monsterRoom.png" id="2_3cjej"]
+[ext_resource type="Texture2D" uid="uid://cleh032sinlan" path="res://assets/Images/monsterRoom.png" id="2_3cjej"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oc81s"]
-radius = 625.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_wn3tm"]
+radius = 150.0
 
 [sub_resource type="Animation" id="Animation_2rlq1"]
 length = 0.001
@@ -40,7 +40,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Visuals:scale")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
@@ -56,7 +56,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Visuals/Line2D:modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
@@ -90,27 +90,26 @@ _data = {
 position = Vector2(132, 72)
 scale = Vector2(0.08, 0.08)
 collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_wn3tm")
 
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Line2D" type="Line2D" parent="Visuals"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1.28746e-05, -7.58171e-05)
-scale = Vector2(6.81818, 6.81818)
-points = PackedVector2Array(-8, 4, 0, 8, 8, 4, 8, -4, 0, -8, -8, -4)
+position = Vector2(-6.56565, 15.8708)
+scale = Vector2(6.75683, 6.32259)
+points = PackedVector2Array(-25, -14.2857, -21.4286, 21.4286, 17.8571, 21.4286, 28.5714, -14.2857, 0, -32.1428, -25, -14.2857)
 closed = true
-width = 3.0
-default_color = Color(0.686862, 0.683064, 0.672728, 1)
+width = 2.0
+default_color = Color(1, 1, 1, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 position = Vector2(9.53674e-07, 0)
-scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_3cjej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.08, 0.08)
-shape = SubResource("CircleShape2D_oc81s")
+shape = SubResource("CircleShape2D_wn3tm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

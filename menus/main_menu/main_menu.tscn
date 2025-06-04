@@ -122,27 +122,30 @@ text = "Exit"
 visible = false
 layout_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Characters" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Characters"]
 position = Vector2(52, 82)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_oic2i")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="Characters"]
 position = Vector2(211, 69)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_t7kvd")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Sprite2D3" type="Sprite2D" parent="Characters"]
 position = Vector2(196, 90)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("7_8woyc")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Sprite2D4" type="Sprite2D" parent="Characters"]
 position = Vector2(227, 88)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("8_d1j5c")
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
+[node name="Sprite2D5" type="Sprite2D" parent="Characters"]
 position = Vector2(212, 105)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_pmi7g")

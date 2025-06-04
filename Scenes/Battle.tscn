@@ -111,7 +111,7 @@ theme = ExtResource("16_7hbu7")
 text = "End Turn"
 
 [node name="Options" type="Button" parent="BattleUI"]
-custom_minimum_size = Vector2(30, 12)
+custom_minimum_size = Vector2(40, 12)
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -129,7 +129,7 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -6.0
-offset_right = 30.0
+offset_right = 40.0
 offset_bottom = 6.0
 grow_vertical = 2
 text = "Mute"
