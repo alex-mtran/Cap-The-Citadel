@@ -38,3 +38,9 @@ func on_exit_options_menu() -> void:
 
 func _on_back_pressed() -> void:
 	resume()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and in_options:
+		on_exit_options_menu()
+	elif event.is_action_pressed("ui_cancel"):
+		hide()
