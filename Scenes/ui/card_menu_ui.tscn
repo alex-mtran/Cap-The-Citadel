@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsrdy6y4m3g5n"]
+[gd_scene load_steps=4 format=3 uid="uid://dsrdy6y4m3g5n"]
 
-[ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="1_3g652"]
 [ext_resource type="Script" uid="uid://cuc600doo4u1r" path="res://scripts/ui/card_menu_ui.gd" id="1_js5x3"]
 [ext_resource type="Resource" uid="uid://cba3lqwrm6ex5" path="res://player/cards/basic_block.tres" id="2_65jdr"]
-[ext_resource type="StyleBox" uid="uid://clmcex7tehm8k" path="res://themes/card_base_stylebox.tres" id="3_ql3o0"]
-[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="4_n6sa3"]
+[ext_resource type="PackedScene" uid="uid://cxd1y1sfrk2ua" path="res://Scenes/ui/card_visuals.tscn" id="3_msyty"]
 
 [node name="CardMenuUI" type="CenterContainer"]
 offset_right = 30.0
@@ -13,46 +11,8 @@ size_flags_horizontal = 3
 script = ExtResource("1_js5x3")
 card = ExtResource("2_65jdr")
 
-[node name="Visuals" type="Control" parent="."]
-custom_minimum_size = Vector2(30, 33)
+[node name="Visuals" parent="." instance=ExtResource("3_msyty")]
 layout_mode = 2
-theme = ExtResource("1_3g652")
-
-[node name="Panel" type="Panel" parent="Visuals"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = ExtResource("3_ql3o0")
-
-[node name="Cost" type="Label" parent="Visuals"]
-layout_mode = 0
-offset_right = 10.0
-offset_bottom = 10.0
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Icon" type="TextureRect" parent="Visuals"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("4_n6sa3")
-expand_mode = 1
-stretch_mode = 5
 
 [connection signal="gui_input" from="Visuals" to="." method="_on_visuals_gui_input"]
 [connection signal="mouse_entered" from="Visuals" to="." method="_on_visuals_mouse_entered"]

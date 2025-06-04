@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwr403v7a3guw" path="res://enemies/goblin/goblin_ai.tscn" id="1_0c8h7"]
 [ext_resource type="Texture2D" uid="uid://dsuk8gvpb1i1l" path="res://assets/Images/Enemies/goblin4x.png" id="1_if7ln"]
-[ext_resource type="Script" path="res://player/enemy_stats.gd" id="1_xn7l7"]
+[ext_resource type="Script" uid="uid://cehmtnyoet7hf" path="res://enemies/enemy_stats.gd" id="1_xn7l7"]
 
 [resource]
 script = ExtResource("1_xn7l7")

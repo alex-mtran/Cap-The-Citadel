@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4bsq2lxxoh02" path="res://assets/Images/Enemies/elder4x.png" id="1_35m8s"]
 [ext_resource type="PackedScene" uid="uid://ddspxygv7sb8d" path="res://enemies/coward/coward_ai.tscn" id="1_mdvxl"]
-[ext_resource type="Script" path="res://player/enemy_stats.gd" id="2_mdvxl"]
+[ext_resource type="Script" uid="uid://cehmtnyoet7hf" path="res://enemies/enemy_stats.gd" id="2_mdvxl"]
 
 [resource]
 script = ExtResource("2_mdvxl")

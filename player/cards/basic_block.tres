@@ -7,6 +7,7 @@
 script = ExtResource("2_tlphp")
 id = "block"
 type = 1
+rarity = 0
 target = 0
 cost = 1
 icon = ExtResource("1_fl4q1")

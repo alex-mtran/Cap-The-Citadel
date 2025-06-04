@@ -7,7 +7,7 @@ enum Target {PLAYER, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE}
 
 const RARITY_COLORS := {
 	Card.Rarity.COMMON: Color.GRAY,
-	Card.Rarity.UNCOMMON: Color.ALICE_BLUE,
+	Card.Rarity.UNCOMMON: Color.DEEP_SKY_BLUE,
 	Card.Rarity.RARE: Color.GOLD
 }
 

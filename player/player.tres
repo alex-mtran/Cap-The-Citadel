@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://bnkmb5m72tm3b"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=5 format=3 uid="uid://bnkmb5m72tm3b"]
 
 [ext_resource type="Texture2D" uid="uid://bhoj33qbtye4r" path="res://assets/Images/player.png" id="1_12o4t"]
 [ext_resource type="Script" uid="uid://clxxunef13jj5" path="res://player/character_stats.gd" id="2_6jtci"]
+[ext_resource type="Resource" uid="uid://dyou1m4oxq8yq" path="res://player/player_draftable_cards.tres" id="2_f4qe5"]
 [ext_resource type="Resource" uid="uid://cpb0gxmc1xhsh" path="res://player/starting_deck.tres" id="3_f4qe5"]
 
 [resource]
@@ -10,6 +11,7 @@ character_name = "CowboyDog"
 description = "Woof woof! (in yeehaw)"
 character_portrait = ExtResource("1_12o4t")
 starting_deck = ExtResource("3_f4qe5")
+draftable_cards = ExtResource("2_f4qe5")
 cards_per_turn = 4
 max_energy = 3
 max_health = 35
