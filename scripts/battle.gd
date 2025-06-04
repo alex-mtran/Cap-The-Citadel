@@ -15,6 +15,8 @@ var in_options = false
 
 func _ready() -> void:
 	# Temp code because normally we would want to keep health, deck, gold between battles
+	print("Debug mode: " + str(Events.debug_mode))
+	
 	if MainMusic.playing:
 		MainMusic.stop()
 
@@ -85,6 +87,9 @@ func _handle_window_close() -> void:
 func start_battle(stats: CharacterStats) -> void:
 	get_tree().paused = false
 	enemy_handler.reset_enemy_actions()
+	print("Battle has started!")
+	print("start_battle: Starting new game. Size now:", GameState.map_data.size())
+	print("Current bonuses: Attack: +", GameManager.get_attack_bonus(), " Defense: +", GameManager.get_defense_bonus())
 	player_handler.start_battle(stats)
 
 func _on_enemies_child_order_changed() -> void: 

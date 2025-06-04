@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b5c8d1raovytp"
-path="res://.godot/imported/shuffle.wav-64dab58e04ea2adfbae9b9b421f469e2.sample"
+path="res://.godot/imported/shuffle.wav-b8463cc8ffe4243025175a84a1fc2f5f.sample"
 
 [deps]
 
-source_file="res://assets/Sounds/CardSounds/shuffle.wav"
-dest_files=["res://.godot/imported/shuffle.wav-64dab58e04ea2adfbae9b9b421f469e2.sample"]
+source_file="res://Assets/Sounds/CardSounds/shuffle.wav"
+dest_files=["res://.godot/imported/shuffle.wav-b8463cc8ffe4243025175a84a1fc2f5f.sample"]
 
 [params]
 

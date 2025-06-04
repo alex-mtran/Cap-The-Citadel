@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://c05e6fyxrggbq"]
 
 [ext_resource type="Script" uid="uid://cq3w68oaoydt" path="res://scripts/battle.gd" id="1_pf0ra"]
-[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_w7k78"]
+[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="1_w7k78"]
 [ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="2_7xoqm"]
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://p0h62oj1u1bm" path="res://player/player.tscn" id="3_2cxp4"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://bk2mqt3ureet2" path="res://scripts/ui/battle_ui.gd" id="7_7hbu7"]
 [ext_resource type="Script" uid="uid://c1owpfmte2hqi" path="res://player/player_handler.gd" id="8_l0ske"]
 [ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
+[ext_resource type="Texture2D" uid="uid://0ddw7okee1vu" path="res://Assets/Images/trashcan.png" id="15_00njq"]
+[ext_resource type="Script" uid="uid://d3g82yskc5t3w" path="res://scripts/ui/GraveyardDeck.gd" id="15_7hbu7"]
 [ext_resource type="PackedScene" uid="uid://cqqdohhbhkbd6" path="res://Scenes/ui/card_pile_opener.tscn" id="14_jr0ro"]
 [ext_resource type="Texture2D" uid="uid://0ddw7okee1vu" path="res://assets/Images/trashcan.png" id="15_00njq"]
 [ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://Scenes/ui/tooltip.tscn" id="15_l0ske"]

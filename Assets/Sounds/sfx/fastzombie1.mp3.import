@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://d10mno4poggct"
-path="res://.godot/imported/fastzombie1.mp3-cebb361009406bdc79fecc295a033555.mp3str"
+path="res://.godot/imported/fastzombie1.mp3-8e948329703b40d5b686bee3bb7e5824.mp3str"
 
 [deps]
 
-source_file="res://assets/Sounds/sfx/fastzombie1.mp3"
-dest_files=["res://.godot/imported/fastzombie1.mp3-cebb361009406bdc79fecc295a033555.mp3str"]
+source_file="res://Assets/Sounds/sfx/fastzombie1.mp3"
+dest_files=["res://.godot/imported/fastzombie1.mp3-8e948329703b40d5b686bee3bb7e5824.mp3str"]
 
 [params]
 

@@ -18,12 +18,47 @@ var last_room: Room  # Reference to the last visited room
 var camera_edge_y: float  # Stores vertical camera boundary position
 
 func _ready() -> void:
+	Events.debug_mode = false
+	
+	print("Debug mode: " + str(Events.debug_mode))
+	
+	if not MainMusic.playing:
+		MainMusic.play()
+	
+	if BattleMusic.playing:
+		BattleMusic.stop()
+	
 	get_tree().paused = false
 	# Calculate the vertical camera boundary based on map height
 	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.FLOORS - 1)
-	
-	generate_new_map()
-	unlock_floor(0)
+	if not GameState.map_generated:
+		# First time: generate a new map
+		print("map_data: ", map_data)
+		GameState.map_generated = true
+		generate_new_map()
+		floors_climbed = 0
+		#last_room = null
+		GameState.floors_climbed = 0
+		#GameState.last_room = null
+		GameState.map_data = map_data
+		GameState.floors_climbed = floors_climbed
+		GameState.last_room = last_room
+		unlock_floor(0)
+		
+	else:
+		print("Ready Else map_data: ", map_data)
+		print("Ready Else map_data size: ", map_data.size())
+		# Map already exists: restore state
+		map_data = GameState.map_data
+		floors_climbed = GameState.floors_climbed
+		last_room = GameState.last_room
+		
+		create_map()
+
+		if floors_climbed > 0:
+			unlock_next_rooms()
+		else:
+			unlock_floor(0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible:
@@ -46,10 +81,11 @@ func load_map(map: Array[Array], floors_completed: int, last_room_climbed: Room)
 	floors_climbed = floors_completed
 	map_data = map
 	last_room = last_room_climbed
-	create_map()
+	#create_map()
 	
 	if floors_climbed > 0:
 		unlock_next_rooms()
+		create_map()
 	else:
 		unlock_floor()
 	
@@ -60,6 +96,16 @@ func create_map()-> void:
 				spawn_room(room)
 				
 	var middle := floori(MapGenerator.MAP_WIDTH * 0.5)
+	#print("map_data: ", map_data)
+	print("map_data.size(): ", map_data.size())
+	print("middle: ", middle)
+	print("map_data[i] is ", MapGenerator.FLOORS-1)
+	GameState.map_data = map_data
+	GameState.floors_climbed = floors_climbed
+	GameState.last_room = last_room
+	print("map.gd: Set GameState.map_generated to ", GameState.map_generated)
+	print("create map: gamestate.map_data Size now:", GameState.map_data.size())
+
 	spawn_room(map_data[MapGenerator.FLOORS-1][middle])
 	
 	var map_width_pixels := MapGenerator.X_DIST * (MapGenerator.MAP_WIDTH - 1)
@@ -111,9 +157,15 @@ func connect_lines(room: Room) -> void:
 		lines.add_child(new_map_line)  # Add line to the scene
 		
 func on_map_room_clicked(room: Room) -> void:
-	for map_room: MapRoom2 in rooms.get_children():
-		if map_room.room.row == room.row:
-			map_room.available = false
+	last_room = room
+	floors_climbed += 1
+
+	# Save back to global state
+	GameState.last_room = last_room
+	GameState.floors_climbed = floors_climbed
+	#for map_room: MapRoom2 in rooms.get_children():
+		#if map_room.room.row == room.row:
+			#map_room.available = false
 			
 func on_map_room_selected(room: Room) -> void:
 	# Disable all rooms on the same floor as the selected room
@@ -123,7 +175,7 @@ func on_map_room_selected(room: Room) -> void:
 	# Update game state
 	last_room = room          # Set as last visited room
 	floors_climbed += 1       # Increment floor counter
-	#Events.map_exited.emit(room)  # Notify other systems about room exit
+	Events.map_exited.emit(room)  # Notify other systems about room exit
 
 # Menu button
 func _on_menu_pressed() -> void:

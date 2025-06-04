@@ -1,13 +1,13 @@
 class_name MapGenerator  
 extends Node  
  
-const X_DIST := 30   
-const Y_DIST := 25   
-const PLACEMENT_RANDOMNESS := 5   
-const FLOORS := 3   
-const MAP_WIDTH := 5  
-const PATHS := 5  
-const MONSTER_ROOM_WEIGHT := 10.0  
+const X_DIST := 30
+const Y_DIST := 25
+const PLACEMENT_RANDOMNESS := 5
+const FLOORS := 4
+const MAP_WIDTH := 5
+const PATHS := 5
+const MONSTER_ROOM_WEIGHT := 10.0
 
 var random_room_type_weights = {  
 	Room.Type.MONSTER: 0.0  
@@ -29,6 +29,7 @@ func generate_map() -> Array[Array]:
 	setup_room_types()
 	
 	var i:=0
+
 	for floor in map_data:
 		print("floor %s" % i)
 		var used_rooms = floor.filter(
@@ -36,6 +37,7 @@ func generate_map() -> Array[Array]:
 		)
 		print(used_rooms)
 		i += 1
+	
 	return map_data
 	
 func generate_initial_grid() -> Array[Array]:

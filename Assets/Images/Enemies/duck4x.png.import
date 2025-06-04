@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://i7uy1a15tbr3"
-path="res://.godot/imported/duck4x.png-693c3c63222eed8133c0bedeb05ef5d7.ctex"
+path="res://.godot/imported/duck4x.png-eb3349790e20d83b7f84258e854c5d54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Images/Enemies/duck4x.png"
-dest_files=["res://.godot/imported/duck4x.png-693c3c63222eed8133c0bedeb05ef5d7.ctex"]
+source_file="res://Assets/Images/Enemies/duck4x.png"
+dest_files=["res://.godot/imported/duck4x.png-eb3349790e20d83b7f84258e854c5d54.ctex"]
 
 [params]
 

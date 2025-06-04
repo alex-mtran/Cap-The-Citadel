@@ -1,8 +1,8 @@
 extends Control
 
 const RUN_SCENE = preload("res://ex/run/run.tscn")
-const MAP_SCENE : PackedScene = preload("res://scenes/Map/map.tscn")
-const BATTLE_SCENE : PackedScene = preload("res://scenes/Battle.tscn")
+const MAP_SCENE : PackedScene = preload("res://Scenes/Map/map.tscn")
+const BATTLE_SCENE : PackedScene = preload("res://Scenes/Battle.tscn")
 const CHAR_SELECTOR_SCENE = preload("res://menus/character_selector/character_selector.tscn")
 const PLAYER = preload("res://player/player.tres")
 
@@ -23,11 +23,29 @@ var in_options : bool = false
 
 
 func _ready() -> void:
+	Events.debug_mode = false
+	
+	print("Debug mode: " + str(Events.debug_mode))
+	
+	if not MainMusic.playing:
+		MainMusic.play()
+	
+	if BattleMusic.playing:
+		BattleMusic.stop()
+	
 	get_tree().paused = false
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 
 func _on_new_run_button_pressed():
+	# Reset everything before starting a new run
+	GameState.map_generated = false
+	GameState.map_data.clear()
+	GameState.floors_climbed = 0
+	GameState.last_room = null
+
 	get_tree().change_scene_to_packed(CHAR_SELECTOR_SCENE)
+	print("main_menu.gd: Starting new game, cleared map_data. Size now:", GameState.map_data.size())
+
 
 func _on_options_pressed() -> void:
 	in_options = true
