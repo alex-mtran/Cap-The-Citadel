@@ -13,14 +13,18 @@ signal tooltip_hide_requested
 signal player_hand_drawn
 signal player_hand_discarded
 signal player_turn_ended
+signal player_hit
 signal player_died
 
 #Enemy-related Events
 signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
 
+# Battle-related events
+signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)
+
 # Level information
-var curr_level_number = 1
+var level_number = 1
 var max_level_unlocked = 1
 
 # Debug flag for testing fake game load/save using database

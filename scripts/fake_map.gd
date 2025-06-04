@@ -2,9 +2,10 @@ extends Control
 
 const BATTLE_SCENE = preload("res://Scenes/Battle.tscn")
 
-@onready var level_1_button: Button = $Level1_Button
-@onready var level_2_button: Button = $Level2_Button
-@onready var level_3_button: Button = $Level3_Button
+@onready var level_1_button: Button = $HBoxContainer/L1Button
+@onready var level_2_button: Button = $HBoxContainer/L2Button
+@onready var level_3_button: Button = $HBoxContainer/L3Button
+@onready var level_4_button: Button = $HBoxContainer/L4Button
 @onready var congratulations_text: Label = $CongratsLabel
 @onready var save_text: Label = $SaveLabel
 @onready var load_text: Label = $LoadLabel
@@ -23,11 +24,16 @@ func _ready() -> void:
 	if Events.max_level_unlocked == 1:
 		level_2_button.disabled = true
 		level_3_button.disabled = true
+		level_4_button.disabled = true
 		congratulations_text.visible = false
 	elif Events.max_level_unlocked == 2:
 		level_3_button.disabled = true
+		level_4_button.disabled = true
 		congratulations_text.visible = false
 	elif Events.max_level_unlocked == 3:
+		level_4_button.disabled = true
+		congratulations_text.visible = false
+	elif Events.max_level_unlocked == 4:
 		congratulations_text.visible = false
 	
 	if Events.saved_game:
@@ -40,21 +46,28 @@ func _ready() -> void:
 
 # Level 1 button
 func _on_level_1_pressed() -> void:
-	Events.curr_level_number = 1
+	Events.level_number = 1
 	Events.saved_game = false
 	Events.loaded_game = false
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
 
 # Level 2 button
 func _on_level_2_pressed() -> void:
-	Events.curr_level_number = 2
+	Events.level_number = 2
 	Events.saved_game = false
 	Events.loaded_game = false
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
 
 # Level 3 button
 func _on_level_3_pressed() -> void:
-	Events.curr_level_number = 3
+	Events.level_number = 3
+	Events.saved_game = false
+	Events.loaded_game = false
+	get_tree().change_scene_to_packed(BATTLE_SCENE)
+
+# Level 4 button
+func _on_level_4_pressed() -> void:
+	Events.level_number = 4
 	Events.saved_game = false
 	Events.loaded_game = false
 	get_tree().change_scene_to_packed(BATTLE_SCENE)
@@ -69,12 +82,12 @@ func _on_menu_pressed() -> void:
 func _on_save_pressed() -> void:
 	var save_query = """
 		INSERT OR REPLACE INTO 
-		progress(id, curr_level_number, max_level_unlocked, attack_damage_bonus, defense_armor_bonus) 
+		progress(id, level_number, max_level_unlocked, attack_damage_bonus, defense_armor_bonus) 
 		VALUES(0, ?, ?, ?, ?);
 	"""
 	
 	var save_args = [
-		Events.curr_level_number,
+		Events.level_number,
 		Events.max_level_unlocked,
 		GameManager.attack_damage_bonus,
 		GameManager.defense_armor_bonus
@@ -88,7 +101,7 @@ func _on_save_pressed() -> void:
 	Events.loaded_game = false
 	
 	print("Saved game progress")
-	print("Current level number: " + str(Events.curr_level_number))
+	print("Current level number: " + str(Events.level_number))
 	print("Maximum level unlocked: " + str(Events.max_level_unlocked))
 	print("Attack damage bonus: " + str(GameManager.attack_damage_bonus))
 	print("Defense armor bonus: " + str(GameManager.defense_armor_bonus))
@@ -98,7 +111,7 @@ func _on_load_pressed() -> void:
 	var result = Events.database.select_rows("progress", "id = 0", ["*"])
 	
 	if result.size() > 0:
-		Events.curr_level_number = result[0]["curr_level_number"]
+		Events.level_number = result[0]["level_number"]
 		Events.max_level_unlocked = result[0]["max_level_unlocked"]
 		GameManager.attack_damage_bonus = result[0]["attack_damage_bonus"]
 		GameManager.defense_armor_bonus = result[0]["defense_armor_bonus"]
@@ -109,7 +122,7 @@ func _on_load_pressed() -> void:
 	Events.loaded_game = true
 	
 	print("Loaded game progress")
-	print("Current level number: " + str(Events.curr_level_number))
+	print("Current level number: " + str(Events.level_number))
 	print("Maximum level unlocked: " + str(Events.max_level_unlocked))
 	print("Attack damage bonus: " + str(GameManager.attack_damage_bonus))
 	print("Defense armor bonus: " + str(GameManager.defense_armor_bonus))

@@ -28,7 +28,7 @@ func _on_mute_pressed() -> void:
 
 # Reset button
 func _on_reset_pressed() -> void:
-	Events.curr_level_number = 1
+	Events.level_number = 1
 	Events.max_level_unlocked = 1
 	GameManager.attack_damage_bonus = 0
 	GameManager.defense_armor_bonus = 0

@@ -47,6 +47,9 @@ func on_exit_options_menu() -> void:
 	in_options = false
 	options_menu.visible = false
 
+func _on_back_pressed() -> void:
+	resume()
+
 func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_cancel") and not event.is_echo():
 		if not in_options:

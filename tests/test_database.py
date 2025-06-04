@@ -31,16 +31,16 @@ class TestDatabase(unittest.TestCase):
     
     # Tests for progress data elements
     @unittest.skipUnless(curs.execute("SELECT * FROM progress WHERE id = 0;").fetchall(), "Unit test for player progress data")
-    def test_5_check_curr_level_number(self):
-        result = curs.execute("SELECT curr_level_number FROM progress WHERE id = 0;").fetchall()
+    def test_5_check_level_number(self):
+        result = curs.execute("SELECT level_number FROM progress WHERE id = 0;").fetchall()
         self.assertGreaterEqual(result, [(1,)])
-        self.assertLessEqual(result, [(3,)])
+        self.assertLessEqual(result, [(4,)])
     
     @unittest.skipUnless(curs.execute("SELECT * FROM progress WHERE id = 0;").fetchall(), "Unit test for player progress data")
     def test_6_check_max_level_unlocked(self):
         result = curs.execute("SELECT max_level_unlocked FROM progress WHERE id = 0;").fetchall()
         self.assertGreaterEqual(result, [(1,)])
-        self.assertLessEqual(result, [(4,)])
+        self.assertLessEqual(result, [(5,)])
     
     @unittest.skipUnless(curs.execute("SELECT * FROM progress WHERE id = 0;").fetchall(), "Unit test for player progress data")
     def test_7_check_attack_damage_bonus(self):

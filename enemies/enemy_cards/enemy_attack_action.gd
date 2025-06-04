@@ -1,4 +1,4 @@
-extends Enemy_Action
+extends EnemyAction
 
 @export var damage := 7
 

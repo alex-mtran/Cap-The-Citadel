@@ -18,6 +18,12 @@ func set_energy(value: int) -> void:
 func reset_energy() -> void:
 	self.energy = max_energy
 
+func take_damage(damage : int) -> void:
+	var initial_health := health
+	super.take_damage(damage)
+	if initial_health > health:
+		Events.player_hit.emit()
+
 func can_play_card(card: Card) -> bool:
 	return energy >= card.cost
 

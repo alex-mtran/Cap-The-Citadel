@@ -28,6 +28,7 @@ func _ready() -> void:
 	if BattleMusic.playing:
 		BattleMusic.stop()
 	
+	get_tree().paused = false
 	# Calculate the vertical camera boundary based on map height
 	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.FLOORS - 1)
 	if not GameState.map_generated:
@@ -178,4 +179,5 @@ func on_map_room_selected(room: Room) -> void:
 
 # Menu button
 func _on_menu_pressed() -> void:
+	GameManager.reset_upgrades()
 	get_tree().change_scene_to_file("res://menus/main_menu/main_menu.tscn")

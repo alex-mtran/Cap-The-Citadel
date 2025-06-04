@@ -43,8 +43,8 @@ func show_selected() -> void:
 #when select finishes
 func on_map_room_select() -> void: 
 	selected.emit(room)
-	Events.curr_level_number = room.row + 1
-	print(Events.curr_level_number)
+	Events.level_number = room.row + 1
+	print(Events.level_number)
 	get_tree().change_scene_to_file("res://Scenes/Battle.tscn")
 
 

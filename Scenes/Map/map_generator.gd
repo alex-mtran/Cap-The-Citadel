@@ -1,13 +1,13 @@
 class_name MapGenerator  
 extends Node  
  
-const X_DIST := 30   
-const Y_DIST := 25   
-const PLACEMENT_RANDOMNESS := 5   
-const FLOORS := 3   
-const MAP_WIDTH := 5  
-const PATHS := 5 
-const MONSTER_ROOM_WEIGHT := 10.0  
+const X_DIST := 30
+const Y_DIST := 25
+const PLACEMENT_RANDOMNESS := 5
+const FLOORS := 4
+const MAP_WIDTH := 5
+const PATHS := 5
+const MONSTER_ROOM_WEIGHT := 10.0
 
 var random_room_type_weights = {  
 	Room.Type.MONSTER: 0.0  

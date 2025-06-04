@@ -19,7 +19,10 @@ func _ready() -> void:
 	
 	if MainMusic.playing:
 		MainMusic.stop()
-	
+
+	if BattleMusic.playing:
+		BattleMusic.stop()
+
 	if not BattleMusic.playing:
 		BattleMusic.play()
 	
@@ -80,7 +83,7 @@ func _handle_window_close() -> void:
 	get_tree().quit()
 
 func start_battle(stats: CharacterStats) -> void:
-	#battle_ended = false
+	get_tree().paused = false
 	enemy_handler.reset_enemy_actions()
 	print("Battle has started!")
 	print("start_battle: Starting new game. Size now:", GameState.map_data.size())
@@ -96,7 +99,8 @@ func _on_enemies_child_order_changed() -> void:
 			mute_button.visible = false
 
 		print("Victory!")
-		_show_victory_ui()
+		# _show_victory_ui()
+		Events.battle_over_screen_requested.emit("Victorious!", BattleOverPanel.Type.WIN)
 		
 func _on_enemy_turn_ended() -> void:
 	#if not battle_ended:
@@ -111,177 +115,8 @@ func _on_player_died() -> void:
 		mute_button.visible = false
 
 	print("Game over!")
-	_show_game_over_ui()
-
-func _show_victory_ui() -> void:
-	if battle_ui and is_instance_valid(battle_ui) and battle_ui.end_turn_button and is_instance_valid(battle_ui.end_turn_button):
-		battle_ui.end_turn_button.disabled = true
-	if player_handler and is_instance_valid(player_handler) and player_handler.hand:
-		player_handler.hand.disable_hand()
-	
-	var popup = _create_victory_popup()
-	
-	if battle_ui:
-		battle_ui.add_child(popup)
-
-	popup.show()
-
-func _show_game_over_ui() -> void:
-	if battle_ui and is_instance_valid(battle_ui) and battle_ui.end_turn_button and is_instance_valid(battle_ui.end_turn_button):
-		battle_ui.end_turn_button.disabled = true
-	if player_handler and is_instance_valid(player_handler) and player_handler.hand:
-		player_handler.hand.disable_hand()
-	
-	var popup = _create_game_over_popup()
-	battle_ui.add_child(popup)
-	popup.show()
-
-func _create_victory_popup() -> Control:
-	var popup = Panel.new()
-	popup.name = "VictoryPanel"
-	popup.set_anchors_preset(Control.PRESET_FULL_RECT)
-	
-	var bg = ColorRect.new()
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	bg.color = Color(0, 0, 0, 0.8)
-	popup.add_child(bg)
-	
-	var center_container = CenterContainer.new()
-	center_container.set_anchors_preset(Control.PRESET_FULL_RECT)
-	popup.add_child(center_container)
-	
-	var victory_panel = Panel.new()
-	victory_panel.custom_minimum_size = Vector2(180, 130)
-	victory_panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	victory_panel.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	center_container.add_child(victory_panel)
-	
-	var margin = MarginContainer.new()
-	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
-	margin.add_theme_constant_override("margin_left", 8)
-	margin.add_theme_constant_override("margin_top", 8)
-	margin.add_theme_constant_override("margin_right", 8)
-	margin.add_theme_constant_override("margin_bottom", 8)
-	victory_panel.add_child(margin)
-
-	var vbox = VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 5)
-	margin.add_child(vbox)
-	
-	var title_label = Label.new()
-	title_label.text = "VICTORY!"
-	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	vbox.add_child(title_label)
-	
-	var subtitle_label = Label.new()
-	subtitle_label.text = "Choose a reward:"
-	subtitle_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	vbox.add_child(subtitle_label)
-	
-	var attack_btn = Button.new()
-	attack_btn.text = "Attack +1"
-	attack_btn.pressed.connect(_on_attack_upgrade_selected.bind(popup))
-	vbox.add_child(attack_btn)
-	
-	var defense_btn = Button.new()
-	defense_btn.text = "Defense +1"
-	defense_btn.pressed.connect(_on_defense_upgrade_selected.bind(popup))
-	vbox.add_child(defense_btn)
-	
-	return popup
-
-func _create_game_over_popup() -> Control:
-	var popup = Panel.new()
-	popup.name = "GameOverPanel"
-	popup.set_anchors_preset(Control.PRESET_FULL_RECT)
-	
-	var bg = ColorRect.new()
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	bg.color = Color(0.2, 0, 0, 0.8)
-	popup.add_child(bg)
-	
-	var center_container = CenterContainer.new()
-	center_container.set_anchors_preset(Control.PRESET_FULL_RECT)
-	popup.add_child(center_container)
-	
-	var game_over_panel = Panel.new()
-	game_over_panel.custom_minimum_size = Vector2(180, 130)
-	game_over_panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	game_over_panel.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	center_container.add_child(game_over_panel)
-	
-	var margin = MarginContainer.new()
-	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
-	margin.add_theme_constant_override("margin_left", 8)
-	margin.add_theme_constant_override("margin_top", 8)
-	margin.add_theme_constant_override("margin_right", 8)
-	margin.add_theme_constant_override("margin_bottom", 8)
-	game_over_panel.add_child(margin)
-	
-	var vbox = VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 8)
-	margin.add_child(vbox)
-	
-	var title_label = Label.new()
-	title_label.text = "GAME OVER"
-	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	vbox.add_child(title_label)
-	
-	var restart_btn = Button.new()
-	restart_btn.text = "Restart Battle"
-	restart_btn.pressed.connect(_on_restart_battle)
-	vbox.add_child(restart_btn)
-	
-	var quit_btn = Button.new()
-	quit_btn.text = "Back to Menu"
-	quit_btn.pressed.connect(_on_back_to_menu)
-	vbox.add_child(quit_btn)
-	
-	return popup
-
-func _on_attack_upgrade_selected(popup: Control) -> void:
-	GameManager.add_attack_bonus(1)
-	print("Attack upgrade selected, total bonus: +", GameManager.get_attack_bonus())
-	popup.queue_free()
-	print("_on_attack_upgrade_selected: Size now:", GameState.map_data.size())
-
-	print("Debug mode: " + str(Events.debug_mode))
-	
-	if Events.curr_level_number == Events.max_level_unlocked:
-		Events.max_level_unlocked += 1
-	
-	if not Events.debug_mode:
-		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
-	else:
-		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
-
-func _on_defense_upgrade_selected(popup: Control) -> void:
-	GameManager.add_defense_bonus(1)
-	print("Defense upgrade selected, total bonus: +", GameManager.get_defense_bonus())
-	popup.queue_free()
-	
-	print("Debug mode: " + str(Events.debug_mode))
-	
-	if Events.curr_level_number == Events.max_level_unlocked:
-		Events.max_level_unlocked += 1
-	
-	if not Events.debug_mode:
-		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
-	else:
-		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
-
-func _on_restart_battle() -> void:
-	get_tree().reload_current_scene()
-
-func _on_back_to_menu() -> void:
-	print("Debug mode: " + str(Events.debug_mode))
-	
-	if not Events.debug_mode:
-		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
-	else:
-		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
+	# _show_game_over_ui()
+	Events.battle_over_screen_requested.emit("Game Over!", BattleOverPanel.Type.LOSE)
 
 # Options button
 func _on_options_pressed() -> void:
