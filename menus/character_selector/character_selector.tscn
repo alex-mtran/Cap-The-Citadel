@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://cglctv7eyo10o"]
+
+[ext_resource type="Script" uid="uid://c8x0ubml3t58h" path="res://menus/character_selector/character_selector.gd" id="1_3i8fi"]
+[ext_resource type="Resource" uid="uid://dtdw4dc8balac" path="res://ex/run/run_startup.tres" id="2_i0k6u"]
+[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="2_lx7ko"]
+[ext_resource type="Texture2D" uid="uid://bhoj33qbtye4r" path="res://assets/Images/player.png" id="5_pch6r"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_i0k6u"]
+
+[node name="CharacterSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3i8fi")
+run_startup = ExtResource("2_i0k6u")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.27451, 0.196078, 0.54902, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lx7ko")
+expand_mode = 1
+
+[node name="CharacterText" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.5
+offset_top = 10.0
+offset_right = 94.5
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Title" type="Label" parent="CharacterText"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Cowboy Dog"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="CharacterText"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Woof Woof! (in yeehaw)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterPortrait" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 19.0
+offset_top = 50.0
+offset_right = 339.0
+offset_bottom = 370.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_pch6r")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 115.0
+offset_right = 249.0
+offset_bottom = 129.0
+text = "Start Button"
+
+[node name="CharacterButtons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = 5.0
+offset_right = 63.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="CowboyDog" type="Button" parent="CharacterButtons"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_i0k6u")
+
+[node name="Icon" type="TextureRect" parent="CharacterButtons/CowboyDog"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_pch6r")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CharacterButtons/CowboyDog" to="." method="_on_cowboy_dog_pressed"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bapcvelfqmcg5"]
+
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="1_l0e78"]
+[ext_resource type="Script" uid="uid://ckrwbqfhvmre8" path="res://player/cards/true_strength.gd" id="2_86m1l"]
+
+[resource]
+script = ExtResource("2_86m1l")
+id = "true_strength"
+type = 0
+rarity = 2
+target = 1
+cost = 3
+icon = ExtResource("1_l0e78")
+tooltip_text = "[center]Deal[color=\"ff0000\"] 15[/color] damage.[/center]"
+metadata/_custom_type_script = "uid://cuh4ylb8am2qa"

@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbt4be5dxw5b1"]
+[gd_scene load_steps=10 format=3 uid="uid://bbt4be5dxw5b1"]
 
 [ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="1_8gy84"]
 [ext_resource type="Script" uid="uid://dmpm3dn74psk0" path="res://menus/main_menu/main_menu.gd" id="1_yjgyn"]
 [ext_resource type="FontFile" uid="uid://c5k7h2skd5um3" path="res://assets/Fonts/Not Jam Chunky Sans 6.ttf" id="2_ij7vn"]
 [ext_resource type="PackedScene" uid="uid://7q68kbobko43" path="res://menus/options_menu.tscn" id="4_rqbgu"]
+[ext_resource type="Texture2D" uid="uid://bhoj33qbtye4r" path="res://assets/Images/player.png" id="5_oic2i"]
+[ext_resource type="Texture2D" uid="uid://dsuk8gvpb1i1l" path="res://assets/Images/Enemies/goblin4x.png" id="6_t7kvd"]
+[ext_resource type="Texture2D" uid="uid://bkpgpoq4dn0of" path="res://assets/Images/Enemies/orc4x.png" id="7_8woyc"]
+[ext_resource type="Texture2D" uid="uid://cxh5cwn3j35rc" path="res://assets/Images/Enemies/minotaur4x.png" id="8_d1j5c"]
+[ext_resource type="Texture2D" uid="uid://c4bsq2lxxoh02" path="res://assets/Images/Enemies/elder4x.png" id="9_pmi7g"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -46,7 +51,12 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_ij7vn")
 theme_override_font_sizes/font_size = 16
 text = "Cap The Citadel"
@@ -80,18 +90,18 @@ layout_mode = 2
 [node name="Separator7" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "Continue"
+
+[node name="NewRunButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(72, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 6
-text = "Start"
-
-[node name="LoadButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(72, 0)
-layout_mode = 2
-text = "Load"
+text = "New Run"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -112,7 +122,32 @@ text = "Exit"
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/LoadButton" to="." method="_on_load_pressed"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(52, 82)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_oic2i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(211, 69)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_t7kvd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(196, 90)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_8woyc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(227, 88)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_d1j5c")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(212, 105)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_pmi7g")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/NewRunButton" to="." method="_on_new_run_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_pressed"]
