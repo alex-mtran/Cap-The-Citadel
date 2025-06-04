@@ -6,18 +6,18 @@
 [ext_resource type="Script" uid="uid://6nllh2fkhrlq" path="res://scripts/ui/hand.gd" id="2_p1qf1"]
 [ext_resource type="PackedScene" uid="uid://p0h62oj1u1bm" path="res://player/player.tscn" id="3_2cxp4"]
 [ext_resource type="PackedScene" uid="uid://d2y80yumt61i8" path="res://Scenes/ui/target_selector.tscn" id="3_c5ef4"]
-[ext_resource type="PackedScene" uid="uid://cvblhw4w8aupi" path="res://Scenes/ui/rest_of_deck_button.tscn" id="4_1samx"]
 [ext_resource type="Resource" uid="uid://bnkmb5m72tm3b" path="res://player/player.tres" id="4_7xoqm"]
 [ext_resource type="Script" uid="uid://bj061htiym2h6" path="res://enemies/enemy_handler.gd" id="4_n5y6x"]
 [ext_resource type="Script" uid="uid://bk2mqt3ureet2" path="res://scripts/ui/battle_ui.gd" id="7_7hbu7"]
 [ext_resource type="Script" uid="uid://c1owpfmte2hqi" path="res://player/player_handler.gd" id="8_l0ske"]
 [ext_resource type="PackedScene" uid="uid://c3a5kfykrtrje" path="res://Scenes/ui/energy_ui.tscn" id="12_ora22"]
+[ext_resource type="PackedScene" uid="uid://cqqdohhbhkbd6" path="res://Scenes/ui/card_pile_opener.tscn" id="14_jr0ro"]
 [ext_resource type="Texture2D" uid="uid://0ddw7okee1vu" path="res://assets/Images/trashcan.png" id="15_00njq"]
-[ext_resource type="Script" uid="uid://d3g82yskc5t3w" path="res://scripts/ui/GraveyardDeck.gd" id="15_7hbu7"]
 [ext_resource type="PackedScene" uid="uid://d0npimnqvtyj6" path="res://Scenes/ui/tooltip.tscn" id="15_l0ske"]
 [ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="16_7hbu7"]
 [ext_resource type="PackedScene" uid="uid://cqemdfm1k5ika" path="res://menus/pause_menu/pause_menu.tscn" id="17_00njq"]
 [ext_resource type="Script" uid="uid://dwjlnx2uou8x" path="res://scripts/ui/red_flash.gd" id="19_b2l78"]
+[ext_resource type="PackedScene" uid="uid://cnlljwuigq0w4" path="res://Scenes/ui/card_pile_view.tscn" id="19_imcj7"]
 [ext_resource type="PackedScene" uid="uid://6rm650x5m310" path="res://menus/battle_over/battle_over_panel.tscn" id="19_m7t4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7k78"]
@@ -85,38 +85,15 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 0.0
-offset_top = -9.0
+offset_top = 26.0
 offset_right = 18.0
-offset_bottom = 9.0
+offset_bottom = 44.0
 grow_vertical = 2
 char_stats = ExtResource("4_7xoqm")
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("15_l0ske")]
 offset_top = 5.0
 offset_bottom = 41.0
-
-[node name="RestOfDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = -34.0
-offset_right = 1244.0
-offset_bottom = 1166.0
-grow_vertical = 0
-
-[node name="GraveyardDeckButton" parent="BattleUI" instance=ExtResource("4_1samx")]
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.986
-anchor_right = 1.0
-anchor_bottom = 0.986
-offset_left = -32.0
-offset_top = -28.984
-offset_right = 1088.0
-offset_bottom = 1131.02
-texture_normal = ExtResource("15_00njq")
-script = ExtResource("15_7hbu7")
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
 unique_name_in_owner = true
@@ -126,8 +103,8 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -45.0
-offset_top = -7.0
-offset_bottom = 7.0
+offset_top = 30.0
+offset_bottom = 44.0
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("16_7hbu7")
@@ -147,6 +124,48 @@ text = "Options"
 offset_right = 30.0
 offset_bottom = 12.0
 text = "Mute"
+
+[node name="DrawPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("14_jr0ro")]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+offset_bottom = -6.0
+grow_vertical = 0
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="BattleUI/DrawPileButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 15.0
+offset_right = 22.0
+offset_bottom = 21.0
+text = "9"
+
+[node name="DiscardPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("14_jr0ro")]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -22.0
+offset_right = 2.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("15_00njq")
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="BattleUI/DiscardPileButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 11.0
+offset_bottom = 21.0
+text = "9"
 
 [node name="PauseMenu" parent="." instance=ExtResource("17_00njq")]
 layer = 3
@@ -173,6 +192,17 @@ one_shot = true
 layer = 2
 
 [node name="BattleOverPanel" parent="BattleOverLayer" instance=ExtResource("19_m7t4b")]
+visible = false
+
+[node name="CardPileViews" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="DrawPileView" parent="CardPileViews" instance=ExtResource("19_imcj7")]
+unique_name_in_owner = true
+visible = false
+
+[node name="DiscardPileView" parent="CardPileViews" instance=ExtResource("19_imcj7")]
+unique_name_in_owner = true
 visible = false
 
 [connection signal="pressed" from="BattleUI/Options" to="." method="_on_options_pressed"]
