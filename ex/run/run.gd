@@ -41,7 +41,6 @@ func _start_run() -> void:
 	print("TODO: procedurally generate map")
 
 	await get_tree().create_timer(3).timeout
-	stats.gold += 55
 
 func _change_view(scene: PackedScene) -> Node:
 	if current_view.get_child_count() > 0:
