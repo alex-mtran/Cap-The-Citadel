@@ -10,7 +10,7 @@ enum Type {WIN, LOSE}
 
 func _ready() -> void:
 	continue_button.pressed.connect(_show_victory_ui)
-	#continue_button.pressed.connect(func(): Events.battle_won.emit())
+	continue_button.pressed.connect(func(): Events.battle_won.emit())
 	restart_button.pressed.connect(get_tree().reload_current_scene)
 	Events.battle_over_screen_requested.connect(show_screen)
 
