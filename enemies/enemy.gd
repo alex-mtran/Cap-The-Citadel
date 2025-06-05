@@ -4,18 +4,6 @@ extends Area2D
 const ARROW_OFFSET := -15
 const WHITE_FLASH = preload("res://enemies/white_flash.tres")
 
-var coward : String = "res://enemies/coward/coward.tres"
-var goblin : String = "res://enemies/goblin/goblin.tres"
-var orc : String = "res://enemies/orc/orc.tres"
-var minotaur : String = "res://enemies/minotaur/minotaur.tres"
-
-var enemies = [
-	coward, # Level 1
-	goblin, # Level 2
-	orc, # Level 3
-	minotaur # Level 4
-]
-
 @export var stats: Enemy_Stats : set = set_enemy_stats
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -38,9 +26,6 @@ func set_current_action(value: EnemyAction) -> void:
 # 	take_damage(6)
 # 	stats.block += 8
 
-func _ready() -> void:
-	var curr_enemy = enemies[Events.level_number - 1]
-	stats = load(curr_enemy)
 
 func set_enemy_stats(value: Enemy_Stats) -> void:
 	stats = value.create_instance()

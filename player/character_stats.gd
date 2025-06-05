@@ -23,7 +23,7 @@ func set_energy(value: int) -> void:
 	stats_changed.emit()
 
 func reset_energy() -> void:
-	self.energy = max_energy
+	energy = max_energy
 
 func take_damage(damage : int) -> void:
 	var initial_health := health
