@@ -31,7 +31,6 @@ func _ready() -> void:
 	for node: Node in rewards.get_children():
 		node.queue_free()
 
-
 func add_gold_reward(amount: int) -> void:
 	var gold_reward : RewardButton = REWARD_BUTTON.instantiate()
 	gold_reward.reward_icon = GOLD_ICON

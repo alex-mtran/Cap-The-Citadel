@@ -143,6 +143,8 @@ offset_right = 84.0
 offset_bottom = -7.0
 grow_vertical = 0
 texture = ExtResource("2_mslha")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="ShopKeeperAnimation" type="AnimationPlayer" parent="DecorationLayer"]
 unique_name_in_owner = true
@@ -150,7 +152,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_2wruk")
 }
 
-[node name="BlinkTimer" type="Timer" parent="DecorationLayer"]
+[node name="TurnTimer" type="Timer" parent="DecorationLayer"]
 unique_name_in_owner = true
 one_shot = true
 
