@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cstffjmjimwky"
-path="res://.godot/imported/DefendCard.png-b624c2f2f698c2cfddb718e01db50559.ctex"
+uid="uid://blgserlejd66c"
+path="res://.godot/imported/line.png-0c355f37fdb942693dfbd65ca478e59e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/CardTemplates/DefendCard.png"
-dest_files=["res://.godot/imported/DefendCard.png-b624c2f2f698c2cfddb718e01db50559.ctex"]
+source_file="res://assets/Images/line.png"
+dest_files=["res://.godot/imported/line.png-0c355f37fdb942693dfbd65ca478e59e.ctex"]
 
 [params]
 
