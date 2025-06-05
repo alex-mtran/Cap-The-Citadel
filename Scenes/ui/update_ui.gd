@@ -7,7 +7,8 @@ var defense_armor_bonus: int = 0
 @onready var attack_defense: Label = $Attack_Defense
 
 func _ready():
-	update_stat_label()
+	pass
+	# update_stat_label()
 
 func update_stat_label():
 	$Attack_Defense.text = "Attack: +" + str(GameManager.get_attack_bonus()) + " Defense: +" + str(GameManager.get_defense_bonus())

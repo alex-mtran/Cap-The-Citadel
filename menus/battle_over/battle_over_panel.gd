@@ -11,7 +11,7 @@ enum Type {WIN, LOSE}
 func _ready() -> void:
 	continue_button.pressed.connect(_show_victory_ui)
 	continue_button.pressed.connect(func(): Events.battle_won.emit())
-	restart_button.pressed.connect(get_tree().reload_current_scene)
+	restart_button.pressed.connect(_on_restart_battle)
 	Events.battle_over_screen_requested.connect(show_screen)
 
 func show_screen(text: String, type: Type) -> void:
@@ -175,7 +175,6 @@ func _on_defense_upgrade_selected(popup: Control) -> void:
 
 func _on_restart_battle() -> void:
 	get_tree().paused = false
-	
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
