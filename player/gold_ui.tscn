@@ -5,7 +5,7 @@
 
 [node name="GoldUI" type="HBoxContainer"]
 offset_right = 32.0
-offset_bottom = 8.0
+offset_bottom = 18.0
 size_flags_vertical = 4
 theme_override_constants/separation = 2
 script = ExtResource("1_32yrg")
@@ -20,6 +20,6 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 8
 text = "9999"
 vertical_alignment = 2

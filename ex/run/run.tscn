@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://deskop3tmyn32"]
+[gd_scene load_steps=10 format=3 uid="uid://deskop3tmyn32"]
 
 [ext_resource type="PackedScene" uid="uid://2pxkj14pfjy4" path="res://ex/map/ex_map.tscn" id="1_1kx5v"]
 [ext_resource type="Script" uid="uid://cuvm460toopiq" path="res://ex/run/run.gd" id="1_ymxoa"]
 [ext_resource type="Resource" uid="uid://dtdw4dc8balac" path="res://ex/run/run_startup.tres" id="2_gkynj"]
 [ext_resource type="PackedScene" uid="uid://clsxwb5og6wne" path="res://player/gold_ui.tscn" id="4_fnyba"]
+[ext_resource type="PackedScene" uid="uid://rh6a4cbd08m0" path="res://Scenes/ui/health_ui.tscn" id="4_nac5c"]
 [ext_resource type="PackedScene" uid="uid://cqqdohhbhkbd6" path="res://Scenes/ui/card_pile_opener.tscn" id="4_s2hwj"]
 [ext_resource type="PackedScene" uid="uid://cnlljwuigq0w4" path="res://Scenes/ui/card_pile_view.tscn" id="5_a4nw1"]
 [ext_resource type="Resource" uid="uid://cpb0gxmc1xhsh" path="res://player/starting_deck.tres" id="6_kq5nl"]
@@ -19,7 +20,6 @@ run_startup = ExtResource("2_gkynj")
 [node name="CurrentView" type="Node" parent="."]
 
 [node name="DebugButtons" type="VBoxContainer" parent="."]
-visible = false
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
@@ -74,6 +74,11 @@ grow_horizontal = 2
 [node name="HSeparator" type="HSeparator" parent="TopBar/BarItems"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_nac5c")
+
+[node name="HealthUI" parent="TopBar/BarItems" instance=ExtResource("4_nac5c")]
+unique_name_in_owner = true
+layout_mode = 2
+show_max_hp = true
 
 [node name="GoldUI" parent="TopBar/BarItems" instance=ExtResource("4_fnyba")]
 unique_name_in_owner = true
