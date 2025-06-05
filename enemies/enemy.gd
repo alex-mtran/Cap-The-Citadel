@@ -20,13 +20,6 @@ func set_current_action(value: EnemyAction) -> void:
 	if current_action:
 		intent_ui.update_intent(current_action.intent)
 
-# Test
-# func _ready() -> void:
-# 	await get_tree().create_timer(2).timeout
-# 	take_damage(6)
-# 	stats.block += 8
-
-
 func set_enemy_stats(value: Enemy_Stats) -> void:
 	stats = value.create_instance()
 

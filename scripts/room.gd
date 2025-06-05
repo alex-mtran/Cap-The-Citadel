@@ -16,6 +16,7 @@ enum Type {
 @export var position: Vector2
 @export var next_rooms: Array[Room]
 @export var selected := false
+@export var battle_stats: BattleStats # Only used by the MONSTER and BOSS types
 
 func _to_string() -> String:
 	return "%s\t(%s)" % [column, Type.keys()[type][0]]

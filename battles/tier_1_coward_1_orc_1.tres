@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://bh0fnx2aynvnn"]
 
-[ext_resource type="Script" uid="uid://clqbcux53rj38" path="res://script_templates/battle_stats.gd" id="1_rxatd"]
+[ext_resource type="Script" uid="uid://clqbcux53rj38" path="res://battles/battle_stats/battle_stats.gd" id="1_rxatd"]
 [ext_resource type="PackedScene" uid="uid://dlhcgr2fh8bj0" path="res://battles/tier_1_coward_1_orc_1.tscn" id="1_xajch"]
 
 [resource]

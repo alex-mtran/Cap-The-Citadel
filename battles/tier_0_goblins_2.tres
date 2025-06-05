@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://bhftmhxmu3tug"]
 
-[ext_resource type="Script" uid="uid://clqbcux53rj38" path="res://script_templates/battle_stats.gd" id="1_jaia3"]
+[ext_resource type="Script" uid="uid://clqbcux53rj38" path="res://battles/battle_stats/battle_stats.gd" id="1_jaia3"]
 [ext_resource type="PackedScene" uid="uid://b008lp8aobw6f" path="res://battles/tier_0_goblins_2.tscn" id="1_kuhv1"]
 
 [resource]

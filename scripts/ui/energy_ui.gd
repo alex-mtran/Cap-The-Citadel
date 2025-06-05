@@ -5,15 +5,6 @@ extends Panel
 
 @onready var energy_label: Label = $EnergyLabel
 
-# Test
-# func _ready() -> void:
-	# await get_tree().create_timer(2).timeout
-	# char_stats.energy = 0
-
-# Test
-# func _ready() -> void:
-	# await get_tree().create_timer(3).timeout
-	# char_stats.energy = 2
 
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value
