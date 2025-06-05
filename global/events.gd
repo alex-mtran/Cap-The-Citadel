@@ -29,6 +29,7 @@ signal map_exited(room: Room)
 # signal pause_to_map
 
 # Shop-related events
+signal shop_card_bought(card: Card, gold_cost: int)
 signal shop_exited
 
 # Campfire-related events
