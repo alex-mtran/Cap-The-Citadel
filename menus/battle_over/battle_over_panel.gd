@@ -19,7 +19,6 @@ func show_screen(text: String, type: Type) -> void:
 	continue_button.visible = type == Type.WIN
 	restart_button.visible = type == Type.LOSE
 	show()
-	# await get_tree().create_timer(0.1).timeout
 	get_tree().paused = true
 
 func _show_victory_ui() -> void:
@@ -161,29 +160,25 @@ func _on_defense_upgrade_selected(popup: Control) -> void:
 	GameManager.add_defense_bonus(1)
 	print("Defense upgrade selected, total bonus: +", GameManager.get_defense_bonus())
 	popup.queue_free()
-	
+
 	if Events.level_number == Events.max_level_unlocked:
 		Events.max_level_unlocked += 1
-	
+
 	Events.level_number += 1
-	
+
 	get_tree().paused = false
-	
+
 	if not Events.debug_mode:
 		get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Scenes/fake_map.tscn")
 
 func _on_restart_battle() -> void:
-	print("restart pressed")
-	
 	get_tree().paused = false
 	
 	get_tree().reload_current_scene()
 
 func _on_back_to_menu() -> void:
-	print("menu pressed")
-	
 	get_tree().paused = false
 	
 	if not Events.debug_mode:
