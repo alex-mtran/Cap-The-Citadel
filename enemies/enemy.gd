@@ -81,7 +81,7 @@ func take_damage(damage: int) -> void:
 	tween.tween_callback(Shaker.shake.bind(self, 16, 0.15))
 	tween.tween_callback(stats.take_damage.bind(damage))
 	tween.tween_interval(0.17)
-	
+
 	tween.finished.connect(
 		func():
 			sprite_2d.material = null
@@ -89,12 +89,6 @@ func take_damage(damage: int) -> void:
 			if stats.health <= 0:
 				queue_free()
 	)
-"""
-	stats.take_damage(damage)
-
-	if stats.health <= 0:
-		queue_free()
-"""
 
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.show()

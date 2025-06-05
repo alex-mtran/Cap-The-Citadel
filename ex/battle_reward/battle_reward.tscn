@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://ns3wbtrnjkxf"]
 
 [ext_resource type="Script" uid="uid://da5lmnnv7dt0m" path="res://ex/battle_reward/battle_reward.gd" id="1_wqklv"]
-[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://Assets/Images/battleground.jpg" id="2_e0tdb"]
+[ext_resource type="Texture2D" uid="uid://cfmd6e57stbmv" path="res://assets/Images/battleground.jpg" id="2_e0tdb"]
 [ext_resource type="PackedScene" uid="uid://db1bxss1rn5up" path="res://player/reward_button.tscn" id="3_n1s8h"]
-[ext_resource type="Texture2D" uid="uid://bl1tv75nbuk1l" path="res://Assets/Images/Items/gem4x.png" id="4_ufo2f"]
-[ext_resource type="Texture2D" uid="uid://c3lwnd02ton06" path="res://Assets/Images/Card.png" id="5_b4o7d"]
+[ext_resource type="Texture2D" uid="uid://bl1tv75nbuk1l" path="res://assets/Images/Items/gem4x.png" id="4_ufo2f"]
+[ext_resource type="Texture2D" uid="uid://c3lwnd02ton06" path="res://assets/Images/Card.png" id="5_b4o7d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n1s8h"]
 font_size = 12
