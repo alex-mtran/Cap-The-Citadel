@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cwjlr1cmefk3y"
-path="res://.godot/imported/Passturn.wav-61299989df579cd0c08923508c85a576.sample"
+path="res://.godot/imported/Passturn.wav-28e57f6240cbe975ae79c6c5be0fd13d.sample"
 
 [deps]
 
-source_file="res://assets/Sounds/CardSounds/Passturn.wav"
-dest_files=["res://.godot/imported/Passturn.wav-61299989df579cd0c08923508c85a576.sample"]
+source_file="res://Assets/Sounds/CardSounds/Passturn.wav"
+dest_files=["res://.godot/imported/Passturn.wav-28e57f6240cbe975ae79c6c5be0fd13d.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c5k7h2skd5um3"
-path="res://.godot/imported/Not Jam Chunky Sans 6.ttf-a161dae00b37eef359732b294bb12fe0.fontdata"
+path="res://.godot/imported/Not Jam Chunky Sans 6.ttf-78e358a509942a5f571e5d22a321ba67.fontdata"
 
 [deps]
 
-source_file="res://assets/Fonts/Not Jam Chunky Sans 6.ttf"
-dest_files=["res://.godot/imported/Not Jam Chunky Sans 6.ttf-a161dae00b37eef359732b294bb12fe0.fontdata"]
+source_file="res://Assets/Fonts/Not Jam Chunky Sans 6.ttf"
+dest_files=["res://.godot/imported/Not Jam Chunky Sans 6.ttf-78e358a509942a5f571e5d22a321ba67.fontdata"]
 
 [params]
 

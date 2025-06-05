@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://caw3xg3687o4s"
-path="res://.godot/imported/rolldie.wav-15af5f50b57c8feb12516334d8a26efe.sample"
+path="res://.godot/imported/rolldie.wav-ad19269163cd19f63e6654af9b0033ba.sample"
 
 [deps]
 
-source_file="res://assets/Sounds/CardSounds/rolldie.wav"
-dest_files=["res://.godot/imported/rolldie.wav-15af5f50b57c8feb12516334d8a26efe.sample"]
+source_file="res://Assets/Sounds/CardSounds/rolldie.wav"
+dest_files=["res://.godot/imported/rolldie.wav-ad19269163cd19f63e6654af9b0033ba.sample"]
 
 [params]
 

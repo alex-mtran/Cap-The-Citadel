@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://57aekays03w4"
-path="res://.godot/imported/playcard.wav-c6a7a032a1e0de57558f722327d97fea.sample"
+path="res://.godot/imported/playcard.wav-e7a34c448d58247f688b5831ff8abba5.sample"
 
 [deps]
 
-source_file="res://assets/Sounds/CardSounds/playcard.wav"
-dest_files=["res://.godot/imported/playcard.wav-c6a7a032a1e0de57558f722327d97fea.sample"]
+source_file="res://Assets/Sounds/CardSounds/playcard.wav"
+dest_files=["res://.godot/imported/playcard.wav-e7a34c448d58247f688b5831ff8abba5.sample"]
 
 [params]
 

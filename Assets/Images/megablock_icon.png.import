@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qnuhfbva618j"
-path="res://.godot/imported/megablock_icon.png-70ec76a1b3c1efb8b1642a005665d6ad.ctex"
+path="res://.godot/imported/megablock_icon.png-6add1c863e306f461faa3a00319c3517.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Images/megablock_icon.png"
-dest_files=["res://.godot/imported/megablock_icon.png-70ec76a1b3c1efb8b1642a005665d6ad.ctex"]
+source_file="res://Assets/Images/megablock_icon.png"
+dest_files=["res://.godot/imported/megablock_icon.png-6add1c863e306f461faa3a00319c3517.ctex"]
 
 [params]
 
