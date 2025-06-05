@@ -2,16 +2,7 @@ class_name Enemy
 extends Area2D
 
 const ARROW_OFFSET := -15
-
-var goblin : String = "res://enemies/goblin/goblin.tres"
-var orc : String = "res://enemies/orc/orc.tres"
-var minotaur : String = "res://enemies/minotaur/minotaur.tres"
-
-var enemies = [
-	goblin, # Level 1
-	orc, # Level 2
-	minotaur # Level 3
-]
+const WHITE_FLASH = preload("res://enemies/white_flash.tres")
 
 @export var stats: Enemy_Stats : set = set_enemy_stats
 
@@ -21,23 +12,13 @@ var enemies = [
 @onready var intent_ui: IntentUI = $IntentUI as IntentUI
 @onready var sfx_enemy: AudioStreamPlayer = $HitSFX
 
-var enemy_action_picker: Enemy_Action_Picker
-var current_action: Enemy_Action : set = set_current_action
+var enemy_action_picker: EnemyActionPicker
+var current_action: EnemyAction : set = set_current_action
 
-func set_current_action(value: Enemy_Action) -> void:
+func set_current_action(value: EnemyAction) -> void:
 	current_action = value
 	if current_action:
 		intent_ui.update_intent(current_action.intent)
-
-# Test
-# func _ready() -> void:
-# 	await get_tree().create_timer(2).timeout
-# 	take_damage(6)
-# 	stats.block += 8
-
-func _ready() -> void:
-	var curr_enemy = enemies[Events.level_number - 1]
-	stats = load(curr_enemy)
 
 func set_enemy_stats(value: Enemy_Stats) -> void:
 	stats = value.create_instance()
@@ -52,7 +33,7 @@ func setup_ai() -> void:
 	if enemy_action_picker:
 		enemy_action_picker.queue_free()
 		
-	var new_action_picker: Enemy_Action_Picker = stats.ai.instantiate()
+	var new_action_picker: EnemyActionPicker = stats.ai.instantiate()
 	add_child(new_action_picker)
 	enemy_action_picker = new_action_picker
 	enemy_action_picker.enemy = self
@@ -94,22 +75,20 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		return
 
+	sprite_2d.material = WHITE_FLASH
+
 	var tween := create_tween()
 	tween.tween_callback(Shaker.shake.bind(self, 16, 0.15))
 	tween.tween_callback(stats.take_damage.bind(damage))
-	tween.tween_interval(0.2)
-	
+	tween.tween_interval(0.17)
+
 	tween.finished.connect(
 		func():
+			sprite_2d.material = null
+
 			if stats.health <= 0:
 				queue_free()
 	)
-"""
-	stats.take_damage(damage)
-
-	if stats.health <= 0:
-		queue_free()
-"""
 
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.show()

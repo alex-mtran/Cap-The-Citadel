@@ -5,6 +5,7 @@ signal upgrades_changed
 var attack_damage_bonus: int = 0
 var defense_armor_bonus: int = 0
 
+
 func add_attack_bonus(amount: int) -> void:
 	attack_damage_bonus += amount
 	upgrades_changed.emit()

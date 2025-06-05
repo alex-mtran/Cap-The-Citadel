@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d2wce811kdocj"]
+
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="1_o04w2"]
+[ext_resource type="Script" uid="uid://cj3xm7p7l0xkv" path="res://player/cards/big_attack.gd" id="2_uncri"]
+
+[resource]
+script = ExtResource("2_uncri")
+id = "big_attack"
+type = 0
+rarity = 2
+target = 1
+cost = 2
+icon = ExtResource("1_o04w2")
+tooltip_text = "[center]Deal[color=\"ff0000\"] 8[/color] damage.[/center]"
+metadata/_custom_type_script = "uid://cuh4ylb8am2qa"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://bhftmhxmu3tug"]
+
+[ext_resource type="Script" uid="uid://clqbcux53rj38" path="res://battles/battle_stats/battle_stats.gd" id="1_jaia3"]
+[ext_resource type="PackedScene" uid="uid://b008lp8aobw6f" path="res://battles/tier_0_goblins_2.tscn" id="1_kuhv1"]
+
+[resource]
+script = ExtResource("1_jaia3")
+battle_tier = 0
+weight = 6.0
+gold_reward_min = 43
+gold_reward_max = 62
+enemies = ExtResource("1_kuhv1")
+metadata/_custom_type_script = "uid://clqbcux53rj38"

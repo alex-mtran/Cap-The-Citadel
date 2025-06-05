@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://vaku536yrk2s"]
+[gd_scene load_steps=11 format=3 uid="uid://vaku536yrk2s"]
 
 [ext_resource type="Theme" uid="uid://w7622n1y7600" path="res://themes/main_theme.tres" id="1_lgc0u"]
 [ext_resource type="Script" uid="uid://1pailb1tipak" path="res://scripts/ui/card_ui.gd" id="2_e1hm3"]
 [ext_resource type="Script" uid="uid://bk72t17cyi6q3" path="res://scripts/ui/card_state_machine.gd" id="3_birkm"]
-[ext_resource type="StyleBox" uid="uid://clmcex7tehm8k" path="res://themes/card_base_stylebox.tres" id="3_u2fwa"]
-[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/attack.png" id="4_nhbwl"]
+[ext_resource type="PackedScene" uid="uid://cxd1y1sfrk2ua" path="res://Scenes/ui/card_visuals.tscn" id="3_wiw3v"]
 [ext_resource type="Script" uid="uid://cos81ctnn4hdc" path="res://scripts/card_states/card_base_state.gd" id="4_xou0u"]
 [ext_resource type="Script" uid="uid://0o7bk6n1ywd0" path="res://scripts/card_states/card_clicked_state.gd" id="5_2iqob"]
 [ext_resource type="Script" uid="uid://bt2wvkir3v8ay" path="res://scripts/card_states/card_dragging_state.gd" id="6_8creq"]
@@ -27,41 +26,10 @@ grow_vertical = 2
 theme = ExtResource("1_lgc0u")
 script = ExtResource("2_e1hm3")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CardVisuals" parent="." instance=ExtResource("3_wiw3v")]
+offset_right = 30.0
+offset_bottom = 33.0
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("3_u2fwa")
-
-[node name="Cost" type="Label" parent="."]
-layout_mode = 0
-offset_right = 10.0
-offset_bottom = 10.0
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Icon" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("4_nhbwl")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="DropPointDetector" type="Area2D" parent="."]
 collision_mask = 2

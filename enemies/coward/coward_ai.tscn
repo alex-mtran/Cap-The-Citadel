@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddspxygv7sb8d"]
+
+[ext_resource type="Script" uid="uid://b5nt3wbyxduql" path="res://enemies/enemy_action_picker.gd" id="1_7abvb"]
+[ext_resource type="Script" uid="uid://jd3drid5owmy" path="res://enemies/enemy_cards/double_attack_action.gd" id="2_m5ttu"]
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="3_cweav"]
+[ext_resource type="Script" uid="uid://8tmj2lykn03g" path="res://enemies/intent.gd" id="4_lrwyd"]
+[ext_resource type="Script" uid="uid://b23xmw5420lnv" path="res://enemies/enemy_cards/enemy_null_action.gd" id="5_d7mtn"]
+
+[sub_resource type="Resource" id="Resource_naxoa"]
+script = ExtResource("4_lrwyd")
+icon = ExtResource("3_cweav")
+base_text = "2x10"
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[sub_resource type="Resource" id="Resource_gmoin"]
+script = ExtResource("4_lrwyd")
+icon = ExtResource("3_cweav")
+base_text = "0"
+metadata/_custom_type_script = "uid://8tmj2lykn03g"
+
+[node name="CowardAI" type="Node"]
+script = ExtResource("1_7abvb")
+
+[node name="DoubleAttackAction" type="Node" parent="."]
+script = ExtResource("2_m5ttu")
+damage = 10
+intent = SubResource("Resource_naxoa")
+type = 1
+chance_weight = 1.0
+
+[node name="NullAction" type="Node" parent="."]
+script = ExtResource("5_d7mtn")
+intent = SubResource("Resource_gmoin")

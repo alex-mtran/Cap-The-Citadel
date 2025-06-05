@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dy0vj5sqplf2a"]
 
-[ext_resource type="AudioStream" uid="uid://besbpkthsssj8" path="res://Assets/Sounds/Desert Theme.mp3" id="1_ff3xa"]
+[ext_resource type="AudioStream" uid="uid://besbpkthsssj8" path="res://assets/Sounds/Desert Theme.mp3" id="1_ff3xa"]
 
 [node name="BattleMusic" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_ff3xa")
-autoplay = true
+bus = &"Music"
 parameters/looping = true

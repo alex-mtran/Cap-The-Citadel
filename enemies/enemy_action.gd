@@ -1,4 +1,4 @@
-class_name Enemy_Action
+class_name EnemyAction
 extends Node
 
 enum Type {CONDITIONAL, CHANCE_BASED}

@@ -1,54 +1,51 @@
 class_name MapRoom
 extends Area2D
 
-signal clicked(room: Room)
 signal selected(room: Room)
+signal clicked(room: Room)
 
-# Dictionary mapping room types to their corresponding icons and scale factors
 const ICONS := {
-	Room.Type.NOT_ASSIGNED: [null, Vector2.ONE],  # No icon for unassigned rooms
-	Room.Type.MONSTER: [preload("res://Assets/Images/monsterRoom.png"), Vector2.ONE],  # Monster icon
+	Room.Type.NOT_ASSIGNED: [null, Vector2.ONE],
+	Room.Type.MONSTER: [preload("res://Assets/Images/monsterRoom.png"), Vector2.ONE],
+	Room.Type.TREASURE: [preload("res://assets/Images/Items/letter4x.png"), Vector2(3, 3)],
+	Room.Type.CAMPFIRE: [preload("res://assets/Images/Items/heart4x.png"), Vector2(3, 3)],
+	Room.Type.SHOP: [preload("res://assets/Images/Items/gem4x.png"), Vector2(3, 3)],
+	Room.Type.BOSS: [preload("res://assets/Images/Items/teddy4x.png"), Vector2(6, 6)]
 }
 
-# Node references (initialized when ready)
-@onready var sprite_2d: Sprite2D = $Visuals/Sprite2D  # Sprite for room icon
-@onready var line_2d: Line2D = $Visuals/Line2D  # Line for connections
-@onready var animation_player: AnimationPlayer = $AnimationPlayer  # For visual effects
+@onready var sprite_2d: Sprite2D = $Visuals/Sprite2D
+@onready var line_2d: Line2D = $Visuals/Line2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-# Properties with setters
 var available := false : set = set_available  
-var room: Room:  set = set_room  # Calls set_room() when changed
+var room: Room:  set = set_room
 
-	
-func set_available(new_value: bool)->void:
+
+func set_available(new_value: bool) -> void:
 	available = new_value
-	
+
 	if available:
 		animation_player.play("highlightMap")
 	elif not room.selected:
 		animation_player.play("RESET")
 
 func set_room(new_data: Room) -> void:
-	# Update the room data and visual representation
 	room = new_data
-	position = room.position  # Set node position to room's position
-	line_2d.rotation_degrees = randi_range(0, 360)  # Random rotation for visual variety
-	sprite_2d.texture = ICONS[room.type][0]  # Set icon based on room type
-	sprite_2d.scale = ICONS[room.type][1]  # Apply custom scale from ICONS dictionary
-	
+	position = room.position
+	line_2d.rotation_degrees = randi_range(0, 360)
+	sprite_2d.texture = ICONS[room.type][0]
+	sprite_2d.scale = ICONS[room.type][1]
+
 func show_selected() -> void:
-	line_2d.modulate = Color.WHITE  # Reset to white color (full visibility)
+	line_2d.modulate = Color.WHITE
 
-	
-#when select finishes
-func on_map_room_select() -> void: 
-	selected.emit(room)
-
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not available or not event.is_action_pressed("left_mouse"):
 		return
 
 	room.selected = true
 	clicked.emit(room)
 	animation_player.play("selectMap")
+
+func on_map_room_select() -> void: # Callback function in animation player
+	selected.emit(room)

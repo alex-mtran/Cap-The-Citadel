@@ -15,3 +15,7 @@ func apply_effects(targets: Array[Node]) -> void:
 	var total_damage = 4 + GameManager.get_attack_bonus()
 	damage_effect.amount = total_damage
 	damage_effect.execute(targets)
+
+func dynamic_tooltip() -> String:
+	var total_damage = 4 + GameManager.get_attack_bonus()
+	return "[center]Deal[color=\"ff0000\"] %d[/color] damage.[/center]" % total_damage

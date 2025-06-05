@@ -2,11 +2,19 @@ class_name Card
 extends Resource
 
 enum Type {ATTACK, DEFENSE}
+enum Rarity {COMMON, UNCOMMON, RARE}
 enum Target {PLAYER, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE}
+
+const RARITY_COLORS := {
+	Card.Rarity.COMMON: Color.GRAY,
+	Card.Rarity.UNCOMMON: Color.DEEP_SKY_BLUE,
+	Card.Rarity.RARE: Color.GOLD
+}
 
 @export_group("Card Attributes")
 @export var id: String
 @export var type: Type
+@export var rarity: Rarity
 @export var target: Target
 @export var cost: int
 
@@ -46,3 +54,6 @@ func play(targets: Array[Node], char_stats: CharacterStats) -> void:
 # Virtual function
 func apply_effects(_targets: Array[Node]) -> void:
 	pass
+
+func dynamic_tooltip() -> String:
+	return tooltip_text

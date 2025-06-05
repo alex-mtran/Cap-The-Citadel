@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlhcgr2fh8bj0"]
+
+[ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="1_8asfi"]
+[ext_resource type="Resource" uid="uid://cqot2uduwin6n" path="res://enemies/coward/coward.tres" id="2_edqur"]
+[ext_resource type="Resource" uid="uid://ddiv4wfh2pmq1" path="res://enemies/orc/orc.tres" id="3_6jwaj"]
+
+[node name="Tier1Coward1Orc1" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_8asfi")]
+position = Vector2(159, 79)
+stats = ExtResource("2_edqur")
+
+[node name="Enemy2" parent="." instance=ExtResource("1_8asfi")]
+position = Vector2(189, 53)
+stats = ExtResource("3_6jwaj")

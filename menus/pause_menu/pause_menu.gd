@@ -1,8 +1,7 @@
 class_name PauseMenu
 extends CanvasLayer
 
-@onready var restart: Button = %Restart
-@onready var map: Button = %Map
+@onready var restart_run: Button = %RestartRun
 @onready var options: Button = %Options
 @onready var options_menu: OptionsMenu = $OptionsMenu
 @onready var save: Button = %Save
@@ -18,14 +17,9 @@ func resume() -> void:
 	visible = false
 	set_process_unhandled_key_input(false)
 
-func _on_restart_pressed() -> void:
+func _on_restart_run_pressed() -> void:
 	resume()
 	get_tree().reload_current_scene()
-
-func _on_map_pressed() -> void:
-	Events.level_number = 0
-	get_tree().change_scene_to_file("res://Scenes/Map/map.tscn")
-	print("go to map scene")
 
 func _on_options_pressed() -> void:
 	in_options = true
@@ -42,10 +36,11 @@ func on_exit_options_menu() -> void:
 	in_options = false
 	options_menu.visible = false
 
-func _unhandled_key_input(event):
-	if event.is_action_pressed("ui_cancel") and not event.is_echo():
-		if not in_options:
-			resume()
-		else:
-			on_exit_options_menu()
-		get_viewport().set_input_as_handled()
+func _on_back_pressed() -> void:
+	resume()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and in_options:
+		on_exit_options_menu()
+	elif event.is_action_pressed("ui_cancel"):
+		hide()

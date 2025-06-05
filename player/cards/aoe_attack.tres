@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d0aghl475mgut"]
+
+[ext_resource type="Texture2D" uid="uid://b30pyfmkw55vm" path="res://assets/Images/Attack.png" id="1_xw2jd"]
+[ext_resource type="Script" uid="uid://c5sulb3k20reu" path="res://player/cards/aoe_attack.gd" id="2_ey6rq"]
+
+[resource]
+script = ExtResource("2_ey6rq")
+id = "aoe_attack"
+type = 0
+rarity = 1
+target = 2
+cost = 1
+icon = ExtResource("1_xw2jd")
+tooltip_text = "[center]Deal[color=\"ff0000\"] 3[/color] damage to all enemies.[/center]
+"
+metadata/_custom_type_script = "uid://cuh4ylb8am2qa"

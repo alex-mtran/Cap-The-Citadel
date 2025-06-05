@@ -1,4 +1,4 @@
-class_name Enemy_Action_Picker
+class_name EnemyActionPicker
 extends Node
 
 @export var enemy: Enemy: set = _set_enemy
@@ -11,41 +11,41 @@ func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player")
 	setup_chances()
 	
-func get_action() -> Enemy_Action: 
+func get_action() -> EnemyAction: 
 	var action := get_first_conditional_action()
 	if action: 
 		return action
 	return get_chance_based_action()
 	
-func get_first_conditional_action() -> Enemy_Action:
-	var action: Enemy_Action
+func get_first_conditional_action() -> EnemyAction:
+	var action: EnemyAction
 	
 	for child in get_children():
-		action = child as Enemy_Action
-		if not action or action.type != Enemy_Action.Type.CONDITIONAL:
+		action = child as EnemyAction
+		if not action or action.type != EnemyAction.Type.CONDITIONAL:
 			continue
 		if action.is_performable():
 			return action
 			
 	return null
 	
-func get_chance_based_action() -> Enemy_Action: 
-	var action: Enemy_Action
+func get_chance_based_action() -> EnemyAction: 
+	var action: EnemyAction
 	var roll:= randf_range(0.0, total_weight)
 	
 	for child in get_children(): 
-		action = child as Enemy_Action
-		if not action or action.type != Enemy_Action.Type.CHANCE_BASED: 
+		action = child as EnemyAction
+		if not action or action.type != EnemyAction.Type.CHANCE_BASED: 
 			continue
 		if action.accumulated_weight > roll:
 			return action
 	return null
 	
 func setup_chances() -> void: 
-	var action: Enemy_Action
+	var action: EnemyAction
 	for child in get_children():
-		action = child as Enemy_Action
-		if not action or action.type != Enemy_Action.Type.CHANCE_BASED:
+		action = child as EnemyAction
+		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
 			continue
 		total_weight += action.chance_weight
 		action.accumulated_weight = total_weight

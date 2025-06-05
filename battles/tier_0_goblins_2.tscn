@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b008lp8aobw6f"]
+
+[ext_resource type="PackedScene" uid="uid://c0mghbaerumlw" path="res://enemies/enemy.tscn" id="1_cg827"]
+[ext_resource type="Resource" uid="uid://c2yiw5frbpxge" path="res://enemies/goblin/goblin.tres" id="2_tpa61"]
+
+[node name="Tier0Goblins2" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_cg827")]
+position = Vector2(164, 75)
+stats = ExtResource("2_tpa61")
+
+[node name="Enemy2" parent="." instance=ExtResource("1_cg827")]
+position = Vector2(194, 58)
+stats = ExtResource("2_tpa61")
