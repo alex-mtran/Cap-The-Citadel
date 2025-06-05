@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleStatsPool" load_steps=7 format=3 uid="uid://cn732fpbr3l5u"]
+
+[ext_resource type="Script" uid="uid://clqbcux53rj38" path="res://battles/battle_stats/battle_stats.gd" id="1_emais"]
+[ext_resource type="Resource" uid="uid://bhftmhxmu3tug" path="res://battles/tier_0_goblins_2.tres" id="2_vy3be"]
+[ext_resource type="Script" uid="uid://clvlr0o3jw8vc" path="res://battles/battle_stats/battle_stats_pool.gd" id="2_ywc88"]
+[ext_resource type="Resource" uid="uid://c07tm8waqx611" path="res://battles/tier_0_orc_1.tres" id="3_byo8r"]
+[ext_resource type="Resource" uid="uid://bh0fnx2aynvnn" path="res://battles/tier_1_coward_1_orc_1.tres" id="4_1vsqj"]
+[ext_resource type="Resource" uid="uid://baxsqpmym6fsp" path="res://battles/tier_1_goblins_3.tres" id="5_s1r3x"]
+
+[resource]
+script = ExtResource("2_ywc88")
+pool = Array[ExtResource("1_emais")]([ExtResource("2_vy3be"), ExtResource("3_byo8r"), ExtResource("4_1vsqj"), ExtResource("5_s1r3x")])
+metadata/_custom_type_script = "uid://clvlr0o3jw8vc"

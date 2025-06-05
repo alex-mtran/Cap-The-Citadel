@@ -41,14 +41,11 @@ signal battle_reward_exited
 signal treasure_room_exited
 
 # Level information
-var level_number = 1
+# var level_number = 1
 var max_level_unlocked = 1
 
 # Debug flag for testing fake game load/save using database
 var debug_mode := false
-
-# Map-related Events
-#signal map_exited(room: Room)
 
 # SQLite Database
 var database: SQLite

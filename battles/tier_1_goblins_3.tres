@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://baxsqpmym6fsp"]
+
+[ext_resource type="Script" uid="uid://clqbcux53rj38" path="res://battles/battle_stats/battle_stats.gd" id="1_58l2n"]
+[ext_resource type="PackedScene" uid="uid://bfqebvoowkarr" path="res://battles/tier_1_goblins_3.tscn" id="1_egmgi"]
+
+[resource]
+script = ExtResource("1_58l2n")
+battle_tier = 1
+weight = 3.0
+gold_reward_min = 72
+gold_reward_max = 101
+enemies = ExtResource("1_egmgi")
+metadata/_custom_type_script = "uid://clqbcux53rj38"

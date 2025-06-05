@@ -19,7 +19,7 @@ func show_screen(text: String, type: Type) -> void:
 	continue_button.visible = type == Type.WIN
 	restart_button.visible = type == Type.LOSE
 	show()
-	await get_tree().create_timer(0.1).timeout
+	# await get_tree().create_timer(0.1).timeout
 	get_tree().paused = true
 
 func _show_victory_ui() -> void:
